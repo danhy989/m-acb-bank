@@ -46,13 +46,20 @@ const styles = StyleSheet.create({
     },
     footer:{
         flex:2,
-        backgroundColor:'#000000'
+        flexDirection:'column',
+        justifyContent:'center',
+        alignItems:'center'
     },
-    image: {
+    image_radius: {
         flex: 1,
         width:'100%',
         height:'100%',
         borderRadius: 50
+    },
+    image_header:{
+        flex:1, 
+         width: 30,
+        height:30
     },
     circlesContainer:{
         width: BASE_SIZE,
@@ -67,7 +74,8 @@ const styles = StyleSheet.create({
         borderRadius: BASE_SIZE/2,
         borderWidth: CIRCLE_BORDER_WIDTH,
         borderStyle: CIRCLE_BORDER_STYLE,
-        borderColor:CIRCLE_BORDER_COLOR
+        borderColor:CIRCLE_BORDER_COLOR,
+        alignItems:'center',
     },
     circle_2:{
         top:BASE_SIZE*0.075, // The amount remaining
@@ -106,5 +114,22 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
     },
+    buttonLogin:{
+        backgroundColor:'#21439C',
+        width:'60%',
+        height:'80%',
+        justifyContent:'center',
+        alignItems:'center',
+        borderRadius:30
+    },
+    footer_button_login:{
+        flex:1,
+        flexDirection:'row',
+        margin:'auto'
+    },
+    footer_button_more:{
+        flex:1,
+        flexDirection:'row',
+    }
 });
 export default styles

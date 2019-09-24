@@ -1,15 +1,52 @@
 import React,{Component} from 'react';
-import {Text,View,Image} from 'react-native';
+import {Text,View,Image,TouchableHighlight} from 'react-native';
 import styles from './LoginCss';
-import SwitchButton from '../../common/SwitchButton'
-import AppIntroSlider from 'react-native-app-intro-slider';
+import SwitchButton from '../../common/SwitchButton';
 import Swiper from 'react-native-swiper';
 
+//Hide warning 
+console.disableYellowBox = true;
 
 export default class LoginScreen extends React.Component {
+
+    constructor(props) {
+      super(props);
+      this.state = { indexImage: 0,updateText:'' };
+    }
+
     static navigationOptions = {
       title: 'Welcome',
     };
+
+    componentDidUpdate(){
+
+    }
+
+    componentDidMount(){
+      this.setState({updateText:'Ngân hàng của mọi nhà'})
+    }
+
+    componentDidUpdate(){
+
+    }
+
+    updateTextWithSwipe() {
+       switch(this.state.indexImage){
+          case 0: 
+            this.setState({updateText:'Giá trị của cuộc sống'})
+            break;
+
+          case 1:
+            this.setState({updateText:'Làm chủ tương lai'})
+            break;
+          case 2:
+            this.setState({updateText:'Ngân hàng của mọi nhà'})
+            break;
+          default:
+            this.setState({updateText:'default'})
+            break;
+       }
+    }
 
 
     render() {
@@ -21,15 +58,15 @@ export default class LoginScreen extends React.Component {
   
                   </View>
                   <View style={styles.header_center}>
-                      <Text>ACB</Text>
+                  <Image style={styles.image_header} source={require("../../assets/img/2fcdd88f4b7830dc6506116ac7f11a0b.png")} resizeMode="contain"></Image>             
                   </View>
                   <View style={styles.header_right}>
                       <SwitchButton
                       onValueChange={(val) => this.setState({ activeSwitch: val })}      // this is necessary for this component
                       text1 = 'EN'                        // optional: first text in switch button --- default ON
                       text2 = 'VN'                       // optional: second text in switch button --- default OFF
-                      switchWidth = {100}                 // optional: switch width --- default 44
-                      switchHeight = {44}                 // optional: switch height --- default 100
+                      switchWidth = {75}                 // optional: switch width --- default 44
+                      switchHeight = {30}                 // optional: switch height --- default 100
                       switchdirection = 'rtl'             // optional: switch button direction ( ltr and rtl ) --- default ltr
                       switchBorderRadius = {100}          // optional: switch border radius --- default oval
                       switchSpeedChange = {500}           // optional: button change speed --- default 100
@@ -44,22 +81,54 @@ export default class LoginScreen extends React.Component {
               </View>
               <View style={styles.body}>
                 <View style={styles.circlesContainer}>
-                        <View style={styles.circle_1} />
+                        <View style={styles.circle_1} >
+                            <Text style={{fontSize:28}} ellipsizeMode="middle" >{this.state.updateText}</Text>
+                        </View>
                         <View style={styles.circle_2} />
                         <View style={styles.circle_3} />
-                        <Swiper style={styles.wrapper} showsButtons={false}>
+                        <Swiper style={styles.wrapper} autoplay={true} onIndexChanged={(inde)=>{this.setState({indexImage: inde}),this.updateTextWithSwipe()}}>
                             <View style={styles.circle_4} >
-                              <Image style={styles.image} source={require("../../assets/img/70845769_1221643054705200_8115508707732750336_n.png")} resizeMode="contain"></Image>             
+                              <Image style={styles.image_radius} source={require("../../assets/img/tron_ven_chuyen_di.png")} resizeMode="contain"></Image>             
                             </View>
                             <View style={styles.circle_4} >
-                              <Image style={styles.image} source={require("../../assets/img/galaxy.png")} resizeMode="contain"></Image>             
+                              <Image style={styles.image_radius} source={require("../../assets/img/chup_hinh_xinh.jpg")} resizeMode="contain"></Image>             
+                            </View>
+                            <View style={styles.circle_4} >
+                              <Image style={styles.image_radius} source={require("../../assets/img/galaxy.png")} resizeMode="contain"></Image>             
                             </View>
               
                         </Swiper>
                 </View>
               </View>
               <View style={styles.footer}>
-  
+                    <View style={styles.footer_button_login}>
+                        <TouchableHighlight style={styles.buttonLogin} onPress={()=>alert('Clicked')}>
+                                <Text style={{color:'#FFFFFF'}}>ĐĂNG NHẬP</Text>
+                        </TouchableHighlight>
+                    </View>
+                    <View style={styles.footer_button_more}>
+                        <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+                          <Text style={{color:'#787878'}} onPress={()=>alert('Clicked')}>
+                              Tin tức
+                          </Text>
+                        </View>
+                        <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+                        <Text style={{color:'#787878'}} onPress={()=>alert('Clicked')}>
+                              Tỷ giá 
+                          </Text>
+                        </View>
+                        <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+                        <Text style={{color:'#787878'}} onPress={()=>alert('Clicked')}>
+                              Liên hệ 
+                          </Text>
+                        </View>
+                        <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+                        <Text style={{color:'#787878'}} onPress={()=>alert('Clicked')}>
+                              Địa điểm 
+                          </Text>
+                        </View>
+                        
+                    </View>
               </View>
           </View>   
         );
