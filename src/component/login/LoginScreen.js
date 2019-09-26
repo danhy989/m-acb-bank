@@ -58,7 +58,7 @@ export default class LoginScreen extends React.Component {
   
                   </View>
                   <View style={styles.header_center}>
-                  <Image style={styles.image_header} source={require("../../assets/img/2fcdd88f4b7830dc6506116ac7f11a0b.png")} resizeMode="contain"></Image>             
+                  <Image style={styles.image_header} source={require("../../assets/img/Logo-ACB.png")} resizeMode="contain"></Image>             
                   </View>
                   <View style={styles.header_right}>
                       <SwitchButton
@@ -88,13 +88,13 @@ export default class LoginScreen extends React.Component {
                         <View style={styles.circle_3} />
                         <Swiper style={styles.wrapper} autoplay={true} onIndexChanged={(inde)=>{this.setState({indexImage: inde}),this.updateTextWithSwipe()}}>
                             <View style={styles.circle_4} >
+                              <Image style={styles.image_radius} source={require("../../assets/img/background_sample_2.png")} resizeMode="contain"></Image>             
+                            </View>
+                            <View style={styles.circle_4} >
+                              <Image style={styles.image_radius} source={require("../../assets/img/background_sample_3.png")} resizeMode="contain"></Image>             
+                            </View>
+                            <View style={styles.circle_4} >
                               <Image style={styles.image_radius} source={require("../../assets/img/tron_ven_chuyen_di.png")} resizeMode="contain"></Image>             
-                            </View>
-                            <View style={styles.circle_4} >
-                              <Image style={styles.image_radius} source={require("../../assets/img/chup_hinh_xinh.jpg")} resizeMode="contain"></Image>             
-                            </View>
-                            <View style={styles.circle_4} >
-                              <Image style={styles.image_radius} source={require("../../assets/img/galaxy.png")} resizeMode="contain"></Image>             
                             </View>
               
                         </Swiper>
