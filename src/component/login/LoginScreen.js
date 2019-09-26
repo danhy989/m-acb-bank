@@ -58,7 +58,7 @@ export default class LoginScreen extends React.Component {
   
                   </View>
                   <View style={styles.header_center}>
-                  <Image style={styles.image_header} source={require("../../assets/img/Logo-ACB.png")} resizeMode="contain"></Image>             
+                  <Image style={styles.image_header} source={require("../../assets/img/src_assets_logoacb.png")} resizeMode="contain"></Image>             
                   </View>
                   <View style={styles.header_right}>
                       <SwitchButton
@@ -88,13 +88,13 @@ export default class LoginScreen extends React.Component {
                         <View style={styles.circle_3} />
                         <Swiper style={styles.wrapper} autoplay={true} onIndexChanged={(inde)=>{this.setState({indexImage: inde}),this.updateTextWithSwipe()}}>
                             <View style={styles.circle_4} >
-                              <Image style={styles.image_radius} source={require("../../assets/img/background_sample_2.png")} resizeMode="contain"></Image>             
+                              <Image style={styles.image_radius} source={require("../../assets/img/src_assets_background_sample_1.png")} resizeMode="contain"></Image>             
                             </View>
                             <View style={styles.circle_4} >
-                              <Image style={styles.image_radius} source={require("../../assets/img/background_sample_3.png")} resizeMode="contain"></Image>             
+                              <Image style={styles.image_radius} source={require("../../assets/img/src_assets_background_sample_2.png")} resizeMode="contain"></Image>             
                             </View>
                             <View style={styles.circle_4} >
-                              <Image style={styles.image_radius} source={require("../../assets/img/tron_ven_chuyen_di.png")} resizeMode="contain"></Image>             
+                              <Image style={styles.image_radius} source={require("../../assets/img/src_assets_background_sample_3.png")} resizeMode="contain"></Image>             
                             </View>
               
                         </Swiper>
@@ -102,7 +102,7 @@ export default class LoginScreen extends React.Component {
               </View>
               <View style={styles.footer}>
                     <View style={styles.footer_button_login}>
-                        <TouchableHighlight style={styles.buttonLogin} onPress={()=>alert('Clicked')}>
+                        <TouchableHighlight style={styles.buttonLogin} onPress={() => navigate('SignIn')}>
                                 <Text style={{color:'#FFFFFF'}}>ĐĂNG NHẬP</Text>
                         </TouchableHighlight>
                     </View>
