@@ -1,7 +1,7 @@
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import LoginScreen from './../component/login/LoginScreen';
-import MainScreen from './../component/main/MainScreen';
+import HomeScreen from '../component/main/HomeScreen';
 
 const RootStack = createStackNavigator({
   Login: {screen: LoginScreen,
@@ -10,7 +10,7 @@ const RootStack = createStackNavigator({
   }
   },
 
-  Main: {screen: MainScreen,
+  Main: {screen: HomeScreen,
     navigationOptions:{
       header:null,
     }
