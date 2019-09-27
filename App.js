@@ -1,16 +1,16 @@
 import React,{Component} from 'react';
 import Router from './src/navigator/Router';
-import MainScreen from './src/component/main/MainScreen'
 import SignInScreen from './src/component/signIn/SignInScreen';
-
+import MainScreen from './src/navigator/MainTabNavigator';
 
 export  default  class App extends Component{
   render(){
     return(
 
-        <MainScreen/>
-        // <Router/>
+        // <MainScreen/>
+        <Router/>
         // <SignInScreen></SignInScreen>
+        
     )
   }
 }

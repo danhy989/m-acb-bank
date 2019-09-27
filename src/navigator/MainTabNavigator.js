@@ -4,11 +4,11 @@ import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs'
 import { StyleSheet } from 'react-native';
-import HomeScreen from './HomeScreen'
-import MoreScreen from './MoreScreen'
-import TransfersScreen from './TransfersScreen'
-import SavingScreen from './SavingScreen'
-import PaymentScreen from './PaymentScreen'
+import HomeScreen from '../component/main/HomeScreen'
+import MoreScreen from '../component/main/MoreScreen'
+import TransfersScreen from '../component/main/TransfersScreen'
+import SavingScreen from '../component/main/SavingScreen'
+import PaymentScreen from '../component/main/PaymentScreen'
 import { white } from 'ansi-colors';
 
 const TabNavigator = createMaterialBottomTabNavigator({

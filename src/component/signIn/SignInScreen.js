@@ -17,7 +17,7 @@ export default class SignInScreen extends React.Component {
     };
     render() {
 
-        //   const {navigate} = this.props.navigation;
+          const {navigate} = this.props.navigation;
         return (
             <View>
                 <ImageBackground style={{ width: '100%', height: '100%' }} source={require("../../assets/img/src_assets_loginbg_loginbg.png")} >
@@ -64,7 +64,7 @@ export default class SignInScreen extends React.Component {
                                     />
                                 </View>
                                 <View style={{ flex: 1,alignItems:'flex-end' }}>
-                                    <TouchableHighlight style={styles.buttonLogin} onPress={() => alert('Clicked')}>
+                                    <TouchableHighlight style={styles.buttonLogin} onPress={() => navigate('Main')}>
                                         <Text style={{ color: '#000' }}>ĐĂNG NHẬP</Text>
                                     </TouchableHighlight>
                                 </View>

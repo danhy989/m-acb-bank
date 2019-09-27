@@ -1,27 +1,29 @@
-import {createAppContainer} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 import LoginScreen from './../component/login/LoginScreen';
-import HomeScreen from '../component/main/HomeScreen';
-import MainScreen from './../component/main/MainScreen';
 import SignInScreen from '../component/signIn/SignInScreen';
-
+import MainScreen from './MainTabNavigator';
 
 const RootStack = createStackNavigator({
-  Login: {screen: LoginScreen,
-    navigationOptions:{
-      header:null,
-  }
-  },
 
-  Main: {screen: HomeScreen,
-    navigationOptions:{
-      header:null,
+  Login: {
+    screen: LoginScreen,
+    navigationOptions: {
+      header: null,
     }
   },
 
-  SignIn: {screen: SignInScreen,
-    navigationOptions:{
-      header:null,
+  Main: {
+    screen: MainScreen,
+    navigationOptions: {
+      header: null,
+    }
+  },
+
+  SignIn: {
+    screen: SignInScreen,
+    navigationOptions: {
+      header: null,
     }
   }
 });
