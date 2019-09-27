@@ -9,11 +9,10 @@ export default class MoreScreen extends React.Component {
     static navigationOptions = ({navigation}) => {
         const { params = {} } = navigation.state;
         let tabBarLabel = "Thêm";
-        let tabBarIcon = () => (
-          <Image 
-          source = {require('../../assets/img/more_icon.png')}
-      style={{width: 26, height: 26}}
-      />
+        let tabBarIcon = ({ focused }) =>  (
+          focused
+          ? <Image source={require('../../assets/img/more_onfocus_icon.png')} size={25}  />
+          : <Image source={require('../../assets/img/more_icon.png')} size={30}  /> 
         );
         return {tabBarLabel, tabBarIcon};
     }

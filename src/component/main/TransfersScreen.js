@@ -6,12 +6,11 @@ export default class TransfersScreen extends React.Component {
     static navigationOptions = ({navigation}) => {
         const { params = {} } = navigation.state;
         let tabBarLabel = "Chuyển tiền";
-        let tabBarIcon = () => (
-            <Image 
-                source = {require('../../assets/img/transfer_icon.png')}
-                style={{width: 26, height: 26}}
-            />
-        );
+        let tabBarIcon = ({ focused }) =>  (
+            focused
+            ? <Image source={require('../../assets/img/transfer_onfocus_icon.png')} size={25} style={{marginBottom: 5}}/>
+            : <Image source={require('../../assets/img/transfer_icon.png')} size={30} style={{marginBottom: 5}} /> 
+          );
         return {tabBarLabel, tabBarIcon};
     }
     constructor() {

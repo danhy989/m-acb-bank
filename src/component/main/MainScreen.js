@@ -23,6 +23,14 @@ const TabNavigator = createMaterialBottomTabNavigator({
     activeColor: 'blue',
     shifting: false,
     barStyle: { backgroundColor: 'white' },
+    tabBarOptions: {
+      tabStyle: {
+          paddingVertical: 10
+      }
+    },
+    tabBarPosition: 'bottom',
+    animationEnabled: true,
+    swipeEnabled: true,
 })
 
 const MainScreen = createAppContainer(TabNavigator);

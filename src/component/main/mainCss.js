@@ -75,66 +75,39 @@ const styles = StyleSheet.create({
          width: 30,
         height:30
     },
-    circlesContainer:{
-        width: BASE_SIZE,
-        height: BASE_SIZE,
-        alignItems: 'center',
-    },
+
     circle_header:{     
+        width: 120,
+        height: 120,
+        borderRadius: BASE_SIZE/2, 
+        backgroundColor: '#eef0f5',
+        alignItems: 'center',
+        justifyContent:'center',
+    },
+    circle_header_middle:{
+        width: 70,
+        height: 70,
+        borderRadius: BASE_SIZE/2, 
+        backgroundColor: '#f5f6f8',
+        alignItems: 'center',
+        justifyContent:'center',
+    },
+    circle_header_in: {
         width: 50,
         height: 50,
         borderRadius: BASE_SIZE/2, 
-        // backgroundColor: '#3b91c5',
+        backgroundColor: '#3b91c5',
         alignItems: 'center',
         justifyContent:'center',
     },
-    circle_1:{
-        top:0,
-        position: 'absolute',
-        width:BASE_SIZE,
-        height:BASE_SIZE,
-        borderRadius: BASE_SIZE/2,
-        borderWidth: CIRCLE_BORDER_WIDTH,
-        borderStyle: CIRCLE_BORDER_STYLE,
-        borderColor:CIRCLE_BORDER_COLOR,
-        alignItems:'center',
-    },
-    circle_2:{
-        top:BASE_SIZE*0.075, // The amount remaining
-        left:BASE_SIZE*0.075,
-        position: 'absolute',
-        width:BASE_SIZE*0.85, // 80% of the base size
-        height:BASE_SIZE*0.85,
-        borderRadius: BASE_SIZE/2,
-        borderWidth: CIRCLE_BORDER_WIDTH,
-        borderStyle: CIRCLE_BORDER_STYLE,
-        borderColor:CIRCLE_BORDER_COLOR,
-        
-    },
-    circle_3:{
-        top:BASE_SIZE*0.15,
-        left:BASE_SIZE*0.15,
-        position: 'absolute',
-        width:BASE_SIZE*0.7,
-        height:BASE_SIZE*0.7, // 60% of the base size
-        borderRadius: BASE_SIZE*0.7/2,
-        borderWidth: CIRCLE_BORDER_WIDTH,
-        borderStyle: CIRCLE_BORDER_STYLE,
-        borderColor:CIRCLE_BORDER_COLOR,
-        backgroundColor:'#23439A'
-    },
-    circle_4:{
-        top:BASE_SIZE*0.225,
-        left:BASE_SIZE*0.225,
-        position: 'absolute',
-        width:BASE_SIZE*0.55,
-        height:BASE_SIZE*0.55, // 60% of the base size
-        borderRadius: BASE_SIZE*0.6/2,
-        borderWidth: CIRCLE_BORDER_WIDTH,
-        borderStyle: CIRCLE_BORDER_STYLE,
-        borderColor:CIRCLE_BORDER_COLOR,
+    circle_payment:{
+        marginTop: 100,
+        width: 120,
+        height: 120,
+        borderRadius: BASE_SIZE/2, 
+        flexDirection: 'column',
+        alignItems: 'center',
         justifyContent:'center',
-        alignItems:'center',
     },
     text_main:{
         color:'#1a75c6',
@@ -145,6 +118,42 @@ const styles = StyleSheet.create({
         marginStart: 10,
         marginTop: 10,
         flexDirection:'row',
-    }
+    },
+    linearGradient_payment: {
+        marginTop: 50,
+        marginStart: 50,
+        width: 150,
+        height: 150,
+        borderRadius: BASE_SIZE/2,         
+        // alignItems: 'center',
+        justifyContent:'center',
+    },
+    linearGradient_saving: {
+        top: -130,
+        left: 205,
+        width: 130,
+        height: 130,
+        borderRadius: BASE_SIZE/2,         
+        // alignItems: 'center',
+        justifyContent:'center',
+    },
+    linearGradient_loan: {
+        top: -125,
+        left: 60,
+        width: 120,
+        height: 120,
+        borderRadius: BASE_SIZE/2,         
+        // alignItems: 'center',
+        justifyContent:'center',
+    },
+    linearGradient_card: {
+        top: -245,
+        left: 190,
+        width: 130,
+        height: 130,
+        borderRadius: BASE_SIZE/2,         
+        // alignItems: 'center',
+        justifyContent:'center',
+    },
 });
 export default styles

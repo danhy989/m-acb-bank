@@ -6,12 +6,11 @@ export default class HomeScreen extends React.Component {
     static navigationOptions = ({navigation}) => {
         const { params = {} } = navigation.state;
         let tabBarLabel = "Thanh toán";
-        let tabBarIcon = ({}) => (
-            <Image 
-                source = {require('../../assets/img/wallet_icon.png')}
-                style={{width: 26, height: 26}}
-            />
-        );
+        let tabBarIcon = ({ focused }) =>  (
+            focused
+            ? <Image source={require('../../assets/img/wallet_onfocus_icon.png')} size={25}  />
+            : <Image source={require('../../assets/img/wallet_icon.png')} size={30}  /> 
+          );
         return {tabBarLabel, tabBarIcon};
     }
 
