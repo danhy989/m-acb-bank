@@ -8,7 +8,7 @@ import HomeScreen from '../component/main/HomeScreen'
 import MoreScreen from '../component/main/MoreScreen'
 import TransfersScreen from '../component/main/TransfersScreen'
 import SavingScreen from '../component/main/SavingScreen'
-import PaymentScreen from '../component/main/PaymentScreen'
+import PaymentScreen from '../component/main/payment/PaymentScreen'
 import { white } from 'ansi-colors';
 
 const TabNavigator = createMaterialBottomTabNavigator({
@@ -19,14 +19,11 @@ const TabNavigator = createMaterialBottomTabNavigator({
   More: { screen: MoreScreen},
   }, {
     initialRouteName: 'Home',
-    activeTintColor: 'red',
     activeColor: 'blue',
     shifting: false,
-    barStyle: { backgroundColor: 'white' },
+    barStyle: { backgroundColor: 'white'  },
     tabBarOptions: {
-      tabStyle: {
-          paddingVertical: 10
-      }
+      
     },
     tabBarPosition: 'bottom',
     animationEnabled: true,
