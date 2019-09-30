@@ -25,7 +25,8 @@ const RootStack = createStackNavigator({
     navigationOptions: {
       header: null,
     }
-  }
+  },
+
 });
 
 const Router = createAppContainer(RootStack);

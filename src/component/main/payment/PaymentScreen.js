@@ -4,18 +4,18 @@ import { Text, View, Image, ScrollView, TouchableNativeFeedback } from 'react-na
 import { SearchBar } from 'react-native-elements';
 import Metrics from '../../../common/Metrics';
 
-const PADDING_HORIZONTAL = 20;
+const PADDING_HORIZONTAL = Metrics.PADDING_HORIZONTAL;
 
 class CardItem extends React.Component {
 
     render() {
+        const navigate = this.props.navigate;
         const DeviceWidth = Metrics.screenWidth + PADDING_HORIZONTAL * 2;
         return (
-            <TouchableNativeFeedback onPress={() => alert('clicked')}>
+            <TouchableNativeFeedback onPress={() => navigate(this.props.name)}>
                     <View style={{ marginHorizontal: 0.5, width: DeviceWidth * 0.2, height: DeviceWidth * 0.25, backgroundColor: '#FFFFFF', justifyContent: 'center', alignItems: 'center', paddingHorizontal: 8 }}>
                     <Image source={this.props.img} resizeMode="contain"
                         style={{ width: '40%', height: '40%' }} />
-                    {/* <TouchableHighlight onPress={()=>alert('clicked')}> */}
                     <Text style={{ fontSize: 12, textAlign: 'center' }}>{this.props.text}</Text>
                 </View>
             </TouchableNativeFeedback>
@@ -24,16 +24,7 @@ class CardItem extends React.Component {
 }
 
 export default class PaymentScreen extends React.Component {
-    static navigationOptions = ({ navigation }) => {
-        const { params = {} } = navigation.state;
-        let tabBarLabel = "Thanh toán";
-        let tabBarIcon = ({ focused }) => (
-            focused
-                ? <Image source={require('../../../assets/img/wallet_onfocus_icon.png')} size={25} />
-                : <Image source={require('../../../assets/img/wallet_icon.png')} size={30} />
-        );
-        return { tabBarLabel, tabBarIcon };
-    }
+
 
     constructor() {
         super();
@@ -55,6 +46,8 @@ export default class PaymentScreen extends React.Component {
     };
 
     render() {
+        const {navigate} = this.props.navigation;
+        console.log(this.props.navigation);
         return (
             <View style={{ flex: 1, flexDirection: 'column' }}>
                 <View style={{ flex: 1 }}>
@@ -80,23 +73,23 @@ export default class PaymentScreen extends React.Component {
                     <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
                         <View style={{ flexDirection: 'row', marginVertical: PADDING_HORIZONTAL }}>
                             <View>
-                                <CardItem img={require('../../../assets/img/src_assets_payment_ic_phone_ic_phone.png')} text="Nạp DTDD trả trước"></CardItem>
-                                <CardItem img={require('../../../assets/img/src_assets_payment_ic_tv_ic_tv.png')} text="Truyền hình"></CardItem>
-                                <CardItem img={require('../../../assets/img/src_assets_payment_ic_train_ic_train.png')} text="Vé tàu lửa"></CardItem>
+                                <CardItem name="DDTT" navigate={navigate} img={require('../../../assets/img/src_assets_payment_ic_phone_ic_phone.png')} text="Nạp DTDD trả trước"></CardItem>
+                                <CardItem name="PaymentScreen2" navigate={navigate} img={require('../../../assets/img/src_assets_payment_ic_tv_ic_tv.png')} text="Truyền hình"></CardItem>
+                                <CardItem name="PaymentScreen4" navigate={navigate} img={require('../../../assets/img/src_assets_payment_ic_train_ic_train.png')} text="Vé tàu lửa"></CardItem>
                             </View>
                             <View>
-                                <CardItem img={require('../../../assets/img/src_assets_payment_ic_eletricity_ic_eletricity.png')} text="Điện"></CardItem>
-                                <CardItem img={require('../../../assets/img/src_assets_payment_ic_phone_later_ic_phone_later.png')} text="DTDD trả sau"></CardItem>
+                                <CardItem name="PaymentScreen2" navigate={navigate} img={require('../../../assets/img/src_assets_payment_ic_eletricity_ic_eletricity.png')} text="Điện"></CardItem>
+                                <CardItem name="PaymentScreen2" navigate={navigate} img={require('../../../assets/img/src_assets_payment_ic_phone_later_ic_phone_later.png')} text="DTDD trả sau"></CardItem>
                                 <CardItem img={""} text=""></CardItem>
                             </View>
                             <View>
-                                <CardItem img={require('../../../assets/img/src_assets_payment_ic_water_ic_water.png')} text="Nước"></CardItem>
-                                <CardItem img={require('../../../assets/img/src_assets_payment_ic_home_phone_ic_home_phone.png')} text="Điện thoại cố định"></CardItem>
+                                <CardItem name="PaymentScreen2" navigate={navigate} img={require('../../../assets/img/src_assets_payment_ic_water_ic_water.png')} text="Nước"></CardItem>
+                                <CardItem name="PaymentScreen2" navigate={navigate} img={require('../../../assets/img/src_assets_payment_ic_home_phone_ic_home_phone.png')} text="Điện thoại cố định"></CardItem>
                                 <CardItem img={""} text=""></CardItem>
                             </View>
                             <View>
-                                <CardItem img={require('../../../assets/img/src_assets_payment_ic_internet_ic_internet.png')} text="Internet"></CardItem>
-                                <CardItem img={require('../../../assets/img/src_assets_payment_ic_plane_ic_plane.png')} text="Vé máy bay"></CardItem>
+                                <CardItem name="PaymentScreen2" navigate={navigate} img={require('../../../assets/img/src_assets_payment_ic_internet_ic_internet.png')} text="Internet"></CardItem>
+                                <CardItem name="PaymentScreen3" navigate={navigate} img={require('../../../assets/img/src_assets_payment_ic_plane_ic_plane.png')} text="Vé máy bay"></CardItem>
                                 <CardItem img={""} text=""></CardItem>
                             </View>
                         </View>
