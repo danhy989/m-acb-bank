@@ -12,6 +12,7 @@
     "react-native": "0.60.5",
     "react-native-app-intro-slider": "^3.0.0",
     "react-native-button": "^2.4.0",
+    "react-native-custom-picker": "^0.4.0",
     "react-native-elements": "^1.2.3",
     "react-native-flip-toggle-button": "^1.0.6",
     "react-native-gesture-handler": "^1.4.1",

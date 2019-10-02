@@ -5,7 +5,7 @@ import PaymentScreen from "../component/main/payment/PaymentScreen";
 import Metrics from "../common/Metrics";
 import PaymentScreen2 from "../component/main/payment/child/PaymentScreen2";
 import PaymentScreen3 from "../component/main/payment/child/PaymentScreen3";
-import PaymentScreen4 from "../component/main/payment/child/PaymentScreen4";
+
 
 const RootStack = createStackNavigator({
     PaymentScreen:{
@@ -30,7 +30,7 @@ const RootStack = createStackNavigator({
     PaymentScreen2: {
         screen: PaymentScreen2,
         navigationOptions: () => ({
-          title: `Payment Screen 2`,
+          title: `Thanh toán`,
           headerTitleStyle: { 
               textAlign:"center", 
               flex:1 ,
@@ -42,7 +42,7 @@ const RootStack = createStackNavigator({
       PaymentScreen3: {
         screen: PaymentScreen3,
         navigationOptions: () => ({
-          title: `Payment Screen 3`,
+          title: `Thanh toán vé`,
           headerTitleStyle: { 
               textAlign:"center", 
               flex:1 ,
@@ -51,18 +51,6 @@ const RootStack = createStackNavigator({
         }),
       },
 
-      PaymentScreen4: {
-        screen: PaymentScreen4,
-        navigationOptions: () => ({
-          title: `Payment Screen 4`,
-          headerTitleStyle: { 
-              textAlign:"center", 
-              flex:1 ,
-              fontSize:Metrics.headerFontSize,
-          },
-        }),
-      },
-  
   });
   
   const PaymentNavigator = createAppContainer(RootStack);

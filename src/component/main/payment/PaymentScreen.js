@@ -12,7 +12,7 @@ class CardItem extends React.Component {
         const navigate = this.props.navigate;
         const DeviceWidth = Metrics.screenWidth + PADDING_HORIZONTAL * 2;
         return (
-            <TouchableNativeFeedback onPress={() => navigate(this.props.name)}>
+            <TouchableNativeFeedback onPress={() => navigate(this.props.name,{nameScreen:this.props.nameScreen})}>
                     <View style={{ marginHorizontal: 0.5, width: DeviceWidth * 0.2, height: DeviceWidth * 0.25, backgroundColor: '#FFFFFF', justifyContent: 'center', alignItems: 'center', paddingHorizontal: 8 }}>
                     <Image source={this.props.img} resizeMode="contain"
                         style={{ width: '40%', height: '40%' }} />
@@ -75,7 +75,7 @@ export default class PaymentScreen extends React.Component {
                             <View>
                                 <CardItem name="DDTT" navigate={navigate} img={require('../../../assets/img/src_assets_payment_ic_phone_ic_phone.png')} text="Nạp DTDD trả trước"></CardItem>
                                 <CardItem name="PaymentScreen2" navigate={navigate} img={require('../../../assets/img/src_assets_payment_ic_tv_ic_tv.png')} text="Truyền hình"></CardItem>
-                                <CardItem name="PaymentScreen4" navigate={navigate} img={require('../../../assets/img/src_assets_payment_ic_train_ic_train.png')} text="Vé tàu lửa"></CardItem>
+                                <CardItem name="PaymentScreen3" nameScreen="tàu lửa" navigate={navigate} img={require('../../../assets/img/src_assets_payment_ic_train_ic_train.png')} text="Vé tàu lửa"></CardItem>
                             </View>
                             <View>
                                 <CardItem name="PaymentScreen2" navigate={navigate} img={require('../../../assets/img/src_assets_payment_ic_eletricity_ic_eletricity.png')} text="Điện"></CardItem>
@@ -89,7 +89,7 @@ export default class PaymentScreen extends React.Component {
                             </View>
                             <View>
                                 <CardItem name="PaymentScreen2" navigate={navigate} img={require('../../../assets/img/src_assets_payment_ic_internet_ic_internet.png')} text="Internet"></CardItem>
-                                <CardItem name="PaymentScreen3" navigate={navigate} img={require('../../../assets/img/src_assets_payment_ic_plane_ic_plane.png')} text="Vé máy bay"></CardItem>
+                                <CardItem name="PaymentScreen3" nameScreen="máy bay" navigate={navigate} img={require('../../../assets/img/src_assets_payment_ic_plane_ic_plane.png')} text="Vé máy bay"></CardItem>
                                 <CardItem img={""} text=""></CardItem>
                             </View>
                         </View>
