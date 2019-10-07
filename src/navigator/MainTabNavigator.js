@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs'
 import { StyleSheet } from 'react-native';
 import HomeScreen from '../component/main/HomeScreen'
-import MoreScreen from '../component/main/MoreScreen'
+import MoreScreen from '../component/main/more/MoreScreen'
 import TransfersScreen from '../component/main/TransfersScreen'
 import SavingScreen from '../component/main/SavingScreen'
 import PaymentScreen from '../component/main/payment/PaymentScreen'
@@ -26,7 +26,14 @@ const TabNavigator = createMaterialBottomTabNavigator({
             : <Image source={require('../assets/img/wallet_icon.png')} size={30} />
     )
   }},
-  More: { screen: MoreScreen},
+  More: { screen: MoreScreen,navigationOptions:{  
+    tabBarLabel : "Thêm",
+    tabBarIcon : ({ focused }) => (
+      focused
+          ? <Image source={require('../assets/img/more_onfocus_icon.png')} size={25} />
+          : <Image source={require('../assets/img/more_icon.png')} size={30} />
+  )
+}},
   },
   {
     initialRouteName: 'Home',
