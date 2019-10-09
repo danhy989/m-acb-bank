@@ -12,6 +12,7 @@ import PaymentScreen from '../component/main/payment/PaymentScreen'
 import { white } from 'ansi-colors';
 import DDTTScreen from '../component/main/payment/child/DDTTScreen';
 import PaymentNavigator from './PaymentNavigator';
+import MoreNavigator from './MoreNavigator';
 
 const TabNavigator = createMaterialBottomTabNavigator({
   Home: {screen: HomeScreen},
@@ -26,7 +27,7 @@ const TabNavigator = createMaterialBottomTabNavigator({
             : <Image source={require('../assets/img/wallet_icon.png')} size={30} />
     )
   }},
-  More: { screen: MoreScreen,navigationOptions:{  
+  More: { screen: MoreNavigator,navigationOptions:{  
     tabBarLabel : "Thêm",
     tabBarIcon : ({ focused }) => (
       focused

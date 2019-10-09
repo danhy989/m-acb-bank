@@ -18,7 +18,7 @@ class CardItem extends React.Component {
     }
     const navigate = this.props.navigate;
     return (
-      <TouchableNativeFeedback>
+      <TouchableNativeFeedback onPress={() => navigate(this.props.name)}>
         <View style={{ flex: 1, flexDirection: 'row', width: Metrics.screenWidth - PADDING_HORIZONTAL * 2, height: _height, alignItems: 'center' ,marginVertical:10}}>
           <Image style={{ flex: 1, height: '40%' , marginHorizontal:PADDING_HORIZONTAL }} source={this.props.img} resizeMode="contain"></Image>
           <Text style={{ flex: 7, fontSize: 16 }}>{this.props.text}</Text>
@@ -31,6 +31,7 @@ class CardItem extends React.Component {
 
 export default class MoreScreen extends React.Component {
   render() {
+    const {navigate} = this.props.navigation;
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -62,26 +63,26 @@ export default class MoreScreen extends React.Component {
         <View style={styles.body}>
           <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
             <View style={styles.view_card}>
-                <CardItem card_item_height={100} text="VU NGOC DUY ANH" img={require('../../../assets/img/src_assets_ic_welcome_user_ic_welcome_user.png')}></CardItem>
+                <CardItem name="UserInfoScreen" navigate={navigate} card_item_height={100} text="VU NGOC DUY ANH" img={require('../../../assets/img/src_assets_ic_welcome_user_ic_welcome_user.png')}></CardItem>
             </View>
             <View style={styles.view_card}>
-              <CardItem text="Cài đặt" img={require('../../../assets/img/src_assets_ic_setting_setting.png')}></CardItem>
+              <CardItem name="AllSettingScreen" navigate={navigate} text="Cài đặt" img={require('../../../assets/img/src_assets_ic_setting_setting.png')}></CardItem>
               <View style={styles.line}></View>
-              <CardItem text="Chia sẻ thông tin tài khoản" img={require('../../../assets/img/src_assets_ic_share_ic_share.png')}></CardItem>
+              <CardItem name="ShareInfoScreen" navigate={navigate} text="Chia sẻ thông tin tài khoản" img={require('../../../assets/img/src_assets_ic_share_ic_share.png')}></CardItem>
             </View>
             <View style={styles.view_card}>
-              <CardItem text="Tin tức" img={require('../../../assets/img/src_assets_ic_new_news.png')}></CardItem>
+              <CardItem name="NewsScreen" navigate={navigate} text="Tin tức" img={require('../../../assets/img/src_assets_ic_new_news.png')}></CardItem>
               <View style={styles.line}></View>
-              <CardItem text="Tỷ giá" img={require('../../../assets/img/src_assets_ic_chart_chart.png')}></CardItem>
+              <CardItem name="ExchangeRateScreen" navigate={navigate}  text="Tỷ giá" img={require('../../../assets/img/src_assets_ic_chart_chart.png')}></CardItem>
               <View style={styles.line}></View>
-              <CardItem text="Địa điểm" img={require('../../../assets/img/src_assets_ic_location_location.png')}></CardItem>
+              <CardItem name="LocationScreen" navigate={navigate}  text="Địa điểm" img={require('../../../assets/img/src_assets_ic_location_location.png')}></CardItem>
             </View>
             <View style={styles.view_card}>
-              <CardItem text="Điều khoản và điều kiện sử dụng" img={require('../../../assets/img/src_assets_ic_list_list.png')}></CardItem>
+              <CardItem name="TermScreen" navigate={navigate}  text="Điều khoản và điều kiện sử dụng" img={require('../../../assets/img/src_assets_ic_list_list.png')}></CardItem>
               <View style={styles.line}></View>
-              <CardItem text="Câu hỏi thường gặp" img={require('../../../assets/img/src_assets_ic_faq_ic_faq.png')}></CardItem>
+              <CardItem name="QuestionScreen" navigate={navigate}  text="Câu hỏi thường gặp" img={require('../../../assets/img/src_assets_ic_faq_ic_faq.png')}></CardItem>
               <View style={styles.line}></View>
-              <CardItem text="Liên hệ" img={require('../../../assets/img/src_assets_ic_contact_contact.png')}></CardItem>
+              <CardItem name="ContactScreen" navigate={navigate}  text="Liên hệ" img={require('../../../assets/img/src_assets_ic_contact_contact.png')}></CardItem>
             </View>
             <View style={styles.view_card}>
               <CardItem text="Đăng xuất" img={require('../../../assets/img/src_assets_ic_shutdown_ic_shutdown.png')}></CardItem>
