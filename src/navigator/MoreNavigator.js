@@ -5,9 +5,6 @@ import MoreScreen from "../component/main/more/MoreScreen";
 import UserInfoScreen from "../component/main/more/child/UserInfoScreen"
 import ShareInfoScreen from "../component/main/more/child/ShareInfoScreen"
 import AllSettingScreen from "../component/main/more/child/AllSettingScreen"
-import NewsScreen from "../component/main/more/child/NewsScreen"
-import ExchangeRateScreen from "../component/main/more/child/ExchangeRateScreen"
-import LocationScreen from "../component/main/more/child/LocationScreen"
 import TermScreen from "../component/main/more/child/TermScreen"
 import QuestionScreen from "../component/main/more/child/QuestionScreen"
 import ContactScreen from "../component/main/more/child/ContactScreen"
@@ -15,6 +12,9 @@ import React from 'react';
 import { View, Text, Image, TouchableNativeFeedback } from 'react-native'
 import { blue } from 'ansi-colors';
 import { Icon } from 'react-native-elements'
+import NewsTopTabNavigation from './NewsTopTabNavigation';
+import ExchangeRateTopTabNavigation from './ExchangeRateTopTabNavigation';
+import LocationTopTabNavigation from './LocationTopTabNavigation';
 
 const HEADER_HEIGHT = Metrics.screenHeight / 4;
 
@@ -28,12 +28,12 @@ class UserInfoTitle extends React.Component {
                     <Image style={{ flex: 2 }} source={require("../assets/img/src_assets_ic_welcome_user_ic_welcome_user.png")} resizeMode="contain"></Image>
                     <View style={{ flex: 1 }}>
                         <Text style={{ textAlign: 'center', marginBottom: 5 }}>VU NGOC DUY ANH</Text>
-                        <TouchableNativeFeedback style={{ borderBottomColor: blue }} onPress={()=>alert('On Clicked')}>
-                            <View style={{flexDirection:'row'}}>
+                        <TouchableNativeFeedback style={{ borderBottomColor: blue }} onPress={() => alert('On Clicked')}>
+                            <View style={{ flexDirection: 'row' }}>
                                 <Icon
                                     name='camera'
                                     color={COLOR_LINK} />
-                                <Text style={{  paddingHorizontal:5,color: COLOR_LINK, borderBottomWidth: 1, borderBottomColor: COLOR_LINK }}>Đổi ảnh đại diện</Text>
+                                <Text style={{ paddingHorizontal: 5, color: COLOR_LINK, borderBottomWidth: 1, borderBottomColor: COLOR_LINK }}>Đổi ảnh đại diện</Text>
                             </View>
                         </TouchableNativeFeedback>
                     </View>
@@ -84,7 +84,7 @@ const RootStack = createStackNavigator({
     },
 
     NewsScreen: {
-        screen: NewsScreen,
+        screen: NewsTopTabNavigation,
         navigationOptions: () => ({
             title: `Tin tức`,
             headerTitleStyle: {
@@ -92,10 +92,14 @@ const RootStack = createStackNavigator({
                 flex: 1,
                 fontSize: Metrics.headerFontSize,
             },
+            headerStyle: {
+                elevation: 0,
+                shadowOpacity: 0
+            }
         }),
     },
     ExchangeRateScreen: {
-        screen: ExchangeRateScreen,
+        screen: ExchangeRateTopTabNavigation,
         navigationOptions: () => ({
             title: `Tỷ giá đối hoái`,
             headerTitleStyle: {
@@ -103,10 +107,14 @@ const RootStack = createStackNavigator({
                 flex: 1,
                 fontSize: Metrics.headerFontSize,
             },
+            headerStyle: {
+                elevation: 0,
+                shadowOpacity: 0
+            }
         }),
     },
     LocationScreen: {
-        screen: LocationScreen,
+        screen: LocationTopTabNavigation,
         navigationOptions: () => ({
             title: `Địa điểm`,
             headerTitleStyle: {

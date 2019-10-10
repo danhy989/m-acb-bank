@@ -1,16 +1,11 @@
 import React from 'react';
 import { Text, View ,Image} from 'react-native';
 import { createAppContainer } from 'react-navigation';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs'
 import { StyleSheet } from 'react-native';
 import HomeScreen from '../component/main/HomeScreen'
-import MoreScreen from '../component/main/more/MoreScreen'
 import TransfersScreen from '../component/main/TransfersScreen'
 import SavingScreen from '../component/main/SavingScreen'
-import PaymentScreen from '../component/main/payment/PaymentScreen'
-import { white } from 'ansi-colors';
-import DDTTScreen from '../component/main/payment/child/DDTTScreen';
 import PaymentNavigator from './PaymentNavigator';
 import MoreNavigator from './MoreNavigator';
 

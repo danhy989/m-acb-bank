@@ -4,30 +4,11 @@ import { Text, View, Image, StyleSheet, ScrollView, TouchableNativeFeedback } fr
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Metrics from '../../../common/Metrics'
 import SwitchButton from '../../../common/SwitchButton';
-
+import CardItem from '../../../common/CardItem';
+import Line from '../../../common/Line';
 
 const PADDING_HORIZONTAL = Metrics.PADDING_HORIZONTAL;
 
-class CardItem extends React.Component {
-  render() {
-    let _height;
-    if(this.props.card_item_height=== undefined ){
-        _height = 50;
-    }else{
-      _height = this.props.card_item_height;
-    }
-    const navigate = this.props.navigate;
-    return (
-      <TouchableNativeFeedback onPress={() => navigate(this.props.name)}>
-        <View style={{ flex: 1, flexDirection: 'row', width: Metrics.screenWidth - PADDING_HORIZONTAL * 2, height: _height, alignItems: 'center' ,marginVertical:10}}>
-          <Image style={{ flex: 1, height: '40%' , marginHorizontal:PADDING_HORIZONTAL }} source={this.props.img} resizeMode="contain"></Image>
-          <Text style={{ flex: 7, fontSize: 16 }}>{this.props.text}</Text>
-          <Image style={{ flex: 1, height: 20 }} source={require("../../../assets/img/src_assets_ic_arrow_forward_ic_arrow_forward.png")} resizeMode="contain"></Image>
-        </View>
-      </TouchableNativeFeedback>
-    );
-  }
-}
 
 export default class MoreScreen extends React.Component {
   render() {
@@ -67,21 +48,21 @@ export default class MoreScreen extends React.Component {
             </View>
             <View style={styles.view_card}>
               <CardItem name="AllSettingScreen" navigate={navigate} text="Cài đặt" img={require('../../../assets/img/src_assets_ic_setting_setting.png')}></CardItem>
-              <View style={styles.line}></View>
+              <Line/>
               <CardItem name="ShareInfoScreen" navigate={navigate} text="Chia sẻ thông tin tài khoản" img={require('../../../assets/img/src_assets_ic_share_ic_share.png')}></CardItem>
             </View>
             <View style={styles.view_card}>
               <CardItem name="NewsScreen" navigate={navigate} text="Tin tức" img={require('../../../assets/img/src_assets_ic_new_news.png')}></CardItem>
-              <View style={styles.line}></View>
+              <Line/>
               <CardItem name="ExchangeRateScreen" navigate={navigate}  text="Tỷ giá" img={require('../../../assets/img/src_assets_ic_chart_chart.png')}></CardItem>
-              <View style={styles.line}></View>
+              <Line/>
               <CardItem name="LocationScreen" navigate={navigate}  text="Địa điểm" img={require('../../../assets/img/src_assets_ic_location_location.png')}></CardItem>
             </View>
             <View style={styles.view_card}>
               <CardItem name="TermScreen" navigate={navigate}  text="Điều khoản và điều kiện sử dụng" img={require('../../../assets/img/src_assets_ic_list_list.png')}></CardItem>
-              <View style={styles.line}></View>
+              <Line/>
               <CardItem name="QuestionScreen" navigate={navigate}  text="Câu hỏi thường gặp" img={require('../../../assets/img/src_assets_ic_faq_ic_faq.png')}></CardItem>
-              <View style={styles.line}></View>
+              <Line/>
               <CardItem name="ContactScreen" navigate={navigate}  text="Liên hệ" img={require('../../../assets/img/src_assets_ic_contact_contact.png')}></CardItem>
             </View>
             <View style={styles.view_card}>
@@ -149,9 +130,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginVertical: 10
   },
-  line: {
-    width: Metrics.screenWidth - PADDING_HORIZONTAL * 2, height: 1,
-    backgroundColor: '#F3F6F8'
-  }
 
 });
