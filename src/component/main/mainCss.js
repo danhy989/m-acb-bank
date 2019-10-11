@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
         width: 120,
         height: 120,
         borderRadius: BASE_SIZE/2, 
-        flexDirection: 'column',
+        flexDirection: 'row',
         alignItems: 'center',
         justifyContent:'center',
     },
@@ -125,8 +125,8 @@ const styles = StyleSheet.create({
         width: 150,
         height: 150,
         borderRadius: BASE_SIZE/2,         
-        // alignItems: 'center',
-        justifyContent:'center',
+        alignItems: 'center',
+        // justifyContent:'center',
     },
     linearGradient_saving: {
         top: -130,
@@ -134,8 +134,7 @@ const styles = StyleSheet.create({
         width: 130,
         height: 130,
         borderRadius: BASE_SIZE/2,         
-        // alignItems: 'center',
-        justifyContent:'center',
+        alignItems: 'center',
     },
     linearGradient_loan: {
         top: -125,
@@ -143,8 +142,7 @@ const styles = StyleSheet.create({
         width: 120,
         height: 120,
         borderRadius: BASE_SIZE/2,         
-        // alignItems: 'center',
-        justifyContent:'center',
+        alignItems: 'center',
     },
     linearGradient_card: {
         top: -245,
@@ -152,8 +150,7 @@ const styles = StyleSheet.create({
         width: 130,
         height: 130,
         borderRadius: BASE_SIZE/2,         
-        // alignItems: 'center',
-        justifyContent:'center',
+        alignItems: 'center',
     },
 });
 export default styles

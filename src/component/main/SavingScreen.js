@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import Button from 'react-native-button';
 import {Text, View, Image} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+import styles from './savingCss';
 
-export default class HomeScreen extends React.Component {
+export default class SavingScreen extends React.Component {
     static navigationOptions = ({navigation}) => {
         const { params = {} } = navigation.state;
         let tabBarLabel = "Tiết kiệm";
@@ -19,19 +20,29 @@ export default class HomeScreen extends React.Component {
         this.state = {
 
         };
-      }
-    render(){
+    }
+    render() {
+        const {navigate} = this.props.navigation;
         return (
-            <View style ={{
-                flex: 1,
-                backgroundColor: '#067a7',
-                alignItems: 'center',
-                justifyContent: 'center'
-            }}>
-                <Text style={{ fontWeight: 'bold', fontSize: 22}}>
-                    This is Saving screen
-                </Text>
-            </View>
+          <View style={styles.container}>
+              <View style={styles.header}>              
+                  <Text>Danh sách tiền gửi</Text>
+              </View>
+              <View style={styles.body_top}>
+                  <LinearGradient colors={['#76d28b', '#a4dc4a', '#d0e60e']} style={styles.gradient}
+                       start= {{ x: 0, y: 0 }}
+                       end= {{ x: 1, y: 0} }>
+                      <Text style={{color: 'white', paddingTop: 10, paddingStart: 10}}>Tổng số dư</Text>
+                      <Text style={{color: 'white', paddingTop: 5, paddingStart: 25, fontSize: 25}}>0</Text>
+                  </LinearGradient>
+                  {/* <View style={styles.body_content}>
+                      <Text> Content </Text>
+                  </View> */}
+              </View>
+              
+              <View style={styles.body_bottom}>
+              </View>
+          </View>   
         );
     }
 }
