@@ -66,7 +66,7 @@ export default class MoreScreen extends React.Component {
               <CardItem name="ContactScreen" navigate={navigate}  text="Liên hệ" img={require('../../../assets/img/src_assets_ic_contact_contact.png')}></CardItem>
             </View>
             <View style={styles.view_card}>
-              <CardItem text="Đăng xuất" img={require('../../../assets/img/src_assets_ic_shutdown_ic_shutdown.png')}></CardItem>
+              <CardItem name="1" navigate={navigate} text="Đăng xuất" img={require('../../../assets/img/src_assets_ic_shutdown_ic_shutdown.png')}></CardItem>
             </View>
 
           </ScrollView>
