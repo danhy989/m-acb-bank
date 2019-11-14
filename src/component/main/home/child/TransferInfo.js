@@ -2,26 +2,26 @@ import React, {Component} from 'react';
 import Button from 'react-native-button';
 import {Text, View, Image} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import styles from './savingCss';
+// import styles from './../../savingCss';
 
 class TextIcon extends React.Component{
     render(){
         var data = [
             {
                 "text" : "Chuyển tiền",
-                "src" : require('../../assets/img/circle_transfer.png'),
+                "src" : require('../../../../assets/img/circle_transfer.png'),
                 "left": '10%',
                 "right": '0%',
             },
             {
                 "text" : "Tiết kiệm",
-                "src" : require('../../assets/img/src_assets_ic_plus_ic_plus.png'),
+                "src" : require('../../../../assets/img/src_assets_ic_plus_ic_plus.png'),
                 "left": '0%',
                 "right": '0%',
             },
             {
                 "text" : "Thanh toán",
-                "src" : require('../../assets/img/circle_wallet.png'),
+                "src" : require('../../../../assets/img/circle_wallet.png'),
                 "left": '0%',
                 "right": '10%',
             },
@@ -51,7 +51,7 @@ class Record extends React.Component{
                             <Text style={{fontSize: 15, color:'#fafafa'}}>{this.props.name}</Text>
                         </View>
                         <View style={{flex: 1, justifyContent:'center', marginRight:'5%'}}>
-                            <Image source={require('../../assets/img/share_icon.png')} style={{width:20, height:20, alignSelf:'flex-end', marginRight:'5%'}}/>
+                            <Image source={require('../../../../assets/img/share_icon.png')} style={{width:20, height:20, alignSelf:'flex-end', marginRight:'5%'}}/>
                         </View>
                     </View>
 
@@ -75,8 +75,8 @@ export default class TransferInfo extends React.Component {
         let tabBarLabel = "Tiết kiệm";
         let tabBarIcon = ({ focused }) =>  (
             focused
-            ? <Image source={require('../../assets/img/saving_onfocus_icon.png')} size={25}  />
-            : <Image source={require('../../assets/img/saving_icon.png')} size={30}  /> 
+            ? <Image source={require('../../../../assets/img/saving_onfocus_icon.png')} size={25}  />
+            : <Image source={require('../../../../assets/img/saving_icon.png')} size={30}  /> 
          );
         return {tabBarLabel, tabBarIcon};
     }
@@ -107,7 +107,7 @@ export default class TransferInfo extends React.Component {
                     </View>
                     <View style={{flex: 1, backgroundColor:'white', marginTop: '2%', flexDirection: 'row'}}>
                             <View style={{flex: 2, flexDirection:'row', alignItems:'center'}}>
-                                <Image source={require('../../assets/img/timer_icon.png')} 
+                                <Image source={require('../../../../assets/img/timer_icon.png')} 
                                     style={{width: 20, height:20, marginLeft:'5%'}}></Image>
                                 <Text style={{paddingLeft:'2%'}}>Lịch sử giao dịch</Text>
                             </View>

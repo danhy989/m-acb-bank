@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {Text, View, Image, TouchableHighlight, TouchableOpacity, Linking} from 'react-native';
-import styles from './mainCss';
+import {Text, View, Image, TouchableHighlight, 
+    TouchableOpacity, Linking, TouchableNativeFeedback} from 'react-native';
+import styles from '../mainCss';
 import Icon from 'react-native-vector-icons/FontAwesome'
 import FlipToggle from 'react-native-flip-toggle-button';
 import LinearGradient from 'react-native-linear-gradient';
@@ -11,8 +12,8 @@ export default class HomeScreen extends React.Component {
         let tabBarLabel = "Trang chủ";
         let tabBarIcon = ({ focused }) =>  (
             focused
-            ? <Image source={require('../../assets/img/home_onfocus_icon.png')} size={25}  />
-            : <Image source={require('../../assets/img/home_icon.png')} size={30}  /> 
+            ? <Image source={require('../../../assets/img/home_onfocus_icon.png')} size={25}  />
+            : <Image source={require('../../../assets/img/home_icon.png')} size={30}  /> 
          );
         return {tabBarLabel, tabBarIcon};
     }
@@ -99,12 +100,14 @@ export default class HomeScreen extends React.Component {
                         </View>
                     </View>
                     <View style={styles.body_bottom}>
-                    <LinearGradient colors={['#1844a4', '#1673c2', '#14a6e2']} style={styles.linearGradient_payment}>
-                            <Text style={{position:'absolute', color:'white', paddingTop: 10}}>Tài khoản</Text>
-                            <Text style={{position:'absolute', color:'white', paddingTop: 30}}>Thanh toán</Text>
-                            <Text style={{position:'absolute', color:'white', paddingTop: 60, fontSize: 20}}>{this.state.money}</Text>
-                            <Text style={{position:'absolute', color:'white', bottom: 0}}>VND</Text>
-                    </LinearGradient>
+                    <TouchableNativeFeedback onPress={() => navigate('Account')}>
+                        <LinearGradient colors={['#1844a4', '#1673c2', '#14a6e2']} style={styles.linearGradient_payment}>
+                                <Text style={{position:'absolute', color:'white', paddingTop: 10}}>Tài khoản</Text>
+                                <Text style={{position:'absolute', color:'white', paddingTop: 30}}>Thanh toán</Text>
+                                <Text style={{position:'absolute', color:'white', paddingTop: 60, fontSize: 20}}>{this.state.money}</Text>
+                                <Text style={{position:'absolute', color:'white', bottom: 0}}>VND</Text>
+                        </LinearGradient>
+                    </TouchableNativeFeedback>
                     <LinearGradient colors={['#d2e705', '#a6dd49', '#77d38f']} style={styles.linearGradient_saving}>
                             <Text style={{position:'absolute', color:'white', paddingTop: 10}}>Tài khoản</Text>
                             <Text style={{position:'absolute', color:'white', paddingTop: 30}}>Tiết kiệm</Text>

@@ -1,23 +1,21 @@
 
 import React, {Component} from 'react';
-import Button from 'react-native-button';
-import {Text, View, Image, Linking, ImageBackground} from 'react-native';
+import {Text, View, Image, Linking, TouchableNativeFeedback} from 'react-native';
 import styles from './transferCss';
 import LinearGradient from 'react-native-linear-gradient';
 import ViewOverflow from 'react-native-view-overflow';
-import {Card, ListItem} from 'react-native-elements';
 
 class Record extends React.Component{
     render(){ 
         var image = [
-            require('../../assets/img/bank_icon.png'),
-            require('../../assets/img/atm_icon.png'),
-            require('../../assets/img/cmnd_icon.png'),
+            require('../../../assets/img/src_assets_transfers_ic_bank_blue_21_ic_bank_blue_21.png'),
+            require('../../../assets/img/src_assets_transfers_ic_card_21_ic_card_21.png'),
+            require('../../../assets/img/src_assets_transfers_ic_passport_16_ic_passport_16.png'),
         ]
         return(
             <View style={{flexDirection: 'row', alignSelf:'flex-start', width: '90%', height: 35,  borderBottomColor: '#f4f6f8', 
                            marginStart: '5%', borderBottomWidth: 1, marginTop: '5%'}}>
-                <Image source={image[this.props.stt]} style={{flex: 1, marginBottom: 5, width: 25, height: 25}}></Image>
+                <Image source={image[this.props.stt]} style={{flex: 1, marginBottom: 5, width: 30, height: 30,resizeMode:'center'}}></Image>
                 <View style={{ flex: 8, flexDirection: 'row', justifyContent: 'flex-start', paddingStart: '5%'}}>
                     <Text style={{paddingTop: 5, paddingStart: 5, fontSize: 15}}>{this.props.content}</Text>
                 </View>
@@ -28,14 +26,14 @@ class Record extends React.Component{
         );
     }
 }
-export default class TransfersScreen extends React.Component {
+export default class TransferScreen extends React.Component {
     static navigationOptions = ({navigation}) => {
         const { params = {} } = navigation.state;
         let tabBarLabel = "Chuyển tiền";
         let tabBarIcon = ({ focused }) =>  (
             focused
-            ? <Image source={require('../../assets/img/transfer_onfocus_icon.png')} size={25} style={{marginBottom: 5}}/>
-            : <Image source={require('../../assets/img/transfer_icon.png')} size={30} style={{marginBottom: 5}} /> 
+            ? <Image source={require('../../../assets/img/transfer_onfocus_icon.png')} size={25} style={{marginBottom: 5}}/>
+            : <Image source={require('../../../assets/img/transfer_icon.png')} size={30} style={{marginBottom: 5}} /> 
           );
         return {tabBarLabel, tabBarIcon};
     }
@@ -63,9 +61,11 @@ export default class TransfersScreen extends React.Component {
                     </LinearGradient>
                     
                     <View style={styles.body_content}>
-                        <Record content="Danh sách người nhận" image='../../assets/img/bank_icon.png' stt="0"></Record>
-                        <Record content="Thẻ ngân hàng" image='../../assets/img/atm_icon.png' stt="1"/>
-                        <Record content="CMND/ Hộ chiếu" image='../../assets/img/cmnd_icon.png' stt="2"/>
+                    <TouchableNativeFeedback onPress={() => navigate('TKNH')}>
+                        <Record content="Tài khoản ngân hàng" image='../../../assets/img/img/bank_icon.png' stt="0"></Record>
+                    </TouchableNativeFeedback>    
+                        <Record content="Thẻ ngân hàng" image='../../../assets/img/atm_icon.png' stt="1"/>
+                        <Record content="CMND/ Hộ chiếu" image='../../../assets/img/cmnd_icon.png' stt="2"/>
                     </View>
 
                     <ViewOverflow style={{flex: 1}}>
@@ -75,7 +75,7 @@ export default class TransfersScreen extends React.Component {
 
                 <View style={styles.body_bottom}>
                     <View style={styles.bot_header}>
-                        <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-start'}}>
+                        <View style={{ flex: 1, marginStart:'2%', flexDirection: 'row', justifyContent: 'flex-start'}}>
                             <Text style={{paddingTop: 5, paddingStart: 5, fontSize: 15}}>Danh sách người nhận</Text>
                         </View>
 

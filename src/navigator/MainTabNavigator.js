@@ -3,16 +3,47 @@ import { Text, View ,Image} from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs'
 import { StyleSheet } from 'react-native';
-import HomeScreen from '../component/main/HomeScreen'
-import TransfersScreen from '../component/main/TransfersScreen'
-import SavingScreen from '../component/main/SavingScreen'
+
 import PaymentNavigator from './PaymentNavigator';
 import MoreNavigator from './MoreNavigator';
+import HomeNavigator from './HomeNavigator';
+import TransferNavigator from './TransferNavigator';
+import SavingNavigator from './SavingNavigator';
 
 const TabNavigator = createMaterialBottomTabNavigator({
-  Home: {screen: HomeScreen},
-  Transfers: {screen: TransfersScreen},
-  Saving: {screen: SavingScreen},
+  Home: {
+    screen: HomeNavigator,
+    navigationOptions:{
+      tabBarLabel: "Trang chủ",
+      tabBarIcon: ({ focused }) =>  (
+          focused
+          ? <Image source={require('../assets/img/home_onfocus_icon.png')} size={25}/>
+          : <Image source={require('../assets/img/home_icon.png')} size={30}/> 
+       )
+    }
+  },
+  Transfer: {
+    screen: TransferNavigator,
+    navigationOptions:{
+      tabBarLabel: "Chuyển tiền",
+      tabBarIcon: ({ focused }) =>  (
+        focused
+        ? <Image source={require('../assets/img/transfer_onfocus_icon.png')} size={25} style={{marginBottom: 5}}/>
+        : <Image source={require('../assets/img/transfer_icon.png')} size={30} style={{marginBottom: 5}} /> 
+      )
+    }
+  },
+  Saving: {
+    screen: SavingNavigator,
+    navigationOptions:{
+      tabBarLabel: "Tiết kiệm",
+      tabBarIcon: ({ focused }) =>  (
+        focused
+          ? <Image source={require('../assets/img/saving_onfocus_icon.png')} size={25}  />
+          : <Image source={require('../assets/img/saving_icon.png')} size={30}  /> 
+      )
+    }
+  },
   Payment: {screen: PaymentNavigator,
     navigationOptions:{  
       tabBarLabel : "Thanh toán",

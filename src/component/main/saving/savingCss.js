@@ -1,5 +1,5 @@
 import {StyleSheet} from "react-native";
-import Metrics from '../../common/Metrics'
+import Metrics from '../../../common/Metrics'
 
 const BASE_SIZE = Metrics.screenWidth+50;
 
@@ -23,6 +23,9 @@ const styles = StyleSheet.create({
     },
     gradient: {
         flex: 1,
+        flexDirection: 'row',
+        alignItems:'center',
+        justifyContent:'space-between'
     },
     body_endTop:{
         flex: 1,

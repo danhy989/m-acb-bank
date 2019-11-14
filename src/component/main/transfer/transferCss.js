@@ -1,5 +1,5 @@
 import {StyleSheet} from "react-native";
-import Metrics from '../../common/Metrics'
+import Metrics from '../../../common/Metrics'
 
 const BASE_SIZE = Metrics.screenWidth+50;
 

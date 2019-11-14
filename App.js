@@ -9,8 +9,8 @@ export  default  class App extends Component{
   render(){
     return(
          //<UserInfoScreen/>
-         <MainScreen/>
-        // <Router/>
+        //  <MainScreen/>
+        <Router/>
         // <SignInScreen></SignInScreen>
         // <DDTTScreen/>
     )

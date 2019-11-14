@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Button from 'react-native-button';
 import {Text, View, Image} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -19,7 +18,7 @@ class Record extends React.Component{
                             <Text style={{fontSize: 15, color:'#fafafa'}}>{this.props.name}</Text>
                         </View>
                         <View style={{flex: 1, justifyContent:'center', marginRight:'5%'}}>
-                            <Image source={require('../../assets/img/share_icon.png')} style={{width:20, height:20, alignSelf:'flex-end', marginRight:'5%'}}/>
+                            <Image source={require('./../../../../assets/img/share_icon.png')} style={{width:20, height:20, alignSelf:'flex-end', marginRight:'5%'}}/>
                         </View>
                     </View>
 
@@ -37,15 +36,12 @@ class Record extends React.Component{
     }
 }
 export default class Account extends React.Component {
-    static navigationOptions = ({navigation}) => {
-        const { params = {} } = navigation.state;
-        let tabBarLabel = "Tiết kiệm";
-        let tabBarIcon = ({ focused }) =>  (
-            focused
-            ? <Image source={require('../../assets/img/saving_onfocus_icon.png')} size={25}  />
-            : <Image source={require('../../assets/img/saving_icon.png')} size={30}  /> 
-         );
-        return {tabBarLabel, tabBarIcon};
+    static navigationOptions = {
+        headerRight: (
+        <View style={{marginRight: '5%',flex: 1, flexDirection:'row', alignItems:'center', justifyContent:'center', margin:'auto'}}>
+            <Image source={require('./../../../../assets/img/timer_icon.png')} style={{height: 20, width: 20}}/>
+        </View>
+        )       
     }
 
     constructor() {
@@ -60,7 +56,7 @@ export default class Account extends React.Component {
         return(
             <View style={{flex: 1, flexDirection:'column'}}>
                 {/* Header */}
-                <View style={{flex: 1, alignItems: 'center', width:'100%', height:'100%', justifyContent: 'center',
+                {/* <View style={{flex: 1, alignItems: 'center', width:'100%', height:'100%', justifyContent: 'center',
                     backgroundColor: 'white', flexDirection:'row'}}>
                     <View style={{flex: 1}}>
 
@@ -71,9 +67,9 @@ export default class Account extends React.Component {
                     </View>
                     
                     <View style={{flex: 1, flexDirection:'row', alignItems:'center', justifyContent:'center', margin:'auto'}}>
-                        <Image source={require('../../assets/img/timer_icon.png')} style={{height: 20, width: 20}}/>
+                        <Image source={require('./../../../../assets/img/timer_icon.png')} style={{height: 20, width: 20}}/>
                     </View>
-                </View>
+                </View> */}
                 {/* Body */}
                 <View style={{flex:13}}>
                     <View style={{flex:1}}>
@@ -88,7 +84,7 @@ export default class Account extends React.Component {
                                 <View style={{height:'40%', width: '50%',backgroundColor:'#0c66b7', alignSelf:'flex-end', borderTopStartRadius: 15, borderBottomStartRadius: 15, 
                                         flexDirection:'row', alignItems:'center', borderWidth:1, borderColor: 'white', justifyContent:'center'}}>                                   
                                     <Text style={{fontSize: 12, color: 'white'}}>Bộ lọc</Text>
-                                    <Image source={require('../../assets/img/filter_icon.png')} style={{height: 15, width: 15, marginStart:10}}/>
+                                    <Image source={require('./../../../../assets/img/filter_icon.png')} style={{height: 15, width: 15, marginStart:10}}/>
                                 </View>
                             </View>
                     </LinearGradient>
