@@ -9,6 +9,8 @@ import MoreNavigator from './MoreNavigator';
 import HomeNavigator from './HomeNavigator';
 import TransferNavigator from './TransferNavigator';
 import SavingNavigator from './SavingNavigator';
+import Metrics from '../common/Metrics';
+
 
 const TabNavigator = createMaterialBottomTabNavigator({
   Home: {
@@ -22,6 +24,7 @@ const TabNavigator = createMaterialBottomTabNavigator({
        )
     }
   },
+
   Transfer: {
     screen: TransferNavigator,
     navigationOptions:{

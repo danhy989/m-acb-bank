@@ -92,12 +92,6 @@ export default class TransferInfo extends React.Component {
         const {navigate} = this.props.navigation;
         return(
             <View style={{flex: 1, flexDirection:'column'}}>
-                {/* Header */}
-                <View style={{flex: 1, alignItems: 'center', width:'100%', height:'100%', justifyContent: 'center',
-                    backgroundColor: 'white', flexDirection:'row'}}>              
-                        <Text style={{fontSize: 18}}>Tài khoản thanh toán</Text>
-
-                </View>
                 {/* Body */}
                 <View style={{flex:13}}>
                     <Record flex="2" title="TGTT KHTN (CA NHAN) VND" name="1315171 - NGUYEN VAN A" surplus="123.000" money="0"/>

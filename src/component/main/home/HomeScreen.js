@@ -101,7 +101,7 @@ export default class HomeScreen extends React.Component {
                         </View>
                     </View>
                     <View style={styles.body_bottom}>
-                    <TouchableNativeFeedback onPress={() => navigate('AccountScreen')} navigate={navigate}>
+                    <TouchableNativeFeedback onPress={() => navigate('Account')} navigate={navigate}>
                         <LinearGradient colors={['#1844a4', '#1673c2', '#14a6e2']} style={styles.linearGradient_payment}>
                                 <Text style={{position:'absolute', color:'white', paddingTop: 10}}>Tài khoản</Text>
                                 <Text style={{position:'absolute', color:'white', paddingTop: 30}}>Thanh toán</Text>

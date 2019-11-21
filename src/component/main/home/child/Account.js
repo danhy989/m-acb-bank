@@ -14,6 +14,7 @@ class Record extends React.Component{
                         <Text style={{marginLeft: '5%'}}>{this.props.title}</Text>
                     </View>
 
+                    <TouchableNativeFeedback onPress={() => navigate("Detail")}>
                     <View style={{flex:3, backgroundColor: '#106ec3', width:'100%', justifyContent:'space-between', 
                         flexDirection:'row'}}> 
                         <View style={{flex: 3, marginLeft:'5%', justifyContent:'center'}}>
@@ -24,6 +25,7 @@ class Record extends React.Component{
                         </View>
                             {/* <Image source={require('./../../../../assets/img/share_icon.png')} style={{width:20, height:20, alignSelf:'flex-end', marginRight:'5%'}}/> */}
                     </View>
+                    </TouchableNativeFeedback>
 
                     <View style={{flex:4, width:'100%', flexDirection: 'row', justifyContent:'space-between'}}>
                         <View style={{flex: 1, marginTop:'5%', marginLeft:'5%'}}>
@@ -56,6 +58,7 @@ export default class Account extends React.Component {
 
     render(){
         const {navigate} = this.props.navigation;
+        //console.log('navigate 1',navigate);
         return(
             <View style={{flex: 1, flexDirection:'column'}}>
                 {/* Header */}
