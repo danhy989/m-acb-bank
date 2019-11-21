@@ -143,6 +143,7 @@ const styles = StyleSheet.create({
         height: 120,
         borderRadius: BASE_SIZE/2,         
         alignItems: 'center',
+        justifyContent:'center',
     },
     linearGradient_card: {
         top: -245,

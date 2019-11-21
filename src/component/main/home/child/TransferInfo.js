@@ -87,6 +87,7 @@ export default class TransferInfo extends React.Component {
 
         };
     }
+
     render(){
         const {navigate} = this.props.navigation;
         return(

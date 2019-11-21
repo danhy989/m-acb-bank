@@ -5,6 +5,7 @@ import styles from '../mainCss';
 import Icon from 'react-native-vector-icons/FontAwesome'
 import FlipToggle from 'react-native-flip-toggle-button';
 import LinearGradient from 'react-native-linear-gradient';
+import Confirm from '../../../common/Confirm';
 
 export default class HomeScreen extends React.Component {
     static navigationOptions = ({navigation}) => {
@@ -100,7 +101,7 @@ export default class HomeScreen extends React.Component {
                         </View>
                     </View>
                     <View style={styles.body_bottom}>
-                    <TouchableNativeFeedback onPress={() => navigate('Account')}>
+                    <TouchableNativeFeedback onPress={() => navigate('AccountScreen')} navigate={navigate}>
                         <LinearGradient colors={['#1844a4', '#1673c2', '#14a6e2']} style={styles.linearGradient_payment}>
                                 <Text style={{position:'absolute', color:'white', paddingTop: 10}}>Tài khoản</Text>
                                 <Text style={{position:'absolute', color:'white', paddingTop: 30}}>Thanh toán</Text>
@@ -108,6 +109,7 @@ export default class HomeScreen extends React.Component {
                                 <Text style={{position:'absolute', color:'white', bottom: 0}}>VND</Text>
                         </LinearGradient>
                     </TouchableNativeFeedback>
+                    
                     <LinearGradient colors={['#d2e705', '#a6dd49', '#77d38f']} style={styles.linearGradient_saving}>
                             <Text style={{position:'absolute', color:'white', paddingTop: 10}}>Tài khoản</Text>
                             <Text style={{position:'absolute', color:'white', paddingTop: 30}}>Tiết kiệm</Text>
@@ -118,20 +120,17 @@ export default class HomeScreen extends React.Component {
                     </LinearGradient>
 
                     <LinearGradient colors={['#9bacc7', '#8d9eb9', '#7789a5']} style={styles.linearGradient_loan}>
-                            <Text style={{position:'absolute', color:'white', paddingTop: 10}}>Tài khoản</Text>
-                            <Text style={{position:'absolute', color:'white', paddingTop: 30}}>vay</Text>
+                            <Text style={{color:'white', fontSize:15, fontWeight:'bold', paddingBottom: '20%'}}>Chuyển tiền</Text>
+                            {/* <Text style={{position:'absolute', color:'white', paddingTop: 30}}>vay</Text>
                             <Text style={{position:'absolute', color:'white', paddingTop: 60, fontSize: 15, alignSelf:'center'}}
-                            onPress={() => Linking.openURL('http://www.acb.com.vn/vn/personal/cho-vay')}>Xem chi tiết</Text>
-                    </LinearGradient>
-
+                            onPress={() => Linking.openURL('http://www.acb.com.vn/vn/personal/cho-vay')}>Xem chi tiết</Text> */}
+                    </LinearGradient>   
                     <LinearGradient colors={['#05b2f5', '#2dc4fa', '#4dd6ff']} style={styles.linearGradient_card}>
                             <Text style={{position:'absolute', color:'white', paddingTop: 10}}>Thẻ</Text>
                             <Text style={{position:'absolute', color:'white', paddingTop: 40}}>Xem chi tiết</Text>
                     </LinearGradient>
 
-                        <View>
-
-                        </View>      
+                         
                     </View>
                 </View>
             </View>   
@@ -139,19 +138,14 @@ export default class HomeScreen extends React.Component {
     }
 
     renderText() {
-        var date= new Date()
-        var hour = date.getHours()
+        var hour = new Date().getHours();
         if(hour > 4 && hour <10)
-        //    return <Text >Chào buổi sáng</Text>;
             return "Chào buổi sáng";
-        else if (hour >=10 && hour <1)
-            // return <Text>Chào buổi trưa</Text>;
+        else if (hour >=10 && hour <13)
             return "Chào buổi trưa";
-        else if (hour >=1 && hour <5)
-            // return <Text>Chào buổi chiều</Text>;
+        else if (hour >=13 && hour <17)
             return "Chào buổi chiều";
         else 
-            // return <Text>Chào buổi tối</Text>
-            return "Chào buổi tối"
+            return "Chào buổi tối";
     }
 }

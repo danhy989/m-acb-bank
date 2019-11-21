@@ -7,22 +7,27 @@ import TransferInfo from '../component/main/home/child/TransferInfo'
 const RootStack = createStackNavigator({
     AccountScreen:{
         screen: Account,
-        
+        navigationOptions:{
+           header: null,
+        } 
     },
 
     Detail:{
         screen: TransferInfo,
-        navigationOptions: () =>({
-            title: 'Tài khoản thanh toán',
-            headerTitleStyle:{
-                flex: 1,
-                textAlign: "center",
-                fontSize: Metrics.headerFontSize,
-            },
-            headerStyle:{
-                height: 35,
-            }
-        })
+        // navigationOptions: () =>({
+        //     title: 'Tài khoản thanh toán',
+        //     headerTitleStyle:{
+        //         flex: 1,
+        //         textAlign: "center",
+        //         fontSize: Metrics.headerFontSize,
+        //     },
+        //     headerStyle:{
+        //         height: 35,
+        //     }
+        // })
+        navigationOptions:{
+            header:null,
+        }
     }
 })
 
