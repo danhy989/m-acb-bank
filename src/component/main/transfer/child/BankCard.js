@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {Text, View, Image, TextInput, ScrollView, TouchableOpacity, Dimensions} from 'react-native';
+import {Text, View, Image, TextInput, ScrollView,TouchableNativeFeedback , TouchableOpacity, Dimensions} from 'react-native';
 import Dialog, { DialogContent, DialogTitle } from 'react-native-popup-dialog';
+import Metrics from '../../../../common/Metrics';
 
 class Record2 extends React.Component{
     render(){ 
@@ -88,7 +89,7 @@ export default class BankCard extends React.Component {
 
                     <View style={{flex: 3, width: '100%', borderRadius: 10, alignItems: 'center', 
                               justifyContent:'flex-start',}}>
-                            <TouchableOpacity style={{ backgroundColor:'#21439C', width:'40%', height:'20%', justifyContent:'center', alignItems:'center', borderRadius:30}}>
+                            <TouchableOpacity onPress={()=>{this.setState({dialogVisible:true})}} style={{ backgroundColor:'#21439C', width:'40%', height:'20%', justifyContent:'center', alignItems:'center', borderRadius:30}}>
                                 <Text style={{color:'white'}}>Tiếp tục</Text>
                             </TouchableOpacity>
                     </View>
@@ -120,7 +121,74 @@ export default class BankCard extends React.Component {
                         }}>
                         <DialogContent>
                         </DialogContent>
-                    </Dialog>                  
+                    </Dialog>
+
+
+                    <Dialog
+            visible={this.state.dialogVisible}
+            dialogTitle={
+              <View
+                style={{
+                  width: 0.9 * Metrics.screenWidth,
+                  height: Metrics.screenHeight / 5,
+                }}>
+                <View
+                  style={{
+                    flex: 1,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    backgroundColor: '#22429C',
+                  }}>
+                  <Text style={{color: '#FFFFFF'}}>XÁC NHẬN CHUYỂN TIỀN</Text>
+                </View>
+                <View
+                  style={{
+                    flex: 2,
+                    flexDirection: 'column',
+                    paddingVertical: 20,
+                    paddingHorizontal: 0.1 * Metrics.screenWidth,
+                  }}>
+                  <Text
+                    style={{
+                      textAlign: 'center',
+                      fontSize: 15,
+                      marginBottom: 10,
+                    }}>
+                    Vui lòng nhập mật khẩu đăng nhập để xác nhận Chuyển tiền
+                  </Text>
+                  <Text style={{textAlign: 'center', marginBottom: 10}}>
+                    **************
+                  </Text>
+                  <View
+                    style={{
+                      alignSelf: 'center',
+                      width: 0.6 * Metrics.screenWidth,
+                      height: 1,
+                      backgroundColor: '#D7D7D7',
+                      marginBottom: 15,
+                    }}></View>
+                  <TouchableNativeFeedback onPress={()=>{this.setState({dialogVisible: false})}}>
+                    <View
+                      style={{
+                        alignSelf: 'center',
+                        width: '40%',
+                        height: '40%',
+                        backgroundColor: '#22429C',
+                        borderRadius: 10,
+                        alignItems:'center',
+                        justifyContent:'center'
+                      }}>
+                          <Text style={{alignSelf:'center',color:'#FFF'}}>Xác nhận</Text>
+                      </View>
+                  </TouchableNativeFeedback>
+                </View>
+              </View>
+            }
+            onTouchOutside={() => {
+              this.setState({dialogVisible: false});
+            }}>
+            <DialogContent></DialogContent>
+          </Dialog>                  
                 </View>
                 </View>
         );
