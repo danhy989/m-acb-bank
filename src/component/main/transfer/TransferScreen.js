@@ -4,6 +4,7 @@ import {Text, View, Image, Linking, TouchableNativeFeedback} from 'react-native'
 import styles from './transferCss';
 import LinearGradient from 'react-native-linear-gradient';
 import ViewOverflow from 'react-native-view-overflow';
+import {ConfirmDialog} from 'react-native-simple-dialogs';
 
 class Record extends React.Component{
     render(){ 
@@ -12,17 +13,20 @@ class Record extends React.Component{
             require('../../../assets/img/src_assets_transfers_ic_card_21_ic_card_21.png'),
             require('../../../assets/img/src_assets_transfers_ic_passport_16_ic_passport_16.png'),
         ]
+        const {navigate} = this.props;
         return(
-            <View style={{flexDirection: 'row', alignSelf:'flex-start', width: '90%', height: 35,  borderBottomColor: '#f4f6f8', 
-                           marginStart: '5%', borderBottomWidth: 1, marginTop: '5%'}}>
-                <Image source={image[this.props.stt]} style={{flex: 1, marginBottom: 5, width: 30, height: 30,resizeMode:'center'}}></Image>
-                <View style={{ flex: 8, flexDirection: 'row', justifyContent: 'flex-start', paddingStart: '5%'}}>
-                    <Text style={{paddingTop: 5, paddingStart: 5, fontSize: 15}}>{this.props.content}</Text>
+            <TouchableNativeFeedback onPress={()=>navigate(this.props.nameScreen)}>
+                <View style={{flexDirection: 'row', alignSelf:'flex-start', width: '90%', height: 35,  borderBottomColor: '#f4f6f8', 
+                            marginStart: '5%', borderBottomWidth: 1, marginTop: '5%'}}>
+                        <Image source={image[this.props.stt]} style={{flex: 1, marginBottom: 5, width: 30, height: 30,resizeMode:'center'}}></Image>
+                        <View style={{ flex: 8, flexDirection: 'row', justifyContent: 'flex-start', paddingStart: '5%'}}>
+                            <Text style={{paddingTop: 5, paddingStart: 5, fontSize: 15}}>{this.props.content}</Text>
+                        </View>
+                        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end'}}>
+                            <Text style={{paddingTop: 5, paddingRight: 5, fontSize: 15}}>></Text>
+                        </View>
                 </View>
-                <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end'}}>
-                    <Text style={{paddingTop: 5, paddingRight: 5, fontSize: 15}}>></Text>
-                </View>
-            </View>
+            </TouchableNativeFeedback>
         );
     }
 }
@@ -57,15 +61,12 @@ export default class TransferScreen extends React.Component {
                          start= {{ x: 0, y: 0 }}
                          end= {{ x: 1, y: 0} }>
                         <Text style={{color:'white', paddingTop: 10, paddingStart: 10, fontSize: 15}}>Chuyển tiền đến</Text>
-
                     </LinearGradient>
                     
                     <View style={styles.body_content}>
-                    <TouchableNativeFeedback onPress={() => navigate('TKNH')}>
-                        <Record content="Tài khoản ngân hàng" image='../../../assets/img/img/bank_icon.png' stt="0"></Record>
-                    </TouchableNativeFeedback>    
-                        <Record content="Thẻ ngân hàng" image='../../../assets/img/atm_icon.png' stt="1"/>
-                        <Record content="CMND/ Hộ chiếu" image='../../../assets/img/cmnd_icon.png' stt="2"/>
+                            <Record navigate={navigate} nameScreen="TKNH" content="Tài khoản ngân hàng" image='../../../assets/img/img/bank_icon.png' stt="0"></Record> 
+                            <Record navigate={navigate} nameScreen="BankCard" content="Thẻ ngân hàng" image='../../../assets/img/atm_icon.png' stt="1"/>
+                            <Record navigate={navigate} nameScreen="BankCard" content="CMND/ Hộ chiếu" image='../../../assets/img/cmnd_icon.png' stt="2"/>
                     </View>
 
                     <ViewOverflow style={{flex: 1}}>
