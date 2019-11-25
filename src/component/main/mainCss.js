@@ -1,7 +1,8 @@
-import {StyleSheet} from "react-native";
+import {StyleSheet, Dimensions} from "react-native";
 import Metrics from '../../common/Metrics'
 
 const BASE_SIZE = Metrics.screenWidth+50;
+const RADIUS = Dimensions.get('window').height;
 const CIRCLE_BORDER_COLOR = '#DCEDFD';
 const CIRCLE_BORDER_WIDTH = 2;
 const CIRCLE_BORDER_STYLE = 'solid';
@@ -57,6 +58,7 @@ const styles = StyleSheet.create({
         flex: 12,
         width:'100%',
         height:'100%',
+        flexDirection:'column'
     },
     footer:{
         flex:2,
@@ -70,42 +72,28 @@ const styles = StyleSheet.create({
         height:'100%',
         borderRadius: 50
     },
-    image_header:{
-        flex:1, 
-         width: 30,
-        height:30
-    },
 
     circle_header:{     
-        width: 120,
-        height: 120,
+        width: 0.9*RADIUS/5,
+        height: 0.9*RADIUS/5,
         borderRadius: BASE_SIZE/2, 
         backgroundColor: '#eef0f5',
         alignItems: 'center',
         justifyContent:'center',
     },
     circle_header_middle:{
-        width: 70,
-        height: 70,
+        width: RADIUS/8,
+        height: RADIUS/8,
         borderRadius: BASE_SIZE/2, 
         backgroundColor: '#f5f6f8',
         alignItems: 'center',
         justifyContent:'center',
     },
     circle_header_in: {
-        width: 50,
-        height: 50,
+        width: RADIUS/11,
+        height: RADIUS/11,
         borderRadius: BASE_SIZE/2, 
         backgroundColor: '#3b91c5',
-        alignItems: 'center',
-        justifyContent:'center',
-    },
-    circle_payment:{
-        marginTop: 100,
-        width: 120,
-        height: 120,
-        borderRadius: BASE_SIZE/2, 
-        flexDirection: 'row',
         alignItems: 'center',
         justifyContent:'center',
     },
@@ -115,41 +103,41 @@ const styles = StyleSheet.create({
 
     swipe:{
         alignSelf: "flex-start",
-        marginStart: 10,
-        marginTop: 10,
+        marginStart: '3%',
+        marginTop: '5%',
         flexDirection:'row',
     },
     linearGradient_payment: {
-        marginTop: 50,
-        marginStart: 50,
-        width: 150,
-        height: 150,
+        marginTop: '20%',
+        marginStart: '8%',
+        width: 0.95*RADIUS/4,
+        height: 0.95*RADIUS/4,
         borderRadius: BASE_SIZE/2,         
         alignItems: 'center',
         // justifyContent:'center',
     },
     linearGradient_saving: {
-        top: -130,
-        left: 205,
-        width: 130,
-        height: 130,
+        marginTop: '22%',
+        marginStart: '2%',
+        width: 0.9*RADIUS/4,
+        height: 0.9*RADIUS/4,
         borderRadius: BASE_SIZE/2,         
         alignItems: 'center',
     },
     linearGradient_loan: {
-        top: -125,
-        left: 60,
-        width: 120,
-        height: 120,
+        marginTop: '5%',
+        marginStart: '15%',
+        width: 0.9*RADIUS/5,
+        height: 0.9*RADIUS/5,
         borderRadius: BASE_SIZE/2,         
         alignItems: 'center',
         justifyContent:'center',
     },
     linearGradient_card: {
-        top: -245,
-        left: 190,
-        width: 130,
-        height: 130,
+        marginTop: '4%',
+        marginStart: '2%',
+        width: 0.8*RADIUS/4,
+        height: 0.8*RADIUS/4,
         borderRadius: BASE_SIZE/2,         
         alignItems: 'center',
     },

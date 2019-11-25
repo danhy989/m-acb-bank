@@ -2,18 +2,6 @@ import React, {Component} from 'react';
 import {Text, View, Image, TextInput, ScrollView, TouchableOpacity, Dimensions} from 'react-native';
 import Dialog, { DialogContent, DialogTitle } from 'react-native-popup-dialog';
 
-class Record2 extends React.Component{
-    render(){ 
-        return(
-            <View style={{flexDirection: 'row', alignSelf:'flex-start', width: '90%', height: 35,  borderBottomColor: '#f4f6f8', 
-                           marginStart: '2%', marginEnd:'2%', borderBottomWidth: 1, marginTop:'2%', marginBottom: '2%'}}>
-                <View style={{ flex: 9, flexDirection: 'row', justifyContent: 'flex-start',}}>
-                    <TextInput placeholder={this.props.content}></TextInput>
-                </View>
-            </View>
-        );
-    }
-}
 export default class BankCard extends React.Component {
     constructor() {
         super();

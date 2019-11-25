@@ -117,18 +117,7 @@ export default class ListBank extends React.Component {
               </View>
               
               <View style={{flex: 5, backgroundColor: '#f4f6f8'}}>
-                <ScrollView style={{flexDirection:'column'}}
-                   >
-                    {/* <View style={{margin: '3%'}}>
-                            <Text>A</Text>
-                        <View style={{flexDirection: 'column', marginTop: '2%', width: '100%', alignSelf:'center',
-                          backgroundColor: 'white', borderRadius: 10}}>
-                          <Record stt="0"></Record>
-                          <Record stt="1"></Record>
-                          <Record stt="2"></Record>                
-                    </View>
-
-                    </View> */}
+                <ScrollView style={{flexDirection:'column'}}>
                     <Cateloy catelogy="A" stt="0"></Cateloy>
                     <Cateloy catelogy="B" stt="1"></Cateloy>
                     <Cateloy catelogy="C" stt="2"></Cateloy>

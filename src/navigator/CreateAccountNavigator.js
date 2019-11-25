@@ -6,43 +6,11 @@ import CreateAccount from '../component/main/saving/child/CreateAccount';
 import ConfirmCreate from '../component/main/saving/child/ConfirmCreate';
 import Detail from '../component/main/saving/child/DetailAccount';
 
-const RootStack = createStackNavigator({
-    SavingScreen:{
-        screen: SavingScreen,
-        // screen: Detail,
-        navigationOptions: {
-            title:'Danh sách tiền gửi',
-            headerTitleStyle:{
-                textAlign:"center",
-                flex: 1,
-                fontSize:17,
-            },
-            headerStyle:{
-                height:Metrics.navigationBarHeight,
-            },
-        },    
-    },
-      
+const RootStack = createStackNavigator({  
     CreateAccount:{
         screen: CreateAccount,
         navigationOptions:()=>({
         title:'Mở tài khoản tiết kiệm',
-        tabBarVisible:false,
-        headerTitleStyle:{
-            textAlign:"center",
-            flex: 1,
-            fontSize:Metrics.headerFontSize,
-        },
-        headerStyle:{
-            height:Metrics.navigationBarHeight,
-        },
-    })
-    },
-
-    Detail:{
-        screen: Detail,
-        navigationOptions:()=>({
-        title:'Chi tiết tài khoản',
         tabBarVisible:false,
         headerTitleStyle:{
             textAlign:"center",
@@ -73,9 +41,9 @@ const RootStack = createStackNavigator({
 })
 
 
-const SavingNavigator = createAppContainer(RootStack);
+const CreateAccountNavigator = createAppContainer(RootStack);
 
-SavingNavigator.navigationOptions=({navigation}) =>{
+CreateAccountNavigator.navigationOptions=({navigation}) =>{
     let tabBarVisible = true;
     let routeName = navigation.state.routes[navigation.state.index].routeName
     if ( routeName == 'CreateAccount' || routeName == 'ConfirmCreateSaving') {
@@ -85,4 +53,4 @@ SavingNavigator.navigationOptions=({navigation}) =>{
         tabBarVisible,
     }
 }
-export default SavingNavigator
+export default CreateAccountNavigator

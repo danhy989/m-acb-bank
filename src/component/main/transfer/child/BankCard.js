@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {Text, View, Image, TextInput, ScrollView, TouchableOpacity, Dimensions} from 'react-native';
-import Dialog, { DialogContent, DialogTitle } from 'react-native-popup-dialog';
+import {Text, View, Image, TextInput, TouchableOpacity, Dimensions} from 'react-native';
+import Dialog, { DialogContent } from 'react-native-popup-dialog';
 
 class Record2 extends React.Component{
     render(){ 

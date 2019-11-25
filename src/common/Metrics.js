@@ -7,6 +7,7 @@ const Metrics = {
     navBarHeight: Platform.OS === 'ios' ? 54 : 66,
     backgroundMainApp:'#73B0F9',
     headerFontSize:18,
+    navigationBarHeight:height/15,
     PADDING_HORIZONTAL:20
 };
 

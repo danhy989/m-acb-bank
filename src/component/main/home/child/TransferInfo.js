@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import Button from 'react-native-button';
-import {Text, View, Image} from 'react-native';
+import {Text, View, Image, Dimensions} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import { ScrollView } from 'react-native-gesture-handler';
 // import styles from './../../savingCss';
 
 class TextIcon extends React.Component{
@@ -28,9 +29,25 @@ class TextIcon extends React.Component{
         ]
         return(
             <View style={{flex: 1,flexDirection:'column', alignItems:'center', justifyContent: 'center',
-                marginLeft: data[this.props.index].left, marginRight:data[this.props.index].right, width: '40%'}}>
-                <Image source={ data[this.props.index].src} style={{width: 50, height:50}}/>
+                marginLeft: data[this.props.index].left, marginRight:data[this.props.index].right, width: '50%'}}>
+                <Image source={ data[this.props.index].src} style={{width: Dimensions.get('window').height/10, height: Dimensions.get('window').height/10}}/>
                 <Text>{this.props.text}</Text>
+            </View>
+        )
+    }
+}
+
+class HistoryItem extends React.Component{
+    render(){
+        return(
+            <View style={{marginTop:'3%', height:'25%'}}>
+                <Text style={{alignSelf:'flex-start', paddingStart:'3%', fontSize:16}}>{this.props.date}</Text>
+                <View style={{flexDirection: 'column', marginTop: '1%', height: '80%',width: '100%', alignSelf:'center',
+                    backgroundColor: 'white'}}>                   
+                    <Text style={{flex:1, width:'70%', paddingStart:'3%', paddingTop:'3%', fontSize:17}}>{this.props.content}</Text>
+                    <Text style={{flex:1, alignSelf:'flex-end', paddingTop:'3%', paddingBottom:'2%', paddingEnd:'2%',
+                                color:'#146EC3', fontWeight:'900', fontSize: 18}}>{this.props.money}</Text>
+                </View>
             </View>
         )
     }
@@ -38,9 +55,11 @@ class TextIcon extends React.Component{
 class Record extends React.Component{
     render(){
         return(
-                <View style={{flex: 4, width: '90%',height: '35%', marginTop: '2%', marginLeft: '5%', borderRadius: 10, flexDirection:'column',
-                    justifyContent: 'center',alignItems: 'center',backgroundColor: 'white'}}>
 
+                // <View style={{width: '100%',height: '100%', marginTop: '2%', marginLeft: '5%', borderRadius: 10, flexDirection:'column',
+                //     justifyContent: 'center', alignItems: 'center',backgroundColor: 'white'}}>
+                <View style={{width: '90%',height: '90%', marginTop: '2%', marginLeft: '5%',borderRadius: 10, flexDirection:'column',
+                    justifyContent: 'center',alignItems: 'center',backgroundColor: 'white'}}>
                     <View style={{flex:3, width:'100%', justifyContent:'center'}}>
                         <Text style={{marginLeft: '5%'}}>{this.props.title}</Text>
                     </View>
@@ -50,8 +69,8 @@ class Record extends React.Component{
                         <View style={{flex: 3, marginLeft:'5%', justifyContent:'center'}}>
                             <Text style={{fontSize: 15, color:'#fafafa'}}>{this.props.name}</Text>
                         </View>
-                        <View style={{flex: 1, justifyContent:'center', marginRight:'5%'}}>
-                            <Image source={require('../../../../assets/img/share_icon.png')} style={{width:20, height:20, alignSelf:'flex-end', marginRight:'5%'}}/>
+                        <View style={{flex: 2, marginRight:'2%', justifyContent:'center'}}>
+                            <Text style={{fontSize: 15, color:'#fafafa', alignSelf:'flex-end'}}>{this.props.date}</Text>
                         </View>
                     </View>
 
@@ -59,28 +78,25 @@ class Record extends React.Component{
                         <View style={{flex: 1, marginTop:'5%', marginLeft:'5%'}}>
                             <Text style={{fontSize: 15}}>Số dư khả dụng</Text>
                         </View>
-                        <View style={{flex: 1, flexDirection: 'column', marginTop: '5%', marginRight:'5%'}}>
-                            <Text style={{alignSelf:'flex-end', fontSize: 15, color: '#042e98'}}>{this.props.money} VND</Text>
-                            <Text style={{alignSelf:'flex-end', fontSize: 12, color: '#949494'}}>Số dư thực: {this.props.surplus} VND</Text>
+                        <View style={{flex: 1, flexDirection: 'column', marginTop: '5%'}}>
+                            <Text style={{alignSelf:'flex-end', fontSize: 15, color: '#042e98', paddingRight:'5%'}}>{this.props.money} VND</Text>
+                            <Text style={{alignSelf:'flex-end', fontSize: 12, color: '#949494', paddingRight:'5%'}}>Số dư thực: {this.props.surplus} VND</Text>
                         </View>
                     </View>
                 </View>
+ 
         )
     }
 }
 
 export default class TransferInfo extends React.Component {
-    static navigationOptions = ({navigation}) => {
-        const { params = {} } = navigation.state;
-        let tabBarLabel = "Tiết kiệm";
-        let tabBarIcon = ({ focused }) =>  (
-            focused
-            ? <Image source={require('../../../../assets/img/saving_onfocus_icon.png')} size={25}  />
-            : <Image source={require('../../../../assets/img/saving_icon.png')} size={30}  /> 
-         );
-        return {tabBarLabel, tabBarIcon};
+    static navigationOptions = {
+        headerRight: (
+        <View style={{marginRight: '5%',flex: 1, flexDirection:'row', alignItems:'center', justifyContent:'center', margin:'auto'}}>
+            <Image source={require('./../../../../assets/img/timer_icon.png')} style={{height: 20, width: 20}}/>
+        </View>
+        )       
     }
-
     constructor() {
         super();
         this.state = {
@@ -88,33 +104,47 @@ export default class TransferInfo extends React.Component {
         };
     }
 
+    componentDidMount() {
+        const { navigation } = this.props;
+        this.setState({
+            title: navigation.getParam('title'),
+            name: navigation.getParam('name'),
+            money: navigation.getParam('money'),
+            date: navigation.getParam('date'),
+            surplus: navigation.getParam('surplus'),
+        })
+      }
+
     render(){
         const {navigate} = this.props.navigation;
         return(
             <View style={{flex: 1, flexDirection:'column'}}>
-                {/* Body */}
-                <View style={{flex:13}}>
-                    <Record flex="2" title="TGTT KHTN (CA NHAN) VND" name="1315171 - NGUYEN VAN A" surplus="123.000" money="0"/>
-                    <View style={{flex: 2, flexDirection: 'row', backgroundColor:'#fafafa', marginTop:'2%'}}>
+                <View style={{height:'35%', backgroundColor:'#f5f6f8'}}>
+                    <Record title={this.state.title} name={this.state.name} surplus={this.state.surplus} 
+                        money={this.state.money} date={this.state.date}/>
+                </View>
+                
+                <View style={{height:'65%', backgroundColor:'#f5f6f8', flexDirection:'column'}}>
+                    <View style={{height: '22%',flexDirection: 'row', backgroundColor:'#f5f6f8'}}>
                         <TextIcon index="0" text="Chuyển tiền"/>
                         <TextIcon index="1" text="Tiết kiệm"/>
                         <TextIcon index="2" text="Thanh toán"/>
                     </View>
-                    <View style={{flex: 1, backgroundColor:'white', marginTop: '2%', flexDirection: 'row'}}>
-                            <View style={{flex: 2, flexDirection:'row', alignItems:'center'}}>
-                                <Image source={require('../../../../assets/img/timer_icon.png')} 
-                                    style={{width: 20, height:20, marginLeft:'5%'}}></Image>
-                                <Text style={{paddingLeft:'2%'}}>Lịch sử giao dịch</Text>
-                            </View>
-                            <View style={{flex: 1, width: '100%', alignItems:'center', justifyContent:'center'}}>
-                                <Text style={{color: '#5a92d8', paddingLeft: '5%',fontSize: 12}}>
-                                    Xem tất cả ></Text>
-                            </View>
-                    </View>
-                    <View style={{flex: 8, backgroundColor:'#fafafa'}}>
-                        <View style={{ width: '90%', height: '25%', marginTop: '2%', marginLeft: '5%', borderRadius: 10, 
-                        justifyContent: 'center', alignItems: 'center', backgroundColor: 'white',}}>
-                            <Text>Không có giao dịch</Text>
+             
+                    <View style={{height: '78%', backgroundColor:'#f5f6f8', flexDirection:'column'}}>
+                        <View style={{flex:1, width:'100%', backgroundColor:'white', marginTop: '2%', flexDirection: 'row'}}>
+                                <View style={{flex: 2, flexDirection:'row', alignItems:'center'}}>
+                                    <Image source={require('../../../../assets/img/timer_icon.png')} 
+                                        style={{width: 20, height:20, marginLeft:'5%'}}></Image>
+                                    <Text style={{paddingLeft:'2%'}}>Lịch sử giao dịch</Text>
+                                </View>
+                        </View>
+                        <View style={{flex:8 }}>
+                            <ScrollView style={{flexDirection:'column'}}>
+                                    <HistoryItem date="01/05/2019" content="Nạp tiền vào ví Momo" money="- 50.000 VND"></HistoryItem>
+                                    <HistoryItem date="13/08/2019" content="Rút tiền từ ví Momo" money="+ 100.000 VND"></HistoryItem>
+                                    <HistoryItem date="13/08/2019" content='Phí thường niên' money="+ 200.000 VND"></HistoryItem>
+                            </ScrollView>
                         </View>
                     </View>
                 </View>

@@ -6,7 +6,8 @@ class Record extends React.Component{
     render(){
         const {navigate} = this.props;
         return(
-            
+            <TouchableNativeFeedback onPress={() => navigate("Detail", 
+                    {title: this.props.title, name: this.props.name, date: this.props.date, money: this.props.money, surplus: this.props.surplus})}>
                 <View style={{width: '90%',height: '35%', marginTop: '2%', marginLeft: '5%',borderRadius: 10, flexDirection:'column',
                     justifyContent: 'center',alignItems: 'center',backgroundColor: 'white'}}>
 
@@ -14,7 +15,7 @@ class Record extends React.Component{
                         <Text style={{marginLeft: '5%'}}>{this.props.title}</Text>
                     </View>
 
-                    <TouchableNativeFeedback onPress={() => navigate("Detail")}>
+                   
                     <View style={{flex:3, backgroundColor: '#106ec3', width:'100%', justifyContent:'space-between', 
                         flexDirection:'row'}}> 
                         <View style={{flex: 3, marginLeft:'5%', justifyContent:'center'}}>
@@ -25,8 +26,7 @@ class Record extends React.Component{
                         </View>
                             {/* <Image source={require('./../../../../assets/img/share_icon.png')} style={{width:20, height:20, alignSelf:'flex-end', marginRight:'5%'}}/> */}
                     </View>
-                    </TouchableNativeFeedback>
-
+                    
                     <View style={{flex:4, width:'100%', flexDirection: 'row', justifyContent:'space-between'}}>
                         <View style={{flex: 1, marginTop:'5%', marginLeft:'5%'}}>
                             <Text style={{fontSize: 15}}>Số dư khả dụng</Text>
@@ -37,6 +37,7 @@ class Record extends React.Component{
                         </View>
                     </View>
                 </View>
+            </TouchableNativeFeedback>
         )
     }
 }
@@ -79,26 +80,18 @@ export default class Account extends React.Component {
                 {/* Body */}
                 <View style={{flex:13}}>
                     <View style={{flex:1}}>
-                    <LinearGradient colors={['#1847a6', '#0d7cce', '#03aff3']} style={{flex:1, flexDirection:'row', 
-                                alignItems:'center', justifyContent:'space-between'}} start={{x: 0, y: 0}} end={{x: 1, y: 0}}>
-                            <View style={{flex:1}}>
-                                <Text style={{color: 'white', marginStart: 15}}>Tổng số dư</Text>
-                                <Text style={{color: 'white',paddingStart: 25, fontSize: 15}}>678.000 VND</Text>
-                            </View>
-
-                            {/* <View style={{flex:1, alignItems:'center', margin: 0, borderColor: 'white'}}>
-                                <View style={{height:'40%', width: '50%',backgroundColor:'#0c66b7', alignSelf:'flex-end', borderTopStartRadius: 15, borderBottomStartRadius: 15, 
-                                        flexDirection:'row', alignItems:'center', borderWidth:1, borderColor: 'white', justifyContent:'center'}}>                                   
-                                    <Text style={{fontSize: 12, color: 'white'}}>Bộ lọc</Text>
-                                    <Image source={require('./../../../../assets/img/filter_icon.png')} style={{height: 15, width: 15, marginStart:10}}/>
+                        <LinearGradient colors={['#1847a6', '#0d7cce', '#03aff3']} style={{flex:1, flexDirection:'row', 
+                                    alignItems:'center', justifyContent:'space-between'}} start={{x: 0, y: 0}} end={{x: 1, y: 0}}>
+                                <View style={{flex:1}}>
+                                    <Text style={{color: 'white', marginStart: 15}}>Tổng số dư</Text>
+                                    <Text style={{color: 'white',paddingStart: 25, fontSize: 15}}>1.123.000 VND</Text>
                                 </View>
-                            </View> */}
-                    </LinearGradient>
+                        </LinearGradient>
                     </View>
 
                     <View style={{flex:7, backgroundColor:'#f5f6f8'}}>
-                            <Record navigate={navigate} title="1315171 - TGTT KHTN (CA NHAN) VND" name="NGUYEN VAN A" surplus="123.000" money="0" date="12/01/2018"/>
-                            <Record title="2426282 - TGTT SINH VIEN KHTN (CN) VND" name="TRAN VAN B" surplus="555.000" money="100.000" date="01/05/2019"/>
+                            <Record navigate={navigate} title="1315171 - TGTT KHTN (CA NHAN) VND" name="NGUYEN VAN A" surplus="123.000" money="83.000" date="12/01/2018"/>
+                            <Record navigate={navigate} title="2426282 - TGTT SINH VIEN KHTN (CN) VND" name="NGUYEN VAN A" surplus="1.000.000" money="950.000" date="01/05/2019"/>
                     </View>
                 </View>
             </View>

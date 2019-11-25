@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
-        // backgroundColor: '#f5f6f8'
     },
     header: {
         flex: 1,
@@ -22,7 +21,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'blue',
     },
     gradient: {
-        flex: 1,
+        flex: 2,
         flexDirection: 'row',
         alignItems:'center',
         justifyContent:'space-between'
@@ -41,7 +40,8 @@ const styles = StyleSheet.create({
     body_bottom: {
         flex: 12,
         backgroundColor: '#f4f6f8',
-        flexDirection: 'row',
+        flexDirection: 'column',
+        alignItems:'center'
     }
 })
 

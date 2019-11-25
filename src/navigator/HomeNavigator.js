@@ -23,21 +23,67 @@ const RootStack = createStackNavigator({
             flex:1 ,
             fontSize:Metrics.headerFontSize,
         },
+        headerStyle:{
+            height:Metrics.navigationBarHeight,
+        }
         }
     },
-        Detail:{
+    Detail:{
         screen: TransferInfo,
         navigationOptions: () =>({
             title:'Tài khoản thanh toán',
             headerTitleStyle: { 
             textAlign:"center", 
-            flex:1 ,
+            flex:1,
             fontSize:Metrics.headerFontSize,
         },
+        headerStyle:{
+            height:Metrics.navigationBarHeight,
+        }
         })
-    }
+    },
+
+    ATMCard:{
+        screen: ATMCard,
+        navigationOptions:()=>({
+            title:'Danh sách thẻ',
+            headerTitleStyle:{
+                textAlign:"center",
+                flex: 1,
+                fontSize:Metrics.headerFontSize,
+            },
+            headerStyle:{
+                height:Metrics.navigationBarHeight,
+            }
+        })
+    },
+
+    ATMCardDetail:{
+        screen: ATMCardDetail,
+        navigationOptions:()=>({
+            title:'Chi tiết thẻ',
+            headerTitleStyle:{
+                textAlign:"center",
+                flex: 1,
+                fontSize:Metrics.headerFontSize,
+            },
+            headerStyle:{
+                height:Metrics.navigationBarHeight,
+            }
+        })
+    },
     
 })
 
 const HomeNavigator = createAppContainer(RootStack);
+HomeNavigator.navigationOptions=({navigation}) =>{
+    let tabBarVisible = true;
+    let routeName = navigation.state.routes[navigation.state.index].routeName
+    if ( routeName == 'Detail' || routeName=='ATMCard' || routeName == 'ATMCardDetail') {
+        tabBarVisible = false
+    }
+    return {
+        tabBarVisible,
+    }
+}
 export default HomeNavigator
