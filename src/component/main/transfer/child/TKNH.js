@@ -31,13 +31,15 @@ class Record extends React.Component {
             marginTop: '2%',
             marginBottom: '2%',
           }}>
+            
           <View
             style={{
               flex: 9,
               flexDirection: 'row',
               justifyContent: 'flex-start',
             }}>
-            <TextInput placeholder={this.props.content}></TextInput>
+            
+          <TextInput>{this.props.content}</TextInput>
           </View>
           <View
             style={{
@@ -129,7 +131,7 @@ export default class TKNH extends React.Component {
                 marginStart: '2%',
               }}>
               <View>
-                <Text>Tài khoản trích (VND)</Text>
+                <Text style={{color:'#97979B'}}>Tài khoản trích (VND): <Text style={{fontWeight:'bold',color:'#000'}}>22522323</Text></Text>
                 <Text
                   style={{
                     paddingTop: '2%',
@@ -137,7 +139,7 @@ export default class TKNH extends React.Component {
                     fontSize: 15,
                     fontWeight: 'bold',
                   }}>
-                  555.000
+                  0
                 </Text>
               </View>
             </View>
@@ -180,7 +182,8 @@ export default class TKNH extends React.Component {
               marginBottom: '2%',
               backgroundColor: 'white',
             }}>
-            <Record navigate={navigate} content="Ngân hàng"></Record>
+            <Text style={{alignSelf:'flex-start',marginTop:5,marginLeft:5,color:'#97979B'}}>Ngân hàng</Text>
+            <Record navigate={navigate} content="ACB - NH TMCP A CHAU"></Record>
             <Record2 content="Số tài khoản nhận"></Record2>
           </View>
           <Text style={{marginTop: '2%', marginStart: '2%'}}>
@@ -198,7 +201,7 @@ export default class TKNH extends React.Component {
               marginBottom: '2%',
               backgroundColor: 'white',
             }}>
-            <Record content="Chuyển ngay"></Record>
+            <Record navigate={navigate} content="Chuyển ngay"></Record>
           </View>
           <Text style={{marginTop: '2%', marginStart: '2%'}}>Số tiền</Text>
           <View
@@ -231,7 +234,7 @@ export default class TKNH extends React.Component {
                   flexDirection: 'row',
                   justifyContent: 'flex-start',
                 }}>
-                <TextInput placeholder="Số tiền"></TextInput>
+                <TextInput></TextInput>
               </View>
               <View
                 style={{
@@ -239,7 +242,7 @@ export default class TKNH extends React.Component {
                   flexDirection: 'row',
                   justifyContent: 'flex-end',
                 }}>
-                <Text style={{marginTop: '2%'}}>VND</Text>
+                <Text style={{marginTop: '2%',color:'#97979B'}}>VND</Text>
               </View>
             </View>
           </View>
