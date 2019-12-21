@@ -10,7 +10,6 @@ import {
   TouchableNativeFeedback,
 } from 'react-native';
 import Dialog, {DialogContent} from 'react-native-popup-dialog';
-import {ConfirmDialog} from 'react-native-simple-dialogs';
 import Metrics from '../../../../common/Metrics';
 import Line from '../../../../common/Line';
 import Confirm from '../../../../common/Confirm';

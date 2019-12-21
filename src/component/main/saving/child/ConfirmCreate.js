@@ -74,7 +74,7 @@ export default class ConfirmCreate extends React.Component {
         this.setState({
             visible: true
         });
-   }
+    }
 
     render(){
         const {navigate} = this.props.navigation;

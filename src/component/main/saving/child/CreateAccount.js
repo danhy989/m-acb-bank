@@ -109,10 +109,21 @@ export default class CreateAccount extends React.Component {
             showMonth:true,
             month:-1,
             active:[true,true,true],
-            value:[1,2,3,4,5]
+            mValue:[1,2,3,4,5,6,],
+            mValue2:[7,8,9,10,11,12,],
+            mValue3:[12,24,37],
+            mBackground:[true, true, true, true, true, true, true, true, true, true, true, true],
+            mBackground3:[true, true, true],
 
         };
     }
+
+    changeBackgroud = (index, item) => {
+        this.state.mBackground[index]=true;
+        // this.setState({
+        //     thang: item,
+        // });
+   }
 
     render() {
         var value16=[1,2,3,4,5,6];
@@ -167,19 +178,19 @@ export default class CreateAccount extends React.Component {
                         <View style={{flex:0.5, width:'100%'}}>
                             <View style={{flex:1, flexDirection:'row', backgroundColor:'white', alignItems:'center'}}>
                                 <TouchableOpacity style={{flex: 1, backgroundColor:this.state.showMonth?'white':'#617D8A'}}
-                                    onPress={() => {
-                                    this.setState({ showMonth: true, laisuat:5});
+                                    onPress={() => {this.state.mBackground[this.state.newIndex]=true, 
+                                        this.setState({newIndex:-1,showMonth: true, laisuat:5});
                                     }}>  
-                                <View style={{flex:1}}>
+                                <View style={{flex:1, justifyContent:'center'}}>
                                     <Text style={{textAlign:'center', color:this.state.showMonth?'#22429C':'white', fontSize:16, fontWeight:'900'}}>Tháng</Text>
                                 </View>
                                 </TouchableOpacity>
                                 
                                 <TouchableOpacity style={{flex: 1}}
-                                    onPress={() => {
-                                    this.setState({ showMonth: false, laisuat: 7});
+                                    onPress={() => {this.state.mBackground3[this.state.newIndex]=true,
+                                        this.setState({newIndex:-1,showMonth: false, laisuat: 7});
                                     }}>  
-                                <View style={{flex:1, backgroundColor:this.state.showMonth?'#617D8A':'white', alignItems:'center'}}>
+                                <View style={{flex:1, backgroundColor:this.state.showMonth?'#617D8A':'white', alignItems:'center', justifyContent:'center'}}>
                                     <Text style={{textAlign:'center', color:this.state.showMonth?'white':'#22429C', fontSize:16,fontWeight:'900'}}>Năm</Text>
                                 </View>
                                 </TouchableOpacity>
@@ -189,10 +200,12 @@ export default class CreateAccount extends React.Component {
 
                         <View style={{flex:1.5, flexDirection:'column', alignItems:'center', justifyContent:'center'}}>      
                             <View style={{flex:1, flexDirection:'row', marginTop:'2%', justifyContent:'center', alignItems:'center'}}>
-                                {value16.map((item, key)=>(
+                                {this.state.mValue.map((item, key)=>(
                                      <TouchableOpacity style={{paddingStart:'2.5%', paddingEnd:'2.5%'}}
-                                        onPress={() => {this.setState({ thang: item});}}>
-                                     <View style={{backgroundColor:'white', width:RADIUS/10, height:RADIUS/10, borderRadius: RADIUS/10, 
+                                        // onPress={() => {this.setState({ thang: item});}}>
+                                        onPress={()=>{this.setState({thang:item, oldIndex: key, newIndex:key}), 
+                                                this.state.mBackground[key]=false, this.state.mBackground[this.state.oldIndex]=true }}>
+                                     <View style={{ backgroundColor:this.state.mBackground[key]?'white':'#22429C', width:RADIUS/10, height:RADIUS/10, borderRadius: RADIUS/10, 
                                          justifyContent:'center', alignItems:'center', borderWidth:0.5, borderColor:'gray'}}>
                                          <Text style={{textAlign:'center'}}>{item}</Text>
                                      </View>
@@ -201,14 +214,16 @@ export default class CreateAccount extends React.Component {
                             </View>
 
                             <View style={{flex:1, flexDirection:'row',marginTop:'2%', paddingTop:'1%', marginBottom:'2%'}}>
-                                {value712.map((item, key)=>(
-                                     <TouchableOpacity style={{paddingStart:'2.5%', paddingEnd:'2.5%'}}
-                                     onPress={() => {this.setState({ thang: item});}}>
-                                     <View style={{backgroundColor:'white', width:RADIUS/10, height:RADIUS/10, borderRadius: RADIUS/10, 
-                                         justifyContent:'center', alignItems:'center', borderWidth:0.5, borderColor:'gray'}}>
-                                         <Text style={{textAlign:'center'}}>{item}</Text>
-                                     </View>
-                                 </TouchableOpacity>
+                                {this.state.mValue2.map((item, key)=>(
+                                    <TouchableOpacity style={{paddingStart:'2.5%', paddingEnd:'2.5%'}}
+                                        // onPress={() => {this.setState({ thang: item});}}>
+                                        onPress={()=>{this.setState({thang:item, oldIndex: key+6, newIndex:key+6}), 
+                                                this.state.mBackground[key+6]=false, this.state.mBackground[this.state.oldIndex]=true}}>
+                                         <View style={{ backgroundColor:this.state.mBackground[key+6]?'white':'#22429C', width:RADIUS/10, height:RADIUS/10, borderRadius: RADIUS/10, 
+                                            justifyContent:'center', alignItems:'center', borderWidth:0.5, borderColor:'gray'}}>
+                                            <Text style={{textAlign:'center'}}>{item}</Text>
+                                        </View>
+                                    </TouchableOpacity>
                                 ))}
                             </View>
                         </View>
@@ -216,12 +231,14 @@ export default class CreateAccount extends React.Component {
      
                         <View style={{flex:1.5, flexDirection:'row', marginTop:'2%', paddingStart:'2%', paddingEnd:'2%', justifyContent:'center', alignItems:'center'}}>
                                 <View style={{flex:1, flexDirection:'row',marginTop:'2%', paddingTop:'1%', marginBottom:'2%', justifyContent:'center', alignItems:'center'}}>
-                                {year.map((item, key)=>(
-                                     <TouchableOpacity style={{paddingStart:'5%', paddingEnd:'2.5%'}}
-                                        onPress={() => {this.setState({ thang: item});}}>
-                                     <View style={{backgroundColor:'white', width:RADIUS/9, height:RADIUS/9, borderRadius: RADIUS/9, 
-                                         justifyContent:'center', alignItems:'center', borderWidth:0.5, borderColor:'gray', paddingStart:'10%'}}>
-                                         <Text style={{textAlign:'center'}}>{item}</Text>
+                                {this.state.mValue3.map((item, key)=>(
+                                     <TouchableOpacity style={{paddingStart:'2.5%', paddingEnd:'2.5%'}}
+                                        // onPress={() => {this.setState({ thang: item});}}>
+                                        onPress={()=>{this.setState({thang:item, oldIndex: key, newIndex:key}), 
+                                                this.state.mBackground3[key]=false, this.state.mBackground3[this.state.oldIndex]=true}}>
+                                     <View style={{ backgroundColor:this.state.mBackground3[key]?'white':'#22429C', width:RADIUS/10, height:RADIUS/10, borderRadius: RADIUS/10, 
+                                         justifyContent:'center', alignItems:'center', borderWidth:0.5, borderColor:'gray'}}>
+                                         <Text style={{textAlign:'center'}}>{key+1}</Text>
                                      </View>
                                  </TouchableOpacity>
                                 ))}

@@ -4,7 +4,6 @@ import {Text, View, Image, Linking, TouchableNativeFeedback} from 'react-native'
 import styles from './transferCss';
 import LinearGradient from 'react-native-linear-gradient';
 import ViewOverflow from 'react-native-view-overflow';
-import {ConfirmDialog} from 'react-native-simple-dialogs';
 
 class Record extends React.Component{
     render(){ 
