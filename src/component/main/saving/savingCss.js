@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'blue',
     },
     gradient: {
-        flex: 2,
+        flex: 1.5,
         flexDirection: 'row',
         alignItems:'center',
         justifyContent:'space-between'

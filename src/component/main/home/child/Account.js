@@ -19,10 +19,10 @@ class Record extends React.Component{
                     <View style={{flex:3, backgroundColor: '#106ec3', width:'100%', justifyContent:'space-between', 
                         flexDirection:'row'}}> 
                         <View style={{flex: 3, marginLeft:'5%', justifyContent:'center'}}>
-                            <Text style={{fontSize: 15, color:'#fafafa'}}>{this.props.name}</Text>
+                            <Text style={{fontSize: 15, fontWeight:"bold", color:'#fafafa'}}>{this.props.name}</Text>
                         </View>
                         <View style={{flex: 2, marginRight:'2%', justifyContent:'center'}}>
-                            <Text style={{fontSize: 15, color:'#fafafa', alignSelf:'flex-end'}}>{this.props.date}</Text>
+                            <Text style={{fontSize: 15, fontWeight:'bold', color:'#fafafa', alignSelf:'flex-end'}}>{this.props.date}</Text>
                         </View>
                             {/* <Image source={require('./../../../../assets/img/share_icon.png')} style={{width:20, height:20, alignSelf:'flex-end', marginRight:'5%'}}/> */}
                     </View>
@@ -59,39 +59,22 @@ export default class Account extends React.Component {
 
     render(){
         const {navigate} = this.props.navigation;
-        //console.log('navigate 1',navigate);
         return(
             <View style={{flex: 1, flexDirection:'column'}}>
-                {/* Header */}
-                {/* <View style={{flex: 1, alignItems: 'center', width:'100%', height:'100%', justifyContent: 'center',
-                    backgroundColor: 'white', flexDirection:'row'}}>
-                    <View style={{flex: 1}}>
-
-                    </View>
-
-                    <View style={{flex:3, flexDirection:'row', alignItems:'center', justifyContent:'center', margin:'auto'}}>
-                        <Text style={{fontSize: 18}}>Tài khoản thanh toán</Text>
-                    </View>
-                    
-                    <View style={{flex: 1, flexDirection:'row', alignItems:'center', justifyContent:'center', margin:'auto'}}>
-                        <Image source={require('./../../../../assets/img/timer_icon.png')} style={{height: 20, width: 20}}/>
-                    </View>
-                </View> */}
-                {/* Body */}
                 <View style={{flex:13}}>
                     <View style={{flex:1}}>
                         <LinearGradient colors={['#1847a6', '#0d7cce', '#03aff3']} style={{flex:1, flexDirection:'row', 
                                     alignItems:'center', justifyContent:'space-between'}} start={{x: 0, y: 0}} end={{x: 1, y: 0}}>
                                 <View style={{flex:1}}>
-                                    <Text style={{color: 'white', marginStart: 15}}>Tổng số dư</Text>
-                                    <Text style={{color: 'white',paddingStart: 25, fontSize: 15}}>1.123.000 VND</Text>
+                                    <Text style={{color: 'white', marginStart: 15, fontSize: 17, fontWeight: "900"}}>Tổng số dư</Text>
+                                    <Text style={{color: 'white',paddingStart: 25, fontSize: 17, fontWeight: "bold"}}>1.123.000 VND</Text>
                                 </View>
                         </LinearGradient>
                     </View>
 
                     <View style={{flex:7, backgroundColor:'#f5f6f8'}}>
-                            <Record navigate={navigate} title="1315171 - TGTT KHTN (CA NHAN) VND" name="NGUYEN VAN A" surplus="123.000" money="83.000" date="12/01/2018"/>
-                            <Record navigate={navigate} title="2426282 - TGTT SINH VIEN KHTN (CN) VND" name="NGUYEN VAN A" surplus="1.000.000" money="950.000" date="01/05/2019"/>
+                            <Record navigate={navigate} title="1315171 - KHTN (CA NHAN) VND" name="NGUYEN VAN A" surplus="123.000" money="83.000" date="12/01/2018"/>
+                            <Record navigate={navigate} title="2426282 - SINH VIEN KHTN (CN) VND" name="NGUYEN VAN A" surplus="1.000.000" money="950.000" date="01/05/2019"/>
                     </View>
                 </View>
             </View>

@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
     },
     body_top: {
-        flex: 5,
+        flex: 3,
         backgroundColor: '#f4f6f8',
         borderColor: '#f4f8f6',
     },
@@ -33,12 +33,9 @@ const styles = StyleSheet.create({
         flex: 1,
         width: '80%',
         height: '80%',
-        // marginTop: '10%',
-        // marginLeft: '10%',
         borderRadius: 10,
         margin: '10%',
         marginBottom: 0,
-        // justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'white',
         position: 'absolute'

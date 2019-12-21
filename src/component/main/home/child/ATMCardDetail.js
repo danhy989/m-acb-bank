@@ -27,11 +27,11 @@ class Record extends React.Component{
 class HistoryItem extends React.Component{
     render(){
         return(
-            <View style={{marginTop:'3%', height:'25%'}}>
+            <View style={{marginBottom:'2%',height:'28%', paddingTop:'2%', width:'95%', borderRadius: 10, alignSelf:'center'}}>
                 <Text style={{alignSelf:'flex-start', paddingStart:'3%', fontSize:16}}>{this.props.date}</Text>
                 <View style={{flexDirection: 'column', marginTop: '1%', height: '80%',width: '100%', alignSelf:'center',
-                    backgroundColor: 'white'}}>                   
-                    <Text style={{flex:1, width:'80%', paddingStart:'3%', paddingTop:'3%', fontSize:17}}>{this.props.content}</Text>
+                    backgroundColor: 'white', borderRadius:10}}>                   
+                    <Text style={{flex:1, width:'100%', paddingStart:'3%', paddingTop:'2%', fontSize:17}}>{this.props.content}</Text>
                     <Text style={{flex:1, alignSelf:'flex-end', paddingTop:'3%', paddingBottom:'2%', paddingEnd:'2%',
                                 color:'#146EC3', fontWeight:'900', fontSize: 18}}>{this.props.money}</Text>
                 </View>
@@ -69,7 +69,7 @@ export default class ATMCardDetail extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            // navigate = this.props.navigation
         };
       }
 
@@ -98,20 +98,20 @@ export default class ATMCardDetail extends React.Component {
             <View style={{flex:1, alignItems:'center', backgroundColor: '#f4f6f8', flexDirection:'column'}}>
                 <Record stk={this.state.stk} name={this.state.name} status={this.state.status} 
                     />
-                <View style={{flex: 4, backgroundColor:'#f4f6f8', marginTop:'2%', flexDirection:'column'}}>
+                <View style={{flex: 3.5, backgroundColor:'#f4f6f8', marginTop:'2%', flexDirection:'column'}}>
                     <TouchableOpacity style={{flex: 1, width:'100%'}}
                         onPress={() => {this.setState({ visible: true });}}>
                         <TextIcon index="0" text="Khóa thẻ"/>
                     </TouchableOpacity>
                 </View>
-                <View style={{flex: 2, backgroundColor:'white', marginTop: '2%', flexDirection: 'row'}}>
+                <View style={{flex: 1.5, backgroundColor:'white', marginTop: '2%', flexDirection: 'row'}}>
                         <View style={{flex: 2, flexDirection:'row', alignItems:'center'}}>
                             <Image source={require('../../../../assets/img/timer_icon.png')} 
                                 style={{width: 20, height:20, marginLeft:'5%'}}></Image>
                             <Text style={{paddingLeft:'2%'}}>Giao dịch 40 ngày gần nhất</Text>
                         </View>
                 </View>
-                <View style={{flex: 9, backgroundColor:'#f4f6f8', width:'100%',marginTop: '2%'}}>
+                <View style={{flex: 9, backgroundColor:'#f4f6f8', width:'100%'}}>
                     <ScrollView style={{flexDirection:'column'}}>
                         <HistoryItem date="01/05/2019" content="Rút tiền tại ATM CHO THU DUC" money="- 500.000 VND"></HistoryItem>
                         <HistoryItem date="13/08/2019" content="Chuyển tiền từ ATM CHO THU DUC" money="- 200.000 VND"></HistoryItem>
@@ -136,7 +136,7 @@ export default class ATMCardDetail extends React.Component {
                                 <View style={{flex: 1, alignItems:'center', justifyContent:'center',
                                         width: '100%', borderRadius: 10, marginTop:'2%'}}>
                                     <TouchableOpacity style={{ backgroundColor:'#21439C', width:'40%', height:'100%', justifyContent:'center', alignItems:'center', borderRadius:30}}
-                                        onPress={this.handleClick}>
+                                        onPress={() => {this.handleClick(),navigate("ATMCard")}}>
                                         {/* onPress={() => {this.setState({ visible: false, status: 1 });}}> */}
                                         <Text style={{color:'white'}}>Xác nhận</Text>
                                     </TouchableOpacity>

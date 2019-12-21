@@ -93,8 +93,8 @@ export default class HomeScreen extends React.Component {
                         </View>
                     </View>
                     <View style={styles.body_bottom}>
-                    <View style={{flex:1, flexDirection:'row'}}>
 
+                    <View style={{flex:1, flexDirection:'row'}}>
                     <TouchableNativeFeedback onPress={() => navigate('Account')} navigate={navigate}>
                         <LinearGradient colors={['#1844a4', '#1673c2', '#14a6e2']} style={styles.linearGradient_payment}>
                                 <Text style={{position:'absolute', color:'white', paddingTop: '8%', fontSize: Dimensions.get('window').width/22}}>Tài khoản</Text>
@@ -103,21 +103,22 @@ export default class HomeScreen extends React.Component {
                                 <Text style={{position:'absolute', color:'white', bottom: 0, fontSize: Dimensions.get('window').width/24}}>VND</Text>
                         </LinearGradient>
                     </TouchableNativeFeedback>
-                    
-                    <LinearGradient colors={['#d2e705', '#a6dd49', '#77d38f']} style={styles.linearGradient_saving}>
+
+                    <TouchableNativeFeedback onPress={() => navigate('Saving')} navigate={navigate}>
+                        <LinearGradient colors={['#d2e705', '#a6dd49', '#77d38f']} style={styles.linearGradient_saving}>
                             <Text style={{position:'absolute', color:'white', paddingTop: '10%', fontSize: Dimensions.get('window').width/24}}>Tài khoản</Text>
                             <Text style={{position:'absolute', color:'white', paddingTop: '25%', fontSize: Dimensions.get('window').width/23}}>Tiết kiệm</Text>
-                            <TouchableOpacity
-                                onPress={() => navigation.navigate('Saving')}>
-                                <Text style={{position:'absolute', color:'white', paddingTop: '45%', fontSize: Dimensions.get('window').width/26, alignSelf:'center'}}>Xem chi tiết</Text>       
-                            </TouchableOpacity>
-                    </LinearGradient>
+                            <Text style={{position:'absolute', color:'white', paddingTop: '45%', fontSize: Dimensions.get('window').width/26, alignSelf:'center'}}>Xem chi tiết</Text>       
+                        </LinearGradient>
+                    </TouchableNativeFeedback>
                     </View>
-                    <View style={{flex: 1, flexDirection:'row'}}>
 
-                    <LinearGradient colors={['#9bacc7', '#8d9eb9', '#7789a5']} style={styles.linearGradient_loan}>
-                            <Text style={{color:'white', fontSize: Dimensions.get('window').width/22, fontWeight:'bold', paddingBottom: '20%'}}>Chuyển tiền</Text>
-                    </LinearGradient>  
+                    <View style={{flex: 1, flexDirection:'row'}}>
+                    <TouchableNativeFeedback onPress={() => navigate('Transfer')} navigate={navigate}>
+                        <LinearGradient colors={['#9bacc7', '#8d9eb9', '#7789a5']} style={styles.linearGradient_loan}>
+                            <Text style={{color:'white', fontSize: Dimensions.get('window').width/23, fontWeight:'bold', paddingBottom: '20%'}}>Chuyển tiền</Text>
+                        </LinearGradient>  
+                    </TouchableNativeFeedback>
 
                     <TouchableNativeFeedback onPress={() => navigate('ATMCard')} navigate={navigate}>
                         <LinearGradient colors={['#05b2f5', '#2dc4fa', '#4dd6ff']} style={styles.linearGradient_card}>

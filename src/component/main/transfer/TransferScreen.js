@@ -16,7 +16,7 @@ class Record extends React.Component{
         return(
             <TouchableNativeFeedback onPress={()=>navigate(this.props.nameScreen)}>
                 <View style={{flexDirection: 'row', alignSelf:'flex-start', width: '90%', height: 35,  borderBottomColor: '#f4f6f8', 
-                            marginStart: '5%', borderBottomWidth: 1, marginTop: '5%'}}>
+                            marginStart: '5%', borderBottomWidth:this.props.stt==2 ? 0:1, marginTop: '5%'}}>
                         <Image source={image[this.props.stt]} style={{flex: 1, marginBottom: 5, width: 30, height: 30,resizeMode:'center'}}></Image>
                         <View style={{ flex: 8, flexDirection: 'row', justifyContent: 'flex-start', paddingStart: '5%'}}>
                             <Text style={{paddingTop: 5, paddingStart: 5, fontSize: 15}}>{this.props.content}</Text>
@@ -30,31 +30,10 @@ class Record extends React.Component{
     }
 }
 export default class TransferScreen extends React.Component {
-    static navigationOptions = ({navigation}) => {
-        const { params = {} } = navigation.state;
-        let tabBarLabel = "Chuyển tiền";
-        let tabBarIcon = ({ focused }) =>  (
-            focused
-            ? <Image source={require('../../../assets/img/transfer_onfocus_icon.png')} size={25} style={{marginBottom: 5}}/>
-            : <Image source={require('../../../assets/img/transfer_icon.png')} size={30} style={{marginBottom: 5}} /> 
-          );
-        return {tabBarLabel, tabBarIcon};
-    }
-    
-    constructor() {
-        super();
-        this.state = {
-           
-        };
-    }
-
     render() {
         const {navigate} = this.props.navigation;
           return (
             <View style={styles.container}>
-                <View style={styles.header}>              
-                    <Text>Chuyển tiền</Text>
-                </View>
                 <View style={styles.body_top}>
                     <LinearGradient colors={['#73acf7', '#82c0f9', '#90d3fb']} style={styles.gradient}
                          start= {{ x: 0, y: 0 }}

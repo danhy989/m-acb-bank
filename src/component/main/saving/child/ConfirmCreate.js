@@ -8,8 +8,8 @@ class Item extends React.Component{
     render(){
         return(
             <View style={{flex:1.25, flexDirection:'row', alignItems:'center'}}>
-                <Text style={{width:'50%', paddingStart:'2%',  color:'#A0A0A0'}}>{this.props.context}</Text>
-                <Text style={{width:'50%', paddingEnd:'2%', color:'#22429C', textAlign:'right'}}>{this.props.value}</Text>
+                <Text style={{width:'50%', paddingStart:'2%',  color:'#A0A0A0', fontSize: 16}}>{this.props.context}</Text>
+                <Text style={{width:'50%', paddingEnd:'2%', color:'#22429C', textAlign:'right', fontSize: 16, fontWeight:'900'}}>{this.props.value}</Text>
             </View>
         )
     }
@@ -85,36 +85,36 @@ export default class ConfirmCreate extends React.Component {
                         flexDirection:'column', marginTop:'3%', marginStart:'2%', marginEnd:'2%', alignItems:'center'}}>
                         <View style={{flex:1, width:'95%', flexDirection:'column', borderBottomWidth:1, borderBottomColor:'#EDEDED'}}>
                             <View>
-                                <Text style={{paddingTop:'2%', color:'#676767'}}>Tên tiền gửi</Text>
+                                <Text style={{paddingTop:'2%', color:'#676767', fontSize:16}}>Tên tiền gửi</Text>
                                 <Text style={{paddingTop:'1%', color:'#22429C', fontWeight:'bold', fontSize:17}}>{"KHTN " +this.state.thang+"T VND"}</Text>
                             </View>
                         </View>
 
                         <View style={{flex:1, width:'95%', flexDirection:'row', borderBottomWidth:1, borderBottomColor:'#EDEDED'}}>
                             <View style={{width:'50%', height:'90%', borderRightWidth:1, borderRightColor:'#EDEDED', marginTop:'2%'}}>
-                                <Text style={{color:'#676767'}}>Kỳ hạn</Text>
-                                <Text style={{paddingTop:'1%', color:'#22429C', fontWeight:'bold', fontSize:17}}>{this.state.thang + " tháng"}</Text>
+                                <Text style={{paddingTop:'1%', paddingLeft:'1%', color:'#676767', fontSize: 17}}>Kỳ hạn</Text>
+                                <Text style={{paddingTop:'3%', color:'#22429C', fontWeight:'bold', fontSize:17, alignSelf:'flex-end', paddingEnd: '5%'}}>{this.state.thang + " tháng"}</Text>
                             </View>
                             <View style={{width:'50%', marginTop:'2%', marginStart:'2%'}}>
-                                <Text style={{color:'#676767'}}>Lãi suất</Text>
-                                <Text style={{paddingTop:'1%', color:'#22429C', fontWeight:'bold', fontSize:17}}>{this.state.laisuat+"%/tháng"}</Text>
+                                <Text style={{paddingTop:'1%', paddingLeft:'1%', color:'#676767', fontSize: 17}}>Lãi suất</Text>
+                                <Text style={{paddingTop:'3%', color:'#22429C', fontWeight:'bold', fontSize:17, alignSelf:'flex-end', paddingEnd: '5%'}}>{this.state.laisuat+"%/tháng"}</Text>
                             </View>
                         </View>
 
                         <View style={{flex:1, width:'95%', flexDirection:'row', marginBottom:'2%'}}>
                             <View style={{width:'50%', borderRightWidth:1, borderRightColor:'#EDEDED', height:'80%', marginBottom:'3%'}}>
-                                <Text style={{paddingTop:'3%', color:'#676767'}}>Bắt đầu</Text>
-                                <Text style={{paddingTop:'1%', color:'#22429C', fontWeight:'bold', fontSize:17}}>{this.state.now}</Text>
+                                <Text style={{paddingTop:'3%', paddingLeft:'1%', color:'#676767', fontSize: 17}}>Bắt đầu</Text>
+                                <Text style={{paddingTop:'3%', color:'#22429C', fontWeight:'bold', fontSize:17, alignSelf:'flex-end', paddingEnd: '5%'}}>{this.state.now}</Text>
                             </View>
                             <View style={{width:'50%', marginTop:'2%', marginStart:'2%'}}>
-                                <Text style={{color:'#676767'}}>Đáo hạn</Text>
-                                <Text style={{paddingTop:'1%', color:'#22429C', fontWeight:'bold', fontSize:17}}>{this.state.after}</Text>
+                                <Text style={{paddingLeft:'1%', color:'#676767', fontSize: 17}}>Đáo hạn</Text>
+                                <Text style={{paddingTop:'3%', color:'#22429C', fontWeight:'bold', fontSize:17, alignSelf:'flex-end', paddingEnd: '5%'}}>{this.state.after}</Text>
                             </View>
                         </View>
                    </View>
                 </View>
 
-                <View style={{flex:2, backgroundColor:'#f5f6f8', flexDirection:'column', alignItems:'center'}}>
+                <View style={{flex:2.25, backgroundColor:'#f5f6f8', flexDirection:'column', alignItems:'center'}}>
                     <View style={{width:'90%', marginTop:'3%', height:'90%', borderRadius:10, backgroundColor:'white',
                         flexDirection:'column', marginStart:'2%', marginEnd:'2%'}}>
                             <View style={{flex:1.35, flexDirection:'column', borderBottomWidth:1, borderBottomColor:'#EDEDED',paddingBottom:'2%'}}>
@@ -122,17 +122,15 @@ export default class ConfirmCreate extends React.Component {
                                 <Item context="Tiền lãi dự kiến" value={parseFloat(this.state.sotien) * this.state.thang*parseFloat(this.state.laisuat)/100 + " VND"}></Item>
                             </View>
 
-                            <View style={{flex:0.65, marginTop:'3%', flexDirection:'row'}}>
-                                <Text style={{width:'50%', paddingStart:'2%', color:'#A0A0A0'}}>Tiền nhận dự kiến</Text>
-                                <Text style={{width:'50%', paddingEnd:'2%', color:'#22429C', textAlign:'right'}}>{parseFloat(this.state.sotien) + this.state.thang*(parseFloat(this.state.sotien)*(this.state.laisuat/100)) + " VND"}</Text>
+                            <View style={{flex:0.85, marginTop:'3%', flexDirection:'row'}}>
+                                <Text style={{width:'50%', paddingStart:'2%', color:'#A0A0A0', fontSize: 17}}>Tiền nhận dự kiến</Text>
+                                <Text style={{width:'50%', paddingEnd:'2%', color:'#22429C', textAlign:'right', fontSize: 17, fontWeight:'bold'}}>{parseFloat(this.state.sotien) + this.state.thang*(parseFloat(this.state.sotien)*(this.state.laisuat/100)) + " VND"}</Text>
                             </View>
-
-                            
                     </View>
                 </View>
                 
                 <View style={{flex:2.5, backgroundColor:'#f5f6f8', flexDirection:'column', alignItems:'center'}}>
-                    <View style={{flex:1, marginTop:'3%', marginStart:'5%', alignSelf:'flex-start'}}>
+                    <View style={{flex:0.5, marginTop:'3%', marginStart:'5%', alignSelf:'flex-start'}}>
                         <Text style={{alignSelf:'flex-start'}}>Xử lý khi đáo hạn</Text>
                     </View>
                     <View style={{flex:4, width:'90%', height:'95%', borderRadius:10, backgroundColor:'white', justifyContent:'center',

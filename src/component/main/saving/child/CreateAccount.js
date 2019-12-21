@@ -5,74 +5,6 @@ import Metrics from '../../../../common/Metrics';
 
 const RADIUS = Dimensions.get('window').width;
 
-class ActiveItem extends React.Component{
-    constructor(){
-        super();
-        this.state={
-            array:[
-                {value: 1, active:true},
-                {value: 2, active:true},
-                {value: 3, active:true},
-                {value: 4, active:true},
-                {value: 5, active:true},
-                {value: 6, active:true},
-                {value: 7, active:true},
-                {value: 8, active:true},
-                {value: 9, active:true},
-                {value: 10, active:true},
-                {value: 11, active:true},
-                {value: 12, active:true},
-                {value: 12, active:true},
-                {value: 24, active:true},
-                {value: 36, active:true}
-            ]
-        }
-    }
-    handleClick= ()=>{
-        this.props.handleClick(1);
-    }
-    render(){
-
-        return(
-            <TouchableOpacity style={{paddingStart:'2.5%', paddingEnd:'2.5%'}}
-                // onPress={() => {this.setState({ visible: true });}}> 
-                onPress={this.handleClick}
-                >  
-                <View style={{backgroundColor:this.state.array[this.props.index].active?'white':'#183AB4', width:RADIUS/10, height:RADIUS/10, borderRadius: RADIUS/10, 
-                    justifyContent:'center', alignItems:'center', borderWidth:0.5, borderColor:'gray'}}>
-                    <Text style={{textAlign:'center'}}>{this.state.array[this.props.index].value}</Text>
-                    {/* <Text style={{textAlign:'center'}}>{this.props.array[this.props.index].active}</Text> */}
-                </View>
-            </TouchableOpacity>
-        )
-      
-    }
-}
-
-// class DeactiveItem extends React.Component{
-//     // componentDidMount() {
-//     //     const { navigation } = this.props;
-//     //     this.setState({
-//     //         handleClickParent: navigation.handle
-//     //     })
-//     // }
-//     render(){
-//         return(
-//             <TouchableOpacity style={{flex: 1}}
-//             // onPress={() => {this.setState({ visible: true });}}> 
-//                     onPress={this.props.handle(this.props.index)}
-//                     >
-//                 <View style={{backgroundColor:this.props.background, width:RADIUS/10, height:RADIUS/10, borderRadius: RADIUS/10, 
-//                        justifyContent:'center', alignItems:'center'}}>
-//                    <Text style={{textAlign:'center'}}>1</Text>
-//                 </View>
-//             </TouchableOpacity>
-//         )
-//     }
-// }
-
-
-
 class Item extends React.Component{
     render(){ 
         return(
@@ -158,7 +90,7 @@ export default class CreateAccount extends React.Component {
                         <View style={{flexDirection: 'row', alignSelf:'flex-start', width: '95%', height: 35,  borderBottomColor: '#f4f6f8', 
                                 marginStart: '2%',marginEnd:0, borderBottomWidth: 1, marginTop:'2%', marginBottom: '2%'}}>
                             <View style={{ flex: 9, flexDirection: 'row', justifyContent: 'flex-start',}}>
-                                <TextInput style={{width:'80%'}} keyboardType='numeric'
+                                <TextInput style={{width:'80%'}} keyboardType='decimal-pad'
                                     onChangeText={(sotien) => this.setState({sotien})}
                                     value={this.state.sotien}
                                 ></TextInput>
@@ -168,7 +100,7 @@ export default class CreateAccount extends React.Component {
                             </View>
                         </View>
                         <View style={{alignSelf:'flex-end', marginBottom:'2%'}}>
-                            <Text style={{paddingRight:'2%', color:'#444444', fontStyle:'italic'}}>Tối thiểu là 1.000.000 VND</Text>
+                            <Text style={{paddingRight:'2%', color:'gray', fontStyle:'italic'}}>Tối thiểu là 1.000.000 VND</Text>
                         </View>
                     </View>
 
@@ -177,7 +109,7 @@ export default class CreateAccount extends React.Component {
                            margin:'5%', marginTop:'2%',backgroundColor: 'white'}}>
                         <View style={{flex:0.5, width:'100%'}}>
                             <View style={{flex:1, flexDirection:'row', backgroundColor:'white', alignItems:'center'}}>
-                                <TouchableOpacity style={{flex: 1, backgroundColor:this.state.showMonth?'white':'#617D8A'}}
+                                <TouchableOpacity style={{flex: 1, backgroundColor:this.state.showMonth?'white':'#DCE0EB'}}
                                     onPress={() => {this.state.mBackground[this.state.newIndex]=true, 
                                         this.setState({newIndex:-1,showMonth: true, laisuat:5});
                                     }}>  
@@ -190,7 +122,7 @@ export default class CreateAccount extends React.Component {
                                     onPress={() => {this.state.mBackground3[this.state.newIndex]=true,
                                         this.setState({newIndex:-1,showMonth: false, laisuat: 7});
                                     }}>  
-                                <View style={{flex:1, backgroundColor:this.state.showMonth?'#617D8A':'white', alignItems:'center', justifyContent:'center'}}>
+                                <View style={{flex:1, backgroundColor:this.state.showMonth?'#DCE0EB':'white', alignItems:'center', justifyContent:'center'}}>
                                     <Text style={{textAlign:'center', color:this.state.showMonth?'white':'#22429C', fontSize:16,fontWeight:'900'}}>Năm</Text>
                                 </View>
                                 </TouchableOpacity>
@@ -207,7 +139,7 @@ export default class CreateAccount extends React.Component {
                                                 this.state.mBackground[key]=false, this.state.mBackground[this.state.oldIndex]=true }}>
                                      <View style={{ backgroundColor:this.state.mBackground[key]?'white':'#22429C', width:RADIUS/10, height:RADIUS/10, borderRadius: RADIUS/10, 
                                          justifyContent:'center', alignItems:'center', borderWidth:0.5, borderColor:'gray'}}>
-                                         <Text style={{textAlign:'center'}}>{item}</Text>
+                                         <Text style={{textAlign:'center', fontWeight:'bold',color:this.state.mBackground[key]?'#183AB4':'white'}}>{item}</Text>
                                      </View>
                                  </TouchableOpacity>
                                 ))}
@@ -221,7 +153,7 @@ export default class CreateAccount extends React.Component {
                                                 this.state.mBackground[key+6]=false, this.state.mBackground[this.state.oldIndex]=true}}>
                                          <View style={{ backgroundColor:this.state.mBackground[key+6]?'white':'#22429C', width:RADIUS/10, height:RADIUS/10, borderRadius: RADIUS/10, 
                                             justifyContent:'center', alignItems:'center', borderWidth:0.5, borderColor:'gray'}}>
-                                            <Text style={{textAlign:'center'}}>{item}</Text>
+                                            <Text style={{textAlign:'center', fontWeight:'bold',color:this.state.mBackground[key+6]?'#183AB4':'white'}}>{item}</Text>
                                         </View>
                                     </TouchableOpacity>
                                 ))}
@@ -238,7 +170,7 @@ export default class CreateAccount extends React.Component {
                                                 this.state.mBackground3[key]=false, this.state.mBackground3[this.state.oldIndex]=true}}>
                                      <View style={{ backgroundColor:this.state.mBackground3[key]?'white':'#22429C', width:RADIUS/10, height:RADIUS/10, borderRadius: RADIUS/10, 
                                          justifyContent:'center', alignItems:'center', borderWidth:0.5, borderColor:'gray'}}>
-                                         <Text style={{textAlign:'center'}}>{key+1}</Text>
+                                         <Text style={{textAlign:'center', fontWeight:'bold',color:this.state.mBackground3[key]?'#183AB4':'white'}}>{key+1}</Text>
                                      </View>
                                  </TouchableOpacity>
                                 ))}

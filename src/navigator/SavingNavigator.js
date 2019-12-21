@@ -69,7 +69,8 @@ const RootStack = createStackNavigator({
                 height:Metrics.navigationBarHeight,
             },
         })
-  },
+    }
+    ,
 })
 
 
@@ -78,7 +79,7 @@ const SavingNavigator = createAppContainer(RootStack);
 SavingNavigator.navigationOptions=({navigation}) =>{
     let tabBarVisible = true;
     let routeName = navigation.state.routes[navigation.state.index].routeName
-    if ( routeName == 'CreateAccount' || routeName == 'ConfirmCreateSaving') {
+    if ( routeName == 'CreateAccount' || routeName == 'ConfirmCreateSaving' || routeName == 'Detail') {
         tabBarVisible = false
     }
     return {

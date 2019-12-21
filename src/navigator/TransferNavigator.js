@@ -11,8 +11,16 @@ const RootStack = createStackNavigator({
     TransferScreen:{
         screen: TransferScreen,
         navigationOptions: {
-            header: null,
-        }
+            title:'Chuyển tiền',
+            headerTitleStyle:{
+                textAlign:"center",
+                flex: 1,
+                fontSize:17,
+            },
+            headerStyle:{
+                height:Metrics.navigationBarHeight,
+            },
+        }, 
     },
 
     TKNH:{

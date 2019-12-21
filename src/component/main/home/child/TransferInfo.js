@@ -16,7 +16,7 @@ class TextIcon extends React.Component{
             },
             {
                 "text" : "Tiết kiệm",
-                "src" : require('../../../../assets/img/src_assets_ic_plus_ic_plus.png'),
+                "src" : require('../../../../assets/img/saving_icon2.png'),
                 "left": '0%',
                 "right": '0%',
             },
@@ -40,11 +40,11 @@ class TextIcon extends React.Component{
 class HistoryItem extends React.Component{
     render(){
         return(
-            <View style={{marginTop:'3%', height:'25%'}}>
+            <View style={{marginBottom:'2%',height:'28%', paddingTop:'2%', width:'95%', borderRadius: 10, alignSelf:'center'}}>
                 <Text style={{alignSelf:'flex-start', paddingStart:'3%', fontSize:16}}>{this.props.date}</Text>
                 <View style={{flexDirection: 'column', marginTop: '1%', height: '80%',width: '100%', alignSelf:'center',
-                    backgroundColor: 'white'}}>                   
-                    <Text style={{flex:1, width:'70%', paddingStart:'3%', paddingTop:'3%', fontSize:17}}>{this.props.content}</Text>
+                    backgroundColor: 'white', borderRadius:10}}>                   
+                    <Text style={{flex:1, width:'70%', paddingStart:'3%', paddingTop:'2%', fontSize:17}}>{this.props.content}</Text>
                     <Text style={{flex:1, alignSelf:'flex-end', paddingTop:'3%', paddingBottom:'2%', paddingEnd:'2%',
                                 color:'#146EC3', fontWeight:'900', fontSize: 18}}>{this.props.money}</Text>
                 </View>
@@ -67,10 +67,10 @@ class Record extends React.Component{
                     <View style={{flex:3, backgroundColor: '#106ec3', width:'100%', justifyContent:'space-between', 
                         flexDirection:'row'}}>
                         <View style={{flex: 3, marginLeft:'5%', justifyContent:'center'}}>
-                            <Text style={{fontSize: 15, color:'#fafafa'}}>{this.props.name}</Text>
+                            <Text style={{fontSize: 15, fontWeight:'bold', color:'#fafafa'}}>{this.props.name}</Text>
                         </View>
                         <View style={{flex: 2, marginRight:'2%', justifyContent:'center'}}>
-                            <Text style={{fontSize: 15, color:'#fafafa', alignSelf:'flex-end'}}>{this.props.date}</Text>
+                            <Text style={{fontSize: 15, fontWeight:'bold', color:'#fafafa', alignSelf:'flex-end'}}>{this.props.date}</Text>
                         </View>
                     </View>
 
@@ -135,11 +135,11 @@ export default class TransferInfo extends React.Component {
                         <View style={{flex:1, width:'100%', backgroundColor:'white', marginTop: '2%', flexDirection: 'row'}}>
                                 <View style={{flex: 2, flexDirection:'row', alignItems:'center'}}>
                                     <Image source={require('../../../../assets/img/timer_icon.png')} 
-                                        style={{width: 20, height:20, marginLeft:'5%'}}></Image>
+                                        style={{width: 20, height:20, marginLeft:'3%'}}></Image>
                                     <Text style={{paddingLeft:'2%'}}>Lịch sử giao dịch</Text>
                                 </View>
                         </View>
-                        <View style={{flex:8 }}>
+                        <View style={{flex:8}}>
                             <ScrollView style={{flexDirection:'column'}}>
                                     <HistoryItem date="01/05/2019" content="Nạp tiền vào ví Momo" money="- 50.000 VND"></HistoryItem>
                                     <HistoryItem date="13/08/2019" content="Rút tiền từ ví Momo" money="+ 100.000 VND"></HistoryItem>
