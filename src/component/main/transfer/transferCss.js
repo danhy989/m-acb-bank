@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     body_content:{
         flex: 1,
         width: '80%',
-        height: '80%',
+        height: '70%',
         borderRadius: 10,
         margin: '10%',
         marginBottom: 0,

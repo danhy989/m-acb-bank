@@ -64,7 +64,7 @@ export default class CreateAccount extends React.Component {
         const {navigate} = this.props.navigation;
         return (
             <View style={{flex:1}}>
-                <TouchableOpacity style={{flex: 1}}
+                <TouchableOpacity style={{flex: 0.8}}
                     onPress={() => {
                     this.setState({ visible: true });
                     }}>   
@@ -180,7 +180,7 @@ export default class CreateAccount extends React.Component {
                     </View>
 
                     <View style={{flex: 2.25, width: '90%', height: '90%', borderRadius: 10, alignItems: 'center', 
-                           marginStart:'5%', marginEnd:'5%', backgroundColor: 'white'}}>
+                           marginStart:'5%', marginEnd:'5%', backgroundColor: 'white', justifyContent:'space-between'}}>
                             <Item title="Tên tài khoản" value={"KHTN " +this.state.thang+"T VND"}></Item>
                             <Item title="Lãi suất" value={this.state.laisuat+"%/tháng"}></Item>
                             <Item title="Tiền lãi hàng tháng" value={parseFloat(this.state.sotien) * parseFloat(this.state.laisuat)/100 + " VND"}></Item>
