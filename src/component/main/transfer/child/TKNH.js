@@ -17,7 +17,11 @@ class Record extends React.Component {
   render() {
     const {navigate} = this.props;
     return (
-      <TouchableNativeFeedback onPress={() => navigate('ListBank')}>
+      <TouchableNativeFeedback onPress={() => {
+        if(this.props.noNavigate!==true){
+          navigate("ListBank");
+        }
+      }}>
         <View
           style={{
             flexDirection: 'row',
@@ -90,8 +94,26 @@ export default class TKNH extends React.Component {
       text: '',
       showComponent: false,
       isOnline: null,
+      bankName : "ACB - NH TMCP A CHAU",
+      cardNo : '',
+      fullName : ''
     };
     this.onIconClick = this.onIconClick.bind(this);
+  }
+
+  componentDidMount(){
+    //console.log('adas',this.props);
+    const {params} = this.props.navigation.state;
+    //console.log(params);
+    if(params){
+      if(params.fullName){
+        this.setState({
+          bankName:params.bankName,
+          cardNo:params.cardNo,
+          fullName:params.fullName
+        });
+      }
+    }
   }
 
   onIconClick() {
@@ -103,6 +125,7 @@ export default class TKNH extends React.Component {
 
   render() {
     const {navigate} = this.props.navigation;
+    //console.log(this.state);
     return (
       <ScrollView
         style={{flexDirection: 'column'}}
@@ -183,8 +206,8 @@ export default class TKNH extends React.Component {
               backgroundColor: 'white',
             }}>
             <Text style={{alignSelf:'flex-start',marginTop:5,marginLeft:5,color:'#97979B'}}>Ngân hàng</Text>
-            <Record navigate={navigate} content="ACB - NH TMCP A CHAU"></Record>
-            <Record2 content="Số tài khoản nhận"></Record2>
+            <Record navigate={navigate} content={this.state.bankName}></Record>
+            <Record2 content={this.state.cardNo}></Record2>
           </View>
           <Text style={{marginTop: '2%', marginStart: '2%'}}>
             Thời gian chuyển tiền
@@ -201,7 +224,7 @@ export default class TKNH extends React.Component {
               marginBottom: '2%',
               backgroundColor: 'white',
             }}>
-            <Record navigate={navigate} content="Chuyển ngay"></Record>
+            <Record navigate={navigate} content="Chuyển ngay" noNavigate={true}></Record>
           </View>
           <Text style={{marginTop: '2%', marginStart: '2%'}}>Số tiền</Text>
           <View

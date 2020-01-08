@@ -1,9 +1,10 @@
 
 import React, {Component} from 'react';
-import {Text, View, Image, Linking, TouchableNativeFeedback} from 'react-native';
+import {Text, View, Image, Linking, TouchableNativeFeedback, ScrollView} from 'react-native';
 import styles from './transferCss';
 import LinearGradient from 'react-native-linear-gradient';
 import ViewOverflow from 'react-native-view-overflow';
+import Metrics from '../../../common/Metrics';
 
 class Record extends React.Component{
     render(){ 
@@ -29,6 +30,36 @@ class Record extends React.Component{
         );
     }
 }
+
+class HumanListRecord extends Component{
+    render(){
+        const {navigate} = this.props;
+        return(
+            <TouchableNativeFeedback onPress={()=>navigate('TKNH',{
+                fullName:this.props.fullName,
+                bankName:this.props.bankName,
+                cardNo:this.props.cardNo
+            })}>
+                <View style={{flexDirection:'row',height:100,width:Metrics.screenWidth-(Metrics.PADDING_HORIZONTAL*2)}}>
+                <View style={{flex:1,justifyContent:'center'}}>
+                    <View style={{backgroundColor:'#3396D8',width:50,height:50,borderRadius:50,alignSelf:'center',justifyContent:'center',alignItems:'center'}}>
+        <Text style={{color:'#FFF'}}>{this.props.shortName}</Text>
+                    </View>
+                </View>
+                <View style={{flex:4,paddingVertical:'5%',paddingHorizontal:'5%'}}>
+                    <Text style={{color:'#7E94C9',fontWeight:'bold'}}>{this.props.fullName}</Text>
+                    <View style={{flexDirection:'row',marginVertical:'1%'}}>
+                        <Image source={require('../../../assets/img/src_assets_transfers_ic_bank_blue_21_ic_bank_blue_21.png')} style={{resizeMode:'center',height:'70%',width:'5%'}}></Image>
+                        <Text style={{marginLeft:'5%'}}>{this.props.cardNo}</Text>
+                    </View>
+                    <Text style={{color:'#939393'}}>{this.props.bankName}</Text>
+                </View>
+            </View>
+            </TouchableNativeFeedback>
+        );
+    }
+}
+
 export default class TransferScreen extends React.Component {
     render() {
         const {navigate} = this.props.navigation;
@@ -60,14 +91,19 @@ export default class TransferScreen extends React.Component {
 
                         <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end'}}>
                             <Text style={{color: '#5a92d8', paddingTop: 5, paddingRight: 5, fontSize: 15}}
-                                onPress={() => Linking.openURL('http://google.com')}>
+                                onPress={() => {}}>
                                 Xem tất cả  >
                             </Text>
                         </View>
                     </View>
-
                     <View style={styles.body_content_bottom}>
-                        <Text style={{padding:0}}>Không có dữ liệu</Text>
+                        <ScrollView>
+                            <HumanListRecord navigate={navigate} shortName="DA" fullName="VU NGOC DUY ANH" cardNo="22091998" bankName="ACB - NH TMCP A CHAU"/>
+                            <HumanListRecord navigate={navigate} shortName="AD" fullName="VU NGOC ANH DUY" cardNo="14022019" bankName="Đông Á Bank - NH Đông Á"/>
+                            <HumanListRecord navigate={navigate} shortName="ND" fullName="VU ANH NGOC DUY" cardNo="24213222" bankName="Saigonbank - Sài Gòn Công Thương"/>
+                            <HumanListRecord navigate={navigate} shortName="DA" fullName="NGOC VU DUY ANH" cardNo="14215255" bankName="ACB - NH TMCP A CHAU"/>
+                            <HumanListRecord navigate={navigate} shortName="ND" fullName="ANH VU NGOC DUY" cardNo="12787533" bankName="ACB - NH TMCP A CHAU"/>
+                        </ScrollView>
                     </View>
                 </View>
             </View>   

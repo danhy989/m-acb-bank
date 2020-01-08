@@ -20,9 +20,9 @@ export default class CardItem extends React.Component {
       return (
         <TouchableNativeFeedback onPress={() => navigate(this.props.name)}>
           <View style={{ flex: 1, flexDirection: 'row', width: Metrics.screenWidth - PADDING_HORIZONTAL * 2, height: _height, alignItems: 'center' ,marginVertical:10}}>
-            {/* <Image style={{ flex: 1, height: '40%' , marginHorizontal:PADDING_HORIZONTAL }} source={this.props.img} resizeMode="contain"></Image> */}
+            <Image style={{ flex: 1, height: '40%' , marginHorizontal:PADDING_HORIZONTAL }} source={this.props.img} resizeMode="contain"></Image>
             <Text style={{ flex: 7, fontSize: 16 }}>{this.props.text}</Text>
-            <Image style={{ flex: 1, height: 20 }} source={require("../assets/img/src_assets_ic_arrow_forward_ic_arrow_forward.png")} resizeMode="contain"></Image>
+            <Image style={{ flex: 1, height: 20 }} source={require("..//assets/img/src_assets_ic_arrow_forward_ic_arrow_forward.png")} resizeMode="contain"></Image>
           </View>
         </TouchableNativeFeedback>
       );
