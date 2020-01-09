@@ -40,9 +40,9 @@ class HumanListRecord extends Component{
                 bankName:this.props.bankName,
                 cardNo:this.props.cardNo
             })}>
-                <View style={{flexDirection:'row',height:100,width:Metrics.screenWidth-(Metrics.PADDING_HORIZONTAL*2)}}>
+                <View style={{flexDirection:'row',height:'18%',width:Metrics.screenWidth-(Metrics.PADDING_HORIZONTAL*2)}}>
                 <View style={{flex:1,justifyContent:'center'}}>
-                    <View style={{backgroundColor:'#3396D8',width:50,height:50,borderRadius:50,alignSelf:'center',justifyContent:'center',alignItems:'center'}}>
+                    <View style={{backgroundColor:'#3396D8',width:40,height:40,borderRadius:50,alignSelf:'center',justifyContent:'center',alignItems:'center'}}>
         <Text style={{color:'#FFF'}}>{this.props.shortName}</Text>
                     </View>
                 </View>
@@ -100,7 +100,7 @@ export default class TransferScreen extends React.Component {
                         <ScrollView>
                             <HumanListRecord navigate={navigate} shortName="DA" fullName="VU NGOC DUY ANH" cardNo="22091998" bankName="ACB - NH TMCP A CHAU"/>
                             <HumanListRecord navigate={navigate} shortName="AD" fullName="VU NGOC ANH DUY" cardNo="14022019" bankName="Đông Á Bank - NH Đông Á"/>
-                            <HumanListRecord navigate={navigate} shortName="ND" fullName="VU ANH NGOC DUY" cardNo="24213222" bankName="Saigonbank - Sài Gòn Công Thương"/>
+                            <HumanListRecord navigate={navigate} shortName="ND" fullName="VU ANH NGOC DUY" cardNo="24213222" bankName="Đông Á Bank - NH Đông Á"/>
                             <HumanListRecord navigate={navigate} shortName="DA" fullName="NGOC VU DUY ANH" cardNo="14215255" bankName="ACB - NH TMCP A CHAU"/>
                             <HumanListRecord navigate={navigate} shortName="ND" fullName="ANH VU NGOC DUY" cardNo="12787533" bankName="ACB - NH TMCP A CHAU"/>
                         </ScrollView>
