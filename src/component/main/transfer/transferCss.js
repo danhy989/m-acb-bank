@@ -32,13 +32,14 @@ const styles = StyleSheet.create({
     body_content:{
         flex: 1,
         width: '80%',
-        height: '70%',
+        height: '75%',
         borderRadius: 10,
         margin: '10%',
         marginBottom: 0,
         alignItems: 'center',
         backgroundColor: 'white',
-        position: 'absolute'
+        position: 'absolute',
+        paddingVertical:'2%',
     },
     bot_header:{
         // flex: 1,
@@ -46,12 +47,12 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
     body_content_bottom:{
-        // flex: 2,
-        width: '80%',
-        
-        marginTop: '5%',
-        marginLeft: '10%',
-        marginBottom:'5%',
+        flex: 2,
+        width: '90%',
+        marginTop: '2%',
+        marginLeft: '5%',
+        marginRight: '5%',
+        // marginBottom:'5%',
         borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',

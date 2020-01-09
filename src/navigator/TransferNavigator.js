@@ -1,11 +1,11 @@
 import { createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import TransferScreen from '../component/main/transfer/TransferScreen';
-import TKNH from '../component/main/transfer/child/TKNH';
+import CreateTransfer from '../component/main/transfer/child/CreateTransfer';
+import ConfirmTransfer from '../component/main/transfer/child/ConfirmTransfer';
 import ListBank from '../component/main/transfer/child/ListBank';
 import BankCard from '../component/main/transfer/child/BankCard';
 import Metrics from '../common/Metrics';
-import Confirm from '../common/Confirm';
 
 const RootStack = createStackNavigator({
     TransferScreen:{
@@ -23,14 +23,17 @@ const RootStack = createStackNavigator({
         }, 
     },
 
-    TKNH:{
-        screen: TKNH,
+    CreateTransfer:{
+        screen: CreateTransfer,
         navigationOptions: {
             title: `Chuyển tiền`,
             headerTitleStyle: { 
                 textAlign:"center", 
                 flex:1 ,
                 fontSize:Metrics.headerFontSize,
+            },
+            headerStyle:{
+                height:Metrics.navigationBarHeight,
             },
         }
     },
@@ -44,6 +47,9 @@ const RootStack = createStackNavigator({
                 flex:1 ,
                 fontSize:Metrics.headerFontSize,
             },
+            headerStyle:{
+                height:Metrics.navigationBarHeight,
+            },
         }
     },
 
@@ -56,11 +62,14 @@ const RootStack = createStackNavigator({
                 flex:1 ,
                 fontSize:Metrics.headerFontSize,
             },
+            headerStyle:{
+                height:Metrics.navigationBarHeight,
+            },
         }
     },
 
-    Confirm:{
-        screen:Confirm,
+    ConfirmTransfer:{
+        screen:ConfirmTransfer,
         navigationOptions: {
             title: `Xác nhận`,
             headerTitleStyle: { 
@@ -68,10 +77,24 @@ const RootStack = createStackNavigator({
                 flex:1 ,
                 fontSize:Metrics.headerFontSize,
             },
+            headerStyle:{
+                height:Metrics.navigationBarHeight,
+            },
         }
     }
 
 })
 
 const TransferNavigator = createAppContainer(RootStack);
+
+TransferNavigator.navigationOptions=({navigation}) =>{
+    let tabBarVisible = true;
+    let routeName = navigation.state.routes[navigation.state.index].routeName
+    if ( routeName == 'CreateTransfer' || routeName == 'ConfirmTransfer' || routeName == 'Detail') {
+        tabBarVisible = false
+    }
+    return {
+        tabBarVisible,
+    }
+}
 export default TransferNavigator;

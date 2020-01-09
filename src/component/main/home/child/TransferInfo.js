@@ -1,38 +1,43 @@
 import React, {Component} from 'react';
-import Button from 'react-native-button';
-import {Text, View, Image, Dimensions} from 'react-native';
+import {Text, View, Image, Dimensions, TouchableNativeFeedback} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { ScrollView } from 'react-native-gesture-handler';
 // import styles from './../../savingCss';
 
 class TextIcon extends React.Component{
     render(){
+        const navigate = this.props.navigate;
         var data = [
             {
                 "text" : "Chuyển tiền",
                 "src" : require('../../../../assets/img/circle_transfer.png'),
                 "left": '10%',
                 "right": '0%',
+                "screen":'Transfer',
             },
             {
                 "text" : "Tiết kiệm",
                 "src" : require('../../../../assets/img/saving_icon2.png'),
                 "left": '0%',
                 "right": '0%',
+                "screen":'Saving',
             },
             {
                 "text" : "Thanh toán",
                 "src" : require('../../../../assets/img/circle_wallet.png'),
                 "left": '0%',
                 "right": '10%',
+                "screen": 'Payment',
             },
         ]
         return(
-            <View style={{flex: 1,flexDirection:'column', alignItems:'center', justifyContent: 'center',
-                marginLeft: data[this.props.index].left, marginRight:data[this.props.index].right, width: '50%'}}>
-                <Image source={ data[this.props.index].src} style={{width: Dimensions.get('window').height/10, height: Dimensions.get('window').height/10}}/>
-                <Text>{this.props.text}</Text>
-            </View>
+            <TouchableNativeFeedback onPress={() => navigate(data[this.props.index].screen)} navigate={navigate}>
+                <View style={{flex: 1,flexDirection:'column', alignItems:'center', justifyContent: 'center',
+                    marginLeft: data[this.props.index].left, marginRight:data[this.props.index].right, width: '50%'}}>
+                    <Image source={ data[this.props.index].src} style={{width: Dimensions.get('window').height/10, height: Dimensions.get('window').height/10}}/>
+                    <Text>{this.props.text}</Text>
+                </View>
+            </TouchableNativeFeedback>
         )
     }
 }
@@ -126,9 +131,9 @@ export default class TransferInfo extends React.Component {
                 
                 <View style={{height:'65%', backgroundColor:'#f5f6f8', flexDirection:'column'}}>
                     <View style={{height: '22%',flexDirection: 'row', backgroundColor:'#f5f6f8'}}>
-                        <TextIcon index="0" text="Chuyển tiền"/>
-                        <TextIcon index="1" text="Tiết kiệm"/>
-                        <TextIcon index="2" text="Thanh toán"/>
+                        <TextIcon index="0" text="Chuyển tiền" navigate={navigate}/>
+                        <TextIcon index="1" text="Tiết kiệm" navigate={navigate}/>
+                        <TextIcon index="2" text="Thanh toán" navigate={navigate}/>
                     </View>
              
                     <View style={{height: '78%', backgroundColor:'#f5f6f8', flexDirection:'column'}}>
