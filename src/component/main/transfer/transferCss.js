@@ -47,12 +47,12 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
     body_content_bottom:{
-        flex: 2,
-        width: '90%',
-        marginTop: '2%',
-        marginLeft: '5%',
-        marginRight: '5%',
-        // marginBottom:'5%',
+        // flex: 2,
+        width: '80%',
+        height:'90%',
+        marginTop: '5%',
+        marginLeft: '10%',
+        marginBottom:'5%',
         borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',

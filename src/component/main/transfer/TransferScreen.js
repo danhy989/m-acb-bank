@@ -99,7 +99,7 @@ export default class TransferScreen extends React.Component {
                         <ScrollView  style={{flexDirection:'column', width:'100%'}}>
                             <HumanListRecord navigate={navigate} shortName="DA" fullName="VU NGOC DUY ANH" cardNo="22091998" bankName="ACB - NH TMCP A CHAU"/>
                             <HumanListRecord navigate={navigate} shortName="AD" fullName="VU NGOC ANH DUY" cardNo="14022019" bankName="Đông Á Bank - NH Đông Á"/>
-                            <HumanListRecord navigate={navigate} shortName="ND" fullName="VU ANH NGOC DUY" cardNo="24213222" bankName="Saigonbank - Sài Gòn Công Thương"/>
+                            <HumanListRecord navigate={navigate} shortName="ND" fullName="VU ANH NGOC DUY" cardNo="24213222" bankName="Đông Á Bank - NH Đông Á"/>
                             <HumanListRecord navigate={navigate} shortName="DA" fullName="NGOC VU DUY ANH" cardNo="14215255" bankName="ACB - NH TMCP A CHAU"/>
                             <HumanListRecord navigate={navigate} shortName="ND" fullName="ANH VU NGOC DUY" cardNo="12787533" bankName="ACB - NH TMCP A CHAU"/>
                         </ScrollView>
