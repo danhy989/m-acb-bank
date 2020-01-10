@@ -58,9 +58,6 @@ export default class CreateAccount extends React.Component {
    }
 
     render() {
-        var value16=[1,2,3,4,5,6];
-        var value712=[7,8,9,10,11,12];
-        var year=[1,2,3]
         const {navigate} = this.props.navigation;
         return (
             <View style={{flex:1}}>
@@ -134,7 +131,6 @@ export default class CreateAccount extends React.Component {
                             <View style={{flex:1, flexDirection:'row', marginTop:'2%', justifyContent:'center', alignItems:'center'}}>
                                 {this.state.mValue.map((item, key)=>(
                                      <TouchableOpacity style={{paddingStart:'2.5%', paddingEnd:'2.5%'}}
-                                        // onPress={() => {this.setState({ thang: item});}}>
                                         onPress={()=>{this.setState({thang:item, oldIndex: key, newIndex:key}), 
                                                 this.state.mBackground[key]=false, this.state.mBackground[this.state.oldIndex]=true }}>
                                      <View style={{ backgroundColor:this.state.mBackground[key]?'white':'#22429C', width:RADIUS/10, height:RADIUS/10, borderRadius: RADIUS/10, 
@@ -148,7 +144,6 @@ export default class CreateAccount extends React.Component {
                             <View style={{flex:1, flexDirection:'row',marginTop:'2%', paddingTop:'1%', marginBottom:'2%'}}>
                                 {this.state.mValue2.map((item, key)=>(
                                     <TouchableOpacity style={{paddingStart:'2.5%', paddingEnd:'2.5%'}}
-                                        // onPress={() => {this.setState({ thang: item});}}>
                                         onPress={()=>{this.setState({thang:item, oldIndex: key+6, newIndex:key+6}), 
                                                 this.state.mBackground[key+6]=false, this.state.mBackground[this.state.oldIndex]=true}}>
                                          <View style={{ backgroundColor:this.state.mBackground[key+6]?'white':'#22429C', width:RADIUS/10, height:RADIUS/10, borderRadius: RADIUS/10, 
@@ -165,7 +160,6 @@ export default class CreateAccount extends React.Component {
                                 <View style={{flex:1, flexDirection:'row',marginTop:'2%', paddingTop:'1%', marginBottom:'2%', justifyContent:'center', alignItems:'center'}}>
                                 {this.state.mValue3.map((item, key)=>(
                                      <TouchableOpacity style={{paddingStart:'2.5%', paddingEnd:'2.5%'}}
-                                        // onPress={() => {this.setState({ thang: item});}}>
                                         onPress={()=>{this.setState({thang:item, oldIndex: key, newIndex:key}), 
                                                 this.state.mBackground3[key]=false, this.state.mBackground3[this.state.oldIndex]=true}}>
                                      <View style={{ backgroundColor:this.state.mBackground3[key]?'white':'#22429C', width:RADIUS/10, height:RADIUS/10, borderRadius: RADIUS/10, 

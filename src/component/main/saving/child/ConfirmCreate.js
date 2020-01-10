@@ -3,7 +3,8 @@ import Button from 'react-native-button';
 import {Text, View, Image, TextInput, TouchableHighlight, TouchableOpacity, Dimensions, ImageBackground} from 'react-native';
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 import Dialog, { DialogContent } from 'react-native-popup-dialog';
-
+import { showMessage, hideMessage } from "react-native-flash-message";
+import FlashMessage from "react-native-flash-message";
 class Item extends React.Component{
     render(){
         return(
@@ -129,7 +130,7 @@ export default class ConfirmCreate extends React.Component {
                     </View>
                 </View>
                 
-                <View style={{flex:2.5, backgroundColor:'#f5f6f8', flexDirection:'column', alignItems:'center'}}>
+                <View style={{flex:2, backgroundColor:'#f5f6f8', flexDirection:'column', alignItems:'center'}}>
                     <View style={{flex:0.5, marginTop:'3%', marginStart:'5%', alignSelf:'flex-start'}}>
                         <Text style={{alignSelf:'flex-start'}}>Xử lý khi đáo hạn</Text>
                     </View>
@@ -150,15 +151,16 @@ export default class ConfirmCreate extends React.Component {
                     </View>
                 </View>
                 
-                <View style={{flex: 0.65, alignItems:'center', justifyContent:'center', backgroundColor:'#f5f6f8',
+                <View style={{flex: 0.8, alignItems:'center', justifyContent:'center', backgroundColor:'#f5f6f8',
                             width: '100%', borderRadius: 10}}>
                         <TouchableOpacity style={{ backgroundColor:'#21439C', width:'40%', height:'70%', justifyContent:'center', alignItems:'center', borderRadius:30}}
                             onPress={this.handleClick}>
                             {/* onPress={() => {this.setState({ visible: false, status: 1 });}}> */}
                             <Text style={{color:'white'}}>Xác nhận</Text>
                         </TouchableOpacity>
-                    </View>
+                </View>
 
+                <FlashMessage position="bottom" />
                 <Dialog
                         visible={this.state.visible}
                         dialogTitle={<View style={{width: 0.9 * Dimensions.get('window').width,
@@ -175,7 +177,12 @@ export default class ConfirmCreate extends React.Component {
                                 <View style={{flex: 1, alignItems:'center', justifyContent:'center',
                                         width: '100%', borderRadius: 10, marginTop:'2%'}}>
                                     <TouchableOpacity style={{ backgroundColor:'#21439C', width:'40%', height:'100%', justifyContent:'center', alignItems:'center', borderRadius:30}}
-                                        onPress={() => {this.setState({ visible: false});}}>
+                                        onPress={() => {this.setState({ visible: false}),
+                                        showMessage({
+                                            message: "Tạo tài khoản tiết kiệm thành công",
+                                            type: "success",
+                                            duration: 1850,
+                                        });}}>
                                         <Text style={{color:'white'}}>Xác nhận</Text>
                                     </TouchableOpacity>
                                 </View>

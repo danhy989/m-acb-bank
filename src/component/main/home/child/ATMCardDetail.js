@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {Text, TextInput, View, Image, ImageBackground, TouchableOpacity, Dimensions, ScrollView} from 'react-native';
 import Dialog, { DialogContent } from 'react-native-popup-dialog';
-
+import { showMessage, hideMessage } from "react-native-flash-message";
+import FlashMessage from "react-native-flash-message";
 class Record extends React.Component{
     render(){
         var image=[
@@ -119,6 +120,7 @@ export default class ATMCardDetail extends React.Component {
                     </ScrollView>
                 </View>
 
+                <FlashMessage position="bottom" />
                 <Dialog
                     visible={this.state.visible}
                     dialogTitle={
@@ -136,8 +138,8 @@ export default class ATMCardDetail extends React.Component {
                                 <View style={{flex: 1, alignItems:'center', justifyContent:'center',
                                         width: '100%', borderRadius: 10, marginTop:'2%'}}>
                                     <TouchableOpacity style={{ backgroundColor:'#21439C', width:'40%', height:'100%', justifyContent:'center', alignItems:'center', borderRadius:30}}
-                                        onPress={() => {this.handleClick(),navigate("ATMCard")}}>
-                                        {/* onPress={() => {this.setState({ visible: false, status: 1 });}}> */}
+                                        onPress={() => {this.handleClick(),
+                                            naviate('ATMCard')}}>
                                         <Text style={{color:'white'}}>Xác nhận</Text>
                                     </TouchableOpacity>
                                 </View>

@@ -2,21 +2,17 @@ import React, {Component} from 'react';
 import {Text, View, Image, TextInput, TouchableHighlight, TouchableOpacity, Dimensions, Button} from 'react-native';
 import Dialog, { DialogContent } from 'react-native-popup-dialog';
 import Metrics from '../../../../common/Metrics';
-
+import { showMessage, hideMessage } from "react-native-flash-message";
+import FlashMessage from "react-native-flash-message";
 const RADIUS = Dimensions.get('window').width;
 
-class Item extends React.Component{
-  
+class Record extends React.Component{
     render(){ 
         return(
             <View style={{flexDirection: 'row', width: '95%', height: 25, alignItems:'center',
                     marginStart: '2%', marginTop:'0.5%', marginBottom:'1%'}}>
-                <View style={{flex: 5, flexDirection: 'row', justifyContent: 'flex-start'}}>
-                    <Text style={{fontSize:16, color:'#444444'}}>{this.props.title}</Text>
-                </View>
-                <View style={{flex: 5, flexDirection: 'row', justifyContent: 'flex-end', color:'#f4f6f8'}}>
-                    <Text style={{fontSize:16, color:'#526BC7', fontWeight:'900'}}>{this.props.value}</Text>
-                </View>
+                <Text style={{width:'50%'}}>{this.props.field}</Text>
+                <Text style={{width:'50%', textAlign:'right', color: '#143EA1', fontSize:15}}>{this.props.value}</Text>
             </View>
         );
     }
@@ -37,90 +33,107 @@ export default class ConfirmTransfer extends React.Component {
       };
     }
 
-    handleClick = () => {
-      this.setState({
-          visible: true
-      });
-    }
-    render() {
+    componentDidMount() {
+        const { navigation } = this.props;
+        this.setState({
+            sotien: navigation.getParam('sotien'),
+            cardNo: navigation.getParam('cardNo'),
+            bankName: navigation.getParam('bankName'),
+            date: navigation.getParam('date'),
+            message: navigation.getParam('message'),
 
+        })
+    }
+
+    render() {
         const {navigate} = this.props.navigation;
         return (
-            <View style={{flex:1}}>
-                <TouchableOpacity style={{flex: 0.8}}
-                    onPress={() => {
-                    this.setState({ visible: true });
-                    }}>   
-                <View style={{flex:1, height: 80, backgroundColor: 'white', flexDirection:'row'}}>
-                    <View style={{width:'2%', backgroundColor:'#21439C'}}></View>
-                    <View style={{flex: 10, flexDirection: 'column', alignItems:'flex-start', justifyContent:'center',
-                                    marginStart: '2%'}}>
-                        <View>
-                            <Text>Tài khoản trích (VND)</Text>
-                            <Text style={{paddingTop: '2%', color:'#21439C', fontSize:15, fontWeight:'bold'}}>555.000</Text>
-                        </View>
-                    </View>
-                    <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>
-                        <Image source={require("../../../../assets/img/src_assets_ic_dropdown_ic_dropdown.png")} 
-                            style={{width: 12, height:12}}></Image>
-                    </View>
+            <View style={{flex:1}}> 
+                <View style={{flex:0.8, backgroundColor: '#106EC3', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
+                    <Text style={{color:'white', fontWeight:'bold', fontSize:20}}>{this.state.sotien} VND</Text>
+                    <Text style={{color:'white', fontWeight:'900'}}>Năm mươi nghìn đồng</Text>
                 </View>
-                </TouchableOpacity>
                     
-                <View style={{flex: 5, backgroundColor: '#f4f6f8'}}>
-                    <Text style={{marginTop: '2%', marginStart: '2%'}}>Số tiền gửi</Text>
-                    <View style={{flex: 1.25, width: '90%', height: '90%', borderRadius: 10, flexDirection:'column',
-                            marginStart:'5%', marginEnd:'5%', marginTop:'2%', backgroundColor: 'white'}}>
-                        <View style={{flexDirection: 'row', alignSelf:'flex-start', width: '95%', height: 35,  borderBottomColor: '#f4f6f8', 
-                                marginStart: '2%',marginEnd:0, borderBottomWidth: 1, marginTop:'2%', marginBottom: '2%'}}>
+                <View style={{flex: 1.5, backgroundColor: '#F5F6F8'}}>
+                    <View style={{flex:0.4, flexDirection:'row', alignItems:'center', marginTop:'2%'}}>
+                        <Image
+                            source={require('../../../../assets/img/src_assets_confirm_sender_confirm_sender.png')}
+                            style={{width: Metrics.screenWidth/20, height: Metrics.screenWidth/20, 
+                                    marginTop: '2%', marginEnd: '2%', marginLeft:'4%'}}/>
+                        <Text style={{marginTop:'1%'}}>Bên chuyển</Text> 
+                    </View>
+                    <View style={{flex:2, backgroundColor:'white', width:'94%', height:'100%', margin:'3%', 
+                        borderRadius: 3, justifyContent:'space-around'}}>
+                        <Text style={{marginLeft:'4%', marginTop:'3%'}}>NGUYEN VAN A</Text> 
+                        <Text style={{marginLeft:'4%'}}>SINH VIEN KHTN (CN) VND</Text> 
+                        <Text style={{marginLeft:'4%', marginBottom:'5%', color:'#143EA1', fontWeight:'bold'}}>22522323</Text> 
+                    </View>
+                </View> 
 
-                            <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end', marginTop:'5%', color:'#f4f6f8'}}>
-                                <Text style={{fontSize:14, color:'#444444'}}>VND</Text>
-                            </View>
-                        </View>
-                        <View style={{alignSelf:'flex-end', marginBottom:'2%'}}>
-                            <Text style={{paddingRight:'2%', color:'gray', fontStyle:'italic'}}>Tối thiểu là 1.000.000 VND</Text>
-                        </View>
+                <View style={{flex:3.5, backgroundColor:'red', backgroundColor:'#F5F6F8'}}>
+                    <View style={{flex:0.5, flexDirection:'row'}}>
+                        <Image
+                            source={require('../../../../assets/img/src_assets_confirm_receiver_confirm_receiver.png')}
+                            style={{width: Metrics.screenWidth/20, height: Metrics.screenWidth/20, 
+                                marginTop: '2%', marginEnd: '2%', marginLeft:'4%'}}/>
+                        <Text style={{marginTop:'2%'}}>Bên nhận</Text> 
+                    </View>
+                    <View style={{flex:2.5, backgroundColor:'white', marginTop:'1%', width:'94%', marginLeft:'3%',
+                        justifyContent:'space-around', marginRight:'3%', marginTop:'3%', borderRadius:3}}>
+                        <Record field="Tên người nhận" value="VU NGOC DUY ANH"></Record>
+                        <Record field="Ngân hàng" value={this.state.bankName}></Record>
+                        <Record field="Tài khoản nhận" value={this.state.cardNo}></Record>
                     </View>
 
-                    <Text style={{marginTop: '2%', marginStart: '2%'}}>Thời gian tích lũy</Text>
-                    <View style={{flex: 2.05, width: '90%', height: '90%', borderRadius: 10, alignItems: 'center', 
-                           margin:'5%', marginTop:'2%',backgroundColor: 'white'}}>
-                        <View style={{flex:0.5, width:'100%'}}>
-                            <View style={{flex:1, flexDirection:'row', backgroundColor:'white', alignItems:'center'}}>
-                                
-                            </View>
-                        </View>
+                    <View style={{flex:2, backgroundColor:'white', marginTop:'2%',width:'94%',
+                            marginLeft:'3%', marginRight:'3%', borderRadius:3, justifyContent:'space-around'}}>
+                        <Record field="Thời gian" value={this.state.date}></Record>
+                        <Record field="Phí giao dịch" value="0 VND"></Record>
+                        <Record field="Người chịu phí" value="Bên chuyển"></Record>
                     </View>
-
-                    <View style={{flex: 0.65, alignItems:'center', justifyContent:'center', backgroundColor:'#f5f6f8',
+                    <View style={{flex:1.6, backgroundColor:'white', marginTop:'2%', flexDirection:'column', 
+                        width:'94%', marginLeft:'3%', marginRight:'3%', borderRadius:3}}>
+                        <Text style={{color:'#646464', marginTop:'2%', marginLeft:'3%'}}>Nội dung</Text>
+                        <Text style={{alignSelf:'flex-end', width:'75%',textAlign:'right',marginRight:'3%', 
+                            paddingTop:'1%', fontSize:15, color:'#143EA1'}}>
+                            {this.state.message}</Text>
+                    </View>
+                </View>  
+                
+                <View style={{flex: 0.6, alignItems:'center', justifyContent:'center', backgroundColor:'#f5f6f8',
                             width: '100%', borderRadius: 10}}>
                         <TouchableOpacity style={{ backgroundColor:'#21439C', width:'40%', height:'70%', justifyContent:'center', alignItems:'center', borderRadius:30}}
                             onPress={this.handleClick}>
                             {/* onPress={() => {this.setState({ visible: false, status: 1 });}}> */}
                             <Text style={{color:'white'}}>Xác nhận</Text>
                         </TouchableOpacity>
-                    </View>
+                </View> 
 
-                    <Dialog
+                <FlashMessage position="top" />
+                <Dialog
                         visible={this.state.visible}
                         dialogTitle={<View style={{width: 0.9 * Dimensions.get('window').width,
-                        height: Dimensions.get('window').height/5}}>
-                            <View style={{flex: 2, justifyContent:'center', alignItems:'center', backgroundColor:'#f4f6f8'}}>
-                                <Text>Lựa chọn tài khoản trích</Text>
+                        height: Dimensions.get('window').height/4}}>
+                            <View style={{flex: 1, justifyContent:'center', alignItems:'center', backgroundColor:'#f4f6f8'}}>
+                                <Text>XÁC NHẬN MỞ TÀI KHOẢN</Text>
                             </View>
-                            <View style={{flex: 5, flexDirection:'row', justifyContent:'space-between'}}>
-                                <View style={{flex: 4, flexDirection:'column', justifyContent:'center', 
-                                        marginTop:'5%', marginLeft:'5%', }}>
-                                    <Text style={{color:'#1c44a3', fontWeight:'bold', paddingTop:'2%'}}>22314524</Text>
-                                    <Text style={{color:'#163FA1', paddingTop:'2%'}}>NGUYEN VAN A</Text>
-                                    <Text style={{color:'#163FA1', paddingTop:'2%'}}>TGTT SINH VINH KHTN (CN) VND</Text>
-                                    <Text style={{color:'#0D6CC2', fontWeight:'bold', paddingTop:'2%'}}>555.000</Text>
+                            <View style={{flex: 4, flexDirection:'column'}}>
+                                <View style={{flex: 4, flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
+                                    <Text style={{textAlign:'center', width:'75%', fontStyle:'italic', color:'#1c44a3', fontWeight:'bold', paddingTop:'2%'}}>Vui lòng nhập mật khẩu để xác nhận Khóa thẻ</Text>
+                                    <TextInput secureTextEntry={true} style={{width:'50%', height: '50%', textAlign:'center', borderBottomColor: 'gray', borderBottomWidth: 1}} placeholder="*********" />
+                                    {/* <Text style={{color:'#0D6CC2', fontWeight:'bold', paddingTop:'2%'}}>555.000</Text> */}
                                 </View>
-                                <View style={{flex: 1, flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
-                                    <Image source={require("../../../../assets/img/src_assets_ic_checked_checked.png")}
-                                        style={{width:15, height:15}}>
-                                    </Image>
+                                <View style={{flex: 1, alignItems:'center', justifyContent:'center',
+                                        width: '100%', borderRadius: 10, marginTop:'2%'}}>
+                                    <TouchableOpacity style={{ backgroundColor:'#21439C', width:'40%', height:'100%', justifyContent:'center', alignItems:'center', borderRadius:30}}
+                                        onPress={() => {this.setState({ visible: false}), 
+                                            showMessage({
+                                                message: "Chuyển tiền thành công",
+                                                type: "success",
+                                                duration: 1850,
+                                            });}}>
+                                        <Text style={{color:'white'}}>Xác nhận</Text>
+                                    </TouchableOpacity>
                                 </View>
                             </View>
                         </View>}    
@@ -129,8 +142,7 @@ export default class ConfirmTransfer extends React.Component {
                         }}>
                         <DialogContent>
                         </DialogContent>
-                    </Dialog>            
-                </View>    
+                    </Dialog>
             </View>
         );
     }

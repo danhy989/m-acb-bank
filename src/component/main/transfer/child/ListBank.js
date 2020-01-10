@@ -45,7 +45,7 @@ class Record extends React.Component{
 
         return(
             <View style={{flexDirection: 'row', alignSelf:'flex-start', width: '90%', height: 38,  borderBottomColor: '#f4f6f8', 
-                           marginStart: '5%', marginTop: '5%'}}>
+                marginStart: '5%', marginTop: '5%'}}>
                 <Image source={image[this.props.stt][this.props.index]} style={{flex: 1, marginBottom: 5, width: 25, height: 25}}></Image>
                 <View style={{ flex: 8, flexDirection: 'row', justifyContent: 'flex-start', alignItems:'flex-start', paddingStart: '5%'}}>
                     <Text style={{ paddingStart: 5, fontSize: 13}}>{name[this.props.stt][this.props.index]}</Text>

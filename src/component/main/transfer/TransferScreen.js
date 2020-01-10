@@ -73,7 +73,7 @@ export default class TransferScreen extends React.Component {
                     </LinearGradient>
                     
                     <View style={styles.body_content}>
-                            <Record navigate={navigate} nameScreen="ConfirmTransfer" content="Tài khoản ngân hàng" image='../../../assets/img/img/bank_icon.png' stt="0"></Record> 
+                            <Record navigate={navigate} nameScreen="CreateTransfer" content="Tài khoản ngân hàng" image='../../../assets/img/img/bank_icon.png' stt="0"></Record> 
                             <Record navigate={navigate} nameScreen="BankCard" content="Thẻ ngân hàng" image='../../../assets/img/atm_icon.png' stt="1"/>
                             <Record navigate={navigate} nameScreen="BankCard" content="CMND/ Hộ chiếu" image='../../../assets/img/cmnd_icon.png' stt="2"/>
                     </View>
