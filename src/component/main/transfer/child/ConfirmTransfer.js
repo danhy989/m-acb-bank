@@ -33,6 +33,12 @@ export default class ConfirmTransfer extends React.Component {
       };
     }
 
+    handleClick = () => {
+        this.setState({
+            visible: true
+        });
+    }
+    
     componentDidMount() {
         const { navigation } = this.props;
         this.setState({
@@ -115,7 +121,7 @@ export default class ConfirmTransfer extends React.Component {
                         dialogTitle={<View style={{width: 0.9 * Dimensions.get('window').width,
                         height: Dimensions.get('window').height/4}}>
                             <View style={{flex: 1, justifyContent:'center', alignItems:'center', backgroundColor:'#f4f6f8'}}>
-                                <Text>XÁC NHẬN MỞ TÀI KHOẢN</Text>
+                                <Text>XÁC NHẬN CHUYỂN TIỀN</Text>
                             </View>
                             <View style={{flex: 4, flexDirection:'column'}}>
                                 <View style={{flex: 4, flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
