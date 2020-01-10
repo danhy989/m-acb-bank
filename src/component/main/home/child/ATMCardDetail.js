@@ -139,7 +139,7 @@ export default class ATMCardDetail extends React.Component {
                                         width: '100%', borderRadius: 10, marginTop:'2%'}}>
                                     <TouchableOpacity style={{ backgroundColor:'#21439C', width:'40%', height:'100%', justifyContent:'center', alignItems:'center', borderRadius:30}}
                                         onPress={() => {this.handleClick(),
-                                            naviate('ATMCard')}}>
+                                            navigate('ATMCard')}}>
                                         <Text style={{color:'white'}}>Xác nhận</Text>
                                     </TouchableOpacity>
                                 </View>
