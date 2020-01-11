@@ -75,10 +75,10 @@ export default class PaymentScreen2 extends React.Component {
                     </View>
                     <View style={{ flex: 49, justifyContent: 'space-around', padding: 10 }}>
                         <Text style={{ color: '#535353', fontSize: 16 }}>
-                            Tài khoản trích (VND): <Text style={{ fontWeight: 'bold' }}>21515234</Text>
+                            Tài khoản trích (VND): <Text style={{ fontWeight: 'bold' }}>22522323</Text>
                         </Text>
                         <Text style={{ color: '#0E6DC2', fontSize: 16 }}>
-                            0
+                            1.000.000 VND
                         </Text>
                     </View>
                     <View style={{ flex: 10, justifyContent: 'center' }}>

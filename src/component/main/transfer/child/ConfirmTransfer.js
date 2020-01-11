@@ -57,7 +57,9 @@ export default class ConfirmTransfer extends React.Component {
             <View style={{flex:1}}> 
                 <View style={{flex:0.8, backgroundColor: '#106EC3', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
                     <Text style={{color:'white', fontWeight:'bold', fontSize:20}}>{this.state.sotien} VND</Text>
-                    <Text style={{color:'white', fontWeight:'900'}}>Năm mươi nghìn đồng</Text>
+
+                    {this.state.sotien == 100000 ?<Text style={{color:'white', fontWeight:'900'}}>Một trăm nghìn đồng</Text>
+                    : <Text style={{color:'white', fontWeight:'900'}}>Năm mươi nghìn đồng</Text>}
                 </View>
                     
                 <View style={{flex: 1.5, backgroundColor: '#F5F6F8'}}>
@@ -115,7 +117,7 @@ export default class ConfirmTransfer extends React.Component {
                         </TouchableOpacity>
                 </View> 
 
-                <FlashMessage position="top" />
+                <FlashMessage position="bottom" />
                 <Dialog
                         visible={this.state.visible}
                         dialogTitle={<View style={{width: 0.9 * Dimensions.get('window').width,
