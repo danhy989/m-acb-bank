@@ -115,15 +115,15 @@ export default class ConfirmCreate extends React.Component {
                    </View>
                 </View>
 
-                <View style={{flex:2.25, backgroundColor:'#f5f6f8', flexDirection:'column', alignItems:'center'}}>
+                <View style={{flex:1.8, backgroundColor:'#f5f6f8', flexDirection:'column', alignItems:'center'}}>
                     <View style={{width:'90%', marginTop:'3%', height:'90%', borderRadius:10, backgroundColor:'white',
-                        flexDirection:'column', marginStart:'2%', marginEnd:'2%'}}>
-                            <View style={{flex:1.35, flexDirection:'column', borderBottomWidth:1, borderBottomColor:'#EDEDED',paddingBottom:'2%'}}>
+                        flexDirection:'column', marginStart:'2%', marginEnd:'2%', justifyContent:'space-around'}}>
+                            <View style={{flex:1.4, flexDirection:'column', borderBottomWidth:1, borderBottomColor:'#EDEDED',paddingBottom:'2%'}}>
                                 <Item context="Tiền gửi ban đầu" value={this.state.sotien + " VND"}></Item>
                                 <Item context="Tiền lãi dự kiến" value={parseFloat(this.state.sotien) * this.state.thang*parseFloat(this.state.laisuat)/100 + " VND"}></Item>
                             </View>
 
-                            <View style={{flex:0.85, marginTop:'3%', flexDirection:'row'}}>
+                            <View style={{flex:0.7, marginTop:'3%', flexDirection:'row'}}>
                                 <Text style={{width:'50%', paddingStart:'2%', color:'#A0A0A0', fontSize: 17}}>Tiền nhận dự kiến</Text>
                                 <Text style={{width:'50%', paddingEnd:'2%', color:'#22429C', textAlign:'right', fontSize: 17, fontWeight:'bold'}}>{parseFloat(this.state.sotien) + this.state.thang*(parseFloat(this.state.sotien)*(this.state.laisuat/100)) + " VND"}</Text>
                             </View>
@@ -146,6 +146,7 @@ export default class ConfirmCreate extends React.Component {
                             borderWidth={0.1}
                             buttonInnerColor={'#A0A0A0'}
                             animation={true}
+                            justifyContent={''}
                         />
                         }
                     </View>

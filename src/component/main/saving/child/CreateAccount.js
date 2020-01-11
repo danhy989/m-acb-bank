@@ -82,7 +82,7 @@ export default class CreateAccount extends React.Component {
                 </TouchableOpacity>    
                 <View style={{flex: 5, backgroundColor: '#f4f6f8'}}>
                     <Text style={{marginTop: '2%', marginStart: '2%'}}>Số tiền gửi</Text>
-                    <View style={{flex: 1.25, width: '90%', height: '90%', borderRadius: 10, flexDirection:'column',
+                    <View style={{flex: 1.2, width: '90%', height: '90%', borderRadius: 10, flexDirection:'column',
                             marginStart:'5%', marginEnd:'5%', marginTop:'2%', backgroundColor: 'white'}}>
                         <View style={{flexDirection: 'row', alignSelf:'flex-start', width: '95%', height: 35,  borderBottomColor: '#f4f6f8', 
                                 marginStart: '2%',marginEnd:0, borderBottomWidth: 1, marginTop:'2%', marginBottom: '2%'}}>
@@ -92,12 +92,12 @@ export default class CreateAccount extends React.Component {
                                     value={this.state.sotien}
                                 ></TextInput>
                             </View>
-                            <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end', marginTop:'5%', color:'#f4f6f8'}}>
+                            <View style={{flex: 0.9, flexDirection: 'row', justifyContent: 'flex-end', marginTop:'3%', color:'#f4f6f8'}}>
                                 <Text style={{fontSize:14, color:'#444444'}}>VND</Text>
                             </View>
                         </View>
-                        <View style={{alignSelf:'flex-end', marginBottom:'2%'}}>
-                            <Text style={{paddingRight:'2%', color:'gray', fontStyle:'italic'}}>Tối thiểu là 1.000.000 VND</Text>
+                        <View style={{ marginBottom:'2%',marginTop:'2%'}}>
+                            <Text style={{textAlign:'right',paddingRight:'5%', color:'gray', fontStyle:'italic'}}>Tối thiểu là 1.000.000 VND</Text>
                         </View>
                     </View>
 
@@ -105,8 +105,9 @@ export default class CreateAccount extends React.Component {
                     <View style={{flex: 2.05, width: '90%', height: '90%', borderRadius: 10, alignItems: 'center', 
                            margin:'5%', marginTop:'2%',backgroundColor: 'white'}}>
                         <View style={{flex:0.5, width:'100%'}}>
-                            <View style={{flex:1, flexDirection:'row', backgroundColor:'white', alignItems:'center'}}>
-                                <TouchableOpacity style={{flex: 1, backgroundColor:this.state.showMonth?'white':'#DCE0EB'}}
+                            <View style={{flex:1, flexDirection:'row', backgroundColor:'white', alignItems:'center',
+                                    borderTopLeftRadius:10, borderTopEndRadius:10}}>
+                                <TouchableOpacity style={{flex: 1, backgroundColor:this.state.showMonth?'white':'#DCE0EB', borderTopLeftRadius:10,}}
                                     onPress={() => {this.state.mBackground[this.state.newIndex]=true, 
                                         this.setState({newIndex:-1,showMonth: true, laisuat:5});
                                     }}>  
@@ -119,7 +120,7 @@ export default class CreateAccount extends React.Component {
                                     onPress={() => {this.state.mBackground3[this.state.newIndex]=true,
                                         this.setState({newIndex:-1,showMonth: false, laisuat: 7});
                                     }}>  
-                                <View style={{flex:1, backgroundColor:this.state.showMonth?'#DCE0EB':'white', alignItems:'center', justifyContent:'center'}}>
+                                <View style={{flex:1, borderTopEndRadius:10, backgroundColor:this.state.showMonth?'#DCE0EB':'white', alignItems:'center', justifyContent:'center'}}>
                                     <Text style={{textAlign:'center', color:this.state.showMonth?'white':'#22429C', fontSize:16,fontWeight:'900'}}>Năm</Text>
                                 </View>
                                 </TouchableOpacity>

@@ -163,7 +163,7 @@ export default class CreateTransfer extends React.Component {
               </Text>
               <Image
                 source={require('../../../../assets/img/src_assets_ic_contact_list_ic_contact_list.png')}
-                style={{width: 15, height: 15, marginTop: '2%', marginEnd: '2%'}}></Image>
+                style={{width: Metrics.screenWidth/21, height: Metrics.screenWidth/21, marginTop: '2%', marginEnd: '3%'}}></Image>
             </View>
             <View
               style={{ flex: 4.25, width: '90%', height: '90%', borderRadius: 10, alignItems: 'center',
@@ -206,7 +206,7 @@ export default class CreateTransfer extends React.Component {
                     onPress={() => {this.setState({datepicker: true});}}>
                       <Image
                         source={require('../../../../assets/img/src_assets_ic_calendar_blue_14_ic_calendar_blue_14.png')}
-                        style={{width: Metrics.screenWidth/22, height: Metrics.screenWidth/22, marginTop: '3%'}}></Image>
+                        style={{width: Metrics.screenWidth/21, height: Metrics.screenWidth/21, marginTop: '3%'}}></Image>
                     </TouchableOpacity>
                     </View>
                 </View>
