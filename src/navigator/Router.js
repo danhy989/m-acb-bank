@@ -6,12 +6,12 @@ import MainScreen from './MainTabNavigator';
 
 const RootStack = createStackNavigator({
 
-  // Login: {
-  //   screen: LoginScreen,
-  //   navigationOptions: {
-  //     header: null,
-  //   }
-  // },
+  Login: {
+    screen: LoginScreen,
+    navigationOptions: {
+      header: null,
+    }
+  },
 
   Main: {
     screen: MainScreen,
